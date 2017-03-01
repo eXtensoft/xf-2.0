@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1B8C274-250F-4707-B296-773D05585B3B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XF.Common</RootNamespace>
+    <AssemblyName>XF.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="api\ApiModelRequestService.cs" />
+    <Compile Include="ColorConsole.cs" />
+    <Compile Include="common\auth\Authorization.cs" />
+    <Compile Include="common\auth\GrantOption.cs" />
+    <Compile Include="common\auth\Permission.cs" />
+    <Compile Include="common\EventsBroker.cs" />
+    <Compile Include="common\EventService.cs" />
+    <Compile Include="common\EventSubscriber.cs" />
+    <Compile Include="common\ExtensionMethods.cs" />
+    <Compile Include="common\GenericEventHandler.cs" />
+    <Compile Include="common\Infoset.cs" />
+    <Compile Include="common\MetaSet.cs" />
+    <Compile Include="common\ModelConverter.cs" />
+    <Compile Include="common\ModuleLoader`1.cs" />
+    <Compile Include="common\ReplacementMap.cs" />
+    <Compile Include="common\Replacer.cs" />
+    <Compile Include="common\TypeMapCache.cs" />
+    <Compile Include="common\TypeMapContainer.cs" />
+    <Compile Include="common\TypeMapHandlerManager.cs" />
+    <Compile Include="common\TypeMappedHandler.cs" />
+    <Compile Include="common\VersionInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rpc\RpcClient`1.cs" />
+    <Compile Include="services\ModelRequestService.cs" />
+    <Compile Include="services\PassThroughModelRequestService.cs" />
+    <Compile Include="services\PassThroughRpcRequestService.cs" />
+    <Compile Include="services\WcfModelRequestService.cs" />
+    <Compile Include="services\WcfRpcRequestService.cs" />
+    <Compile Include="wcf\DataPacketServiceClient.cs" />
+    <Compile Include="wcf\RpcDataPacketServiceClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XF.Common.Contracts\XF.Common.Contracts.csproj">
+      <Project>{84d9f7df-79db-4c0a-81aa-ff0e1fbb2b53}</Project>
+      <Name>XF.Common.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

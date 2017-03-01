@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1E0B6B68-06BE-43F7-9040-ABD27D127A21}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XF.Common</RootNamespace>
+    <AssemblyName>XF.Common.Server</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="caching\NetMemoryCache.cs" />
+    <Compile Include="caching\WebCache.cs" />
+    <Compile Include="common\AppSettingsStrategyResolver.cs" />
+    <Compile Include="common\DataMapProvider.cs" />
+    <Compile Include="common\DbMap.cs" />
+    <Compile Include="common\ExtensionMethods.cs" />
+    <Compile Include="common\ListReader.cs" />
+    <Compile Include="common\ListReaderWriterOptions.cs" />
+    <Compile Include="common\ListReaderWriter`1.cs" />
+    <Compile Include="common\SqlConnectionProvider.cs" />
+    <Compile Include="common\SqlHelper.cs" />
+    <Compile Include="configuration\ConfigStrategyResolver.cs" />
+    <Compile Include="configuration\DatabaseKeyResolver.cs" />
+    <Compile Include="DiscoveryResources.Designer.cs" />
+    <Compile Include="idb.dataaccess.config\Case.cs" />
+    <Compile Include="idb.dataaccess.config\DataMap.cs" />
+    <Compile Include="idb.dataaccess.config\DbCommand.cs" />
+    <Compile Include="idb.dataaccess.config\DbConfig.cs" />
+    <Compile Include="idb.dataaccess.config\DbConfigCollection.cs" />
+    <Compile Include="idb.dataaccess.config\Model.cs" />
+    <Compile Include="idb.dataaccess.config\ModelAction.cs" />
+    <Compile Include="idb.dataaccess.config\Parameter.cs" />
+    <Compile Include="idb.dataaccess.config\Switch.cs" />
+    <Compile Include="mdg\ConfigModelDataGateway`1.cs" />
+    <Compile Include="mdg\GenericModelDataGateway`1.cs" />
+    <Compile Include="port\configuration\Case.cs" />
+    <Compile Include="port\configuration\DataMap.cs" />
+    <Compile Include="port\configuration\Model.cs" />
+    <Compile Include="port\configuration\ModelAction.cs" />
+    <Compile Include="port\configuration\SqlServerConfigManager.cs" />
+    <Compile Include="port\configuration\SqlServerContext.cs" />
+    <Compile Include="port\configuration\SqlStoredProcedure.cs" />
+    <Compile Include="port\configuration\StrategyOption.cs" />
+    <Compile Include="port\configuration\Switch.cs" />
+    <Compile Include="port\contracts\IBorrower`1.cs" />
+    <Compile Include="port\contracts\IListBorrower`1.cs" />
+    <Compile Include="port\contracts\ISqlCommandContext`1.cs" />
+    <Compile Include="port\contracts\ISqlServerModelDataGateway`1.cs" />
+    <Compile Include="port\contracts\ISqlStoredProcedureFormatter.cs" />
+    <Compile Include="port\DataMap.cs" />
+    <Compile Include="port\DataMapProvider.cs" />
+    <Compile Include="port\DefaultSqlStoredProcedureFormatter.cs" />
+    <Compile Include="port\discovery\Parameter.cs" />
+    <Compile Include="port\InlineSqlCommandGenerator.cs" />
+    <Compile Include="port\SprocMapCache.cs" />
+    <Compile Include="port\sql.server\Borrower`1.cs" />
+    <Compile Include="port\sql.server\Builder`1.cs" />
+    <Compile Include="port\sql.server\Parser`1.cs" />
+    <Compile Include="port\SqlColumn.cs" />
+    <Compile Include="port\SQLCommand.cs" />
+    <Compile Include="port\SqlParameter.cs" />
+    <Compile Include="port\SqlResolver.cs" />
+    <Compile Include="port\SqlTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="services\DataPacketService.cs" />
+    <Compile Include="services\DataRequestService.cs" />
+    <Compile Include="services\GenericService.cs" />
+    <Compile Include="services\ModelDataGatewayDataService.cs" />
+    <Compile Include="services\RpcDataPacketService.cs" />
+    <Compile Include="services\RpcDataRequestService.cs" />
+    <Compile Include="services\RpcHandlerDataService.cs" />
+    <Compile Include="SubscriptionManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XF.Common.Contracts\XF.Common.Contracts.csproj">
+      <Project>{84d9f7df-79db-4c0a-81aa-ff0e1fbb2b53}</Project>
+      <Name>XF.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common.Server.Contracts\XF.Common.Server.Contracts.csproj">
+      <Project>{d66567b0-cd5d-4313-a215-bc13edd551f7}</Project>
+      <Name>XF.Common.Server.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common\XF.Common.csproj">
+      <Project>{b1b8c274-250f-4707-b296-773d05585b3b}</Project>
+      <Name>XF.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DiscoveryResources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\DataMaps.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\Discovery.StoredProcedures.sql" />
+    <Content Include="data\Discovery.Tables.sql" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

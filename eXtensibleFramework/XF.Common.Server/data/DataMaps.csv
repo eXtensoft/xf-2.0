@@ -1,0 +1,33 @@
+﻿SqlServer,Clr,Db,SqlDb,DbTypeAssessor,SqlTypeAssessor
+bigint,Int64,Int64,BigInt,GetInt64,GetSqlInt64
+binary,Byte[],Binary,VarBinary,GetBytes,GetSqlBinary
+bit,Boolean,Boolean,Bit,GetBoolean,GetSqlBoolean
+char,String,"AnsiStringFixedLength,",Char,GetString,GetSqlString
+date,DateTime,Date,Date,GetDateTime,GetSqlDateTime
+datetime,DateTime,DateTime,DateTime,GetDateTime,GetSqlDateTime
+datetime2,DateTime,DateTime2,DateTime2,GetDateTime,None
+datetimeoffset,DateTimeOffset,DateTimeOffset,DateTimeOffset,GetDateTimeOffset,None
+decimal,Decimal,Decimal,Decimal,GetDecimal,GetSqlDecimal
+FILESTREAM attribute (varbinary(max)),Byte[],Binary,VarBinary,GetBytes,GetSqlBytes
+float,Double,Double,Float,GetDouble,GetSqlDouble
+image,Byte[],Binary,Binary,GetBytes,GetSqlBinary
+int,Int32,Int32,Int,GetInt32,GetSqlInt32
+money,Decimal,Decimal,Money,GetDecimal,GetSqlMoney
+nchar,String,StringFixedLength,NChar,GetString,GetSqlString
+ntext,String,String,NText,GetString,GetSqlString
+numeric,Decimal,Decimal,Decimal,GetDecimal,GetSqlDecimal
+nvarchar,String,String,NVarChar,GetString,GetSqlString
+real,Single,Single,Real,GetFloat,GetSqlSingle
+rowversion,Byte[],Binary,Timestamp,GetBytes,GetSqlBinary
+smalldatetime,DateTime,DateTime,DateTime,GetDateTime,GetSqlDateTime
+smallint,Int16,Int16,SmallInt,GetInt16,GetSqlInt16
+smallmoney,Decimal,Decimal,SmallMoney,GetDecimal,GetSqlMoney
+sql_variant,Object,Object,Variant,GetValue,GetSqlValue
+text,String,String,Text,GetString,GetSqlString
+time,TimeSpan,Time,Time,GetDateTime,None
+timestamp,Byte[],Binary,Timestamp,GetBytes,GetSqlBinary
+tinyint,Byte,Byte,TinyInt,GetByte,GetSqlByte
+uniqueidentifier,Guid,Guid,UniqueIdentifier,GetGuid,GetSqlGuid
+varbinary,Byte[],Binary,VarBinary,GetBytes,GetSqlBinary
+varchar,String,"AnsiString, String",VarChar,GetString,GetSqlString
+xml,Xml,Xml,Xml,none,GetSqlXml

@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{84D9F7DF-79DB-4C0A-81AA-FF0E1FBB2B53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XF.Common</RootNamespace>
+    <AssemblyName>XF.Common.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="common\alerts\AlertAudience.cs" />
+    <Compile Include="common\alerts\AlertCategories.cs" />
+    <Compile Include="common\alerts\AlertInterest.cs" />
+    <Compile Include="common\alerts\AlertPublisher.cs" />
+    <Compile Include="common\alerts\AlertSubscriber.cs" />
+    <Compile Include="common\alerts\AlertTarget.cs" />
+    <Compile Include="common\alerts\AlertWriter.cs" />
+    <Compile Include="common\alerts\IAlertPublisher.cs" />
+    <Compile Include="common\alerts\NotificationSetting.cs" />
+    <Compile Include="common\CacheStrategyLoader.cs" />
+    <Compile Include="common\ColorConsole.cs" />
+    <Compile Include="common\DataPacketSerializer.cs" />
+    <Compile Include="common\entries\expanded\Error.cs" />
+    <Compile Include="common\entries\expanded\Metric.cs" />
+    <Compile Include="common\entries\reporting\ErrorItem.cs" />
+    <Compile Include="common\ExtensionMethods.cs" />
+    <Compile Include="common\GenericSerializer.cs" />
+    <Compile Include="common\HttpService.cs" />
+    <Compile Include="common\KeyPairStrategyResolver.cs" />
+    <Compile Include="common\NetMemoryCache.cs" />
+    <Compile Include="common\ParamsParser.cs" />
+    <Compile Include="common\Parser.cs" />
+    <Compile Include="common\PluginLoader.cs" />
+    <Compile Include="common\StringExtensionMethods.cs" />
+    <Compile Include="common\WindowsIdentityProvider.cs" />
+    <Compile Include="common\XFConstants.cs" />
+    <Compile Include="configuration\eXtensibleConfig.cs" />
+    <Compile Include="configuration\eXtensibleFrameworkElement.cs" />
+    <Compile Include="configuration\eXtensibleFrameworkElementCollection.cs" />
+    <Compile Include="configuration\eXtensibleFrameworkSection.cs" />
+    <Compile Include="configuration\eXtensibleStrategyElement.cs" />
+    <Compile Include="configuration\eXtensibleStrategyElementCollection.cs" />
+    <Compile Include="configuration\eXtensibleStrategyResolver.cs" />
+    <Compile Include="configuration\eXtensibleStrategySection.cs" />
+    <Compile Include="configuration\eXtensibleStrategySectionGroup.cs" />
+    <Compile Include="configuration\StrategyTypeOption.cs" />
+    <Compile Include="configuration\XmlConstants.cs" />
+    <Compile Include="contracts\ICache.cs" />
+    <Compile Include="contracts\ICacheable`1.cs" />
+    <Compile Include="contracts\IConfigStrategyResolver.cs" />
+    <Compile Include="contracts\IContext.cs" />
+    <Compile Include="contracts\ICriterion.cs" />
+    <Compile Include="contracts\IDataRequestService.cs" />
+    <Compile Include="contracts\IDataService.cs" />
+    <Compile Include="contracts\IEventService.cs" />
+    <Compile Include="contracts\IEventWriter.cs" />
+    <Compile Include="contracts\IExecutePing.cs" />
+    <Compile Include="contracts\IeXtensibleVisitor.cs" />
+    <Compile Include="contracts\IeXtensibleVisitor`1.cs" />
+    <Compile Include="contracts\IMessage`1.cs" />
+    <Compile Include="contracts\IModelRequestService.cs" />
+    <Compile Include="contracts\IModelService.cs" />
+    <Compile Include="contracts\IProject.cs" />
+    <Compile Include="contracts\IRequestContext.cs" />
+    <Compile Include="contracts\IRequest`1.cs" />
+    <Compile Include="contracts\IResponse`1.cs" />
+    <Compile Include="contracts\IResponse`2.cs" />
+    <Compile Include="contracts\IRpcDataRequestService.cs" />
+    <Compile Include="contracts\IRpcDatastoreService.cs" />
+    <Compile Include="contracts\IRpcRequestService.cs" />
+    <Compile Include="contracts\IRpcService.cs" />
+    <Compile Include="contracts\IStrategyResolver.cs" />
+    <Compile Include="contracts\ITypeMap.cs" />
+    <Compile Include="contracts\ITypeMapCache.cs" />
+    <Compile Include="contracts\IUserIdentityProvider.cs" />
+    <Compile Include="enumerations\CommunicationTypeOption.cs" />
+    <Compile Include="enumerations\EventTypeOption.cs" />
+    <Compile Include="enumerations\ExceptionMessageOption.cs" />
+    <Compile Include="enumerations\InformTypeOption.cs" />
+    <Compile Include="enumerations\LoggingModeOption.cs" />
+    <Compile Include="enumerations\LoggingStrategyOption.cs" />
+    <Compile Include="enumerations\ModelActionOption.cs" />
+    <Compile Include="enumerations\OperatorTypeOption.cs" />
+    <Compile Include="enumerations\ScaleOption.cs" />
+    <Compile Include="enumerations\SeverityType.cs" />
+    <Compile Include="enumerations\SuspensionModeOption.cs" />
+    <Compile Include="enumerations\TraceEventTypeOption.cs" />
+    <Compile Include="enumerations\ZoneOption.cs" />
+    <Compile Include="eventwriter\CommonServicesWriter.cs" />
+    <Compile Include="eventwriter\DatastoreEventWriter.cs" />
+    <Compile Include="eventwriter\DebugEventWriter.cs" />
+    <Compile Include="eventwriter\EventLogWriter.cs" />
+    <Compile Include="eventwriter\EventWriter.cs" />
+    <Compile Include="eventwriter\EventWriterBase.cs" />
+    <Compile Include="eventwriter\EventWriterLoader.cs" />
+    <Compile Include="eventwriter\SilentWriter.cs" />
+    <Compile Include="eventwriter\SqlServerEventWriter.cs" />
+    <Compile Include="eventwriter\Writer.cs" />
+    <Compile Include="eventwriter\XFToolWriter.cs" />
+    <Compile Include="json\JsonPacket.cs" />
+    <Compile Include="model\ApplicationContext.cs" />
+    <Compile Include="model\Criterion.cs" />
+    <Compile Include="model\eXAlert.cs" />
+    <Compile Include="model\eXBase.cs" />
+    <Compile Include="model\ExceptionMessage.cs" />
+    <Compile Include="model\eXError.cs" />
+    <Compile Include="model\eXEvent.cs" />
+    <Compile Include="model\eXKpi.cs" />
+    <Compile Include="model\eXMetric.cs" />
+    <Compile Include="model\eXStatus.cs" />
+    <Compile Include="model\eXTask.cs" />
+    <Compile Include="model\KpiLog.cs" />
+    <Compile Include="model\ListItem.cs" />
+    <Compile Include="model\Message`1.cs" />
+    <Compile Include="model\Message`2.cs" />
+    <Compile Include="model\MultiMap.cs" />
+    <Compile Include="model\Page`1.cs" />
+    <Compile Include="model\ProfileItem.cs" />
+    <Compile Include="model\ProfileSummary.cs" />
+    <Compile Include="model\Projection.cs" />
+    <Compile Include="model\PropertyCollection.cs" />
+    <Compile Include="model\RequestStatus.cs" />
+    <Compile Include="model\TypedItem.cs" />
+    <Compile Include="model\TypedItemCollection.cs" />
+    <Compile Include="principal\eXtensibleClaimsPrincipal.cs" />
+    <Compile Include="principal\eXtensibleClaimsPrincipal`1.cs" />
+    <Compile Include="principal\eXtensibleIdentity.cs" />
+    <Compile Include="principal\eXtensiblePrincipal.cs" />
+    <Compile Include="process\DatastoreSetting.cs" />
+    <Compile Include="process\DirectionOption.cs" />
+    <Compile Include="process\HeadProcessor.cs" />
+    <Compile Include="process\IProcessor`1.cs" />
+    <Compile Include="process\meta\MetaChain.cs" />
+    <Compile Include="process\meta\MetaExtensionMethods.cs" />
+    <Compile Include="process\meta\MetaProcessor.cs" />
+    <Compile Include="process\meta\MetaProcessorManager.cs" />
+    <Compile Include="process\ProcessItem.cs" />
+    <Compile Include="process\ProcessorFactory.cs" />
+    <Compile Include="process\Processor`1.cs" />
+    <Compile Include="process\ProcessParameter.cs" />
+    <Compile Include="process\ProcessSetting.cs" />
+    <Compile Include="process\ProcessSettings.cs" />
+    <Compile Include="process\qa\ApiProcessItem.cs" />
+    <Compile Include="process\qa\WebApiProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestStatii.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RequestStatii.resx</DependentUpon>
+    </Compile>
+    <Compile Include="wcf\AlertServiceClient.cs" />
+    <Compile Include="wcf\BindingTypeOptions.cs" />
+    <Compile Include="wcf\DataPacket.cs" />
+    <Compile Include="wcf\IAlertService.cs" />
+    <Compile Include="wcf\IDataPacketService.cs" />
+    <Compile Include="wcf\IRpcDataPacketService.cs" />
+    <Compile Include="wcf\IStatusCheck.cs" />
+    <Compile Include="wcf\Ping.cs" />
+    <Compile Include="wcf\ServiceClient`1.cs" />
+    <Compile Include="wcf\ServiceSettings.cs" />
+    <Compile Include="wcf\StatusCheck.cs" />
+    <Compile Include="wcf\StatusCheckServiceClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RequestStatii.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RequestStatii.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
