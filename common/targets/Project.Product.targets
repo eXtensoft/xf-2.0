@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- PROJECT.PRODUCT.TARGETS -->
+
+  <Import Project="Project.Common.targets" />
+
+  <!-- Global Environment -->
+  <PropertyGroup>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ProductOutputBase>$(OutputBase)\product</ProductOutputBase>
+    <OutputPath>$(ProductOutputBase)\$(MSBuildProjectName)</OutputPath>
+    <DocumentationPath>$(OutputBase)\Documentation Files</DocumentationPath>
+  </PropertyGroup>
+
+  <!-- Settings that apply to all projects -->
+  <PropertyGroup>
+    <!--SignAssembly>true</SignAssembly-->
+    <!--AssemblyOriginatorKeyFile>$(root)\build\StrongNameKeys\__KEYNAME__.snk</AssemblyOriginatorKeyFile-->
+    <!--DelaySign>false</DelaySign-->
+
+    <!--DocumentationFile>$(OutputPath)\$(MSBuildProjectName).xml</DocumentationFile-->
+
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+
+  <Target Name="PublishDocumentationFile" AfterTargets="Build" Inputs="$(DocumentationFile)" Outputs="$(DocumentationPath)\$(AssemblyName).xml" Condition="'$(DocumentationFile)' != '' and exists($(DocumentationFile))">
+    <Copy SourceFiles="$(DocumentationFile)" DestinationFolder="$(DocumentationPath)\" Condition="'$(DocumentationFile)' != '' and exists($(DocumentationFile))" />
+  </Target>
+
+  <Target Name="CleanDocumentationFiles" AfterTargets="Clean">
+    <Delete Files="$(DocumentationPath)\$(AssemblyName).xml" />
+  </Target>
+</Project>

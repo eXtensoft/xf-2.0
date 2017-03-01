@@ -47,11 +47,11 @@ namespace XF.Common
                     var response = client.PostAsJsonAsync(endpoint, properties);
                     if (response.Result.IsSuccessStatusCode)
                     {
-                        int i = 0;
+
                     }
                     else
                     {
-                        int j = 1;
+
                     }
                 }
             }
@@ -101,15 +101,15 @@ namespace XF.Common
                     var response = client.PostAsJsonAsync<eXMetric>(String.Format(ApiUrlFormat,eXtensibleConfig.ApiRoot,eXtensibleConfig.ApiMetrics), metric);
                     if (response.Result.IsSuccessStatusCode)
                     {
-                        int i = 0;
+
                     }
                     else
                     {
-                        int j = 1;
+
                     }
                 }
             }
-            catch (Exception ex)
+            catch 
             {
                 
 

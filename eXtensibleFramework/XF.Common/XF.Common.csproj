@@ -2,33 +2,13 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B1B8C274-250F-4707-B296-773D05585B3B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XF.Common</RootNamespace>
     <AssemblyName>XF.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+  <Import Project="..\..\common\targets\Project.Product.targets" />
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -45,6 +25,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="api\ApiModelRequestService.cs" />
+    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ColorConsole.cs" />
     <Compile Include="common\auth\Authorization.cs" />
     <Compile Include="common\auth\GrantOption.cs" />
@@ -65,7 +46,6 @@
     <Compile Include="common\TypeMapHandlerManager.cs" />
     <Compile Include="common\TypeMappedHandler.cs" />
     <Compile Include="common\VersionInfo.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rpc\RpcClient`1.cs" />
     <Compile Include="services\ModelRequestService.cs" />
     <Compile Include="services\PassThroughModelRequestService.cs" />
@@ -83,6 +63,10 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Y XF.Common.dll  c:\xf\xf2.dlls\*.*
+xcopy /Y XF.Common.pdb  c:\xf\xf2.dlls\*.*</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

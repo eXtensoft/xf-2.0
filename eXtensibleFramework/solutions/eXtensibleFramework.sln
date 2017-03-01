@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Common.Contracts", "XF.Common.Contracts\XF.Common.Contracts.csproj", "{84D9F7DF-79DB-4C0A-81AA-FF0E1FBB2B53}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Common.Contracts", "..\XF.Common.Contracts\XF.Common.Contracts.csproj", "{84D9F7DF-79DB-4C0A-81AA-FF0E1FBB2B53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Common", "XF.Common\XF.Common.csproj", "{B1B8C274-250F-4707-B296-773D05585B3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Common", "..\XF.Common\XF.Common.csproj", "{B1B8C274-250F-4707-B296-773D05585B3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Common.Server.Contracts", "XF.Common.Server.Contracts\XF.Common.Server.Contracts.csproj", "{D66567B0-CD5D-4313-A215-BC13EDD551F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Common.Server", "..\XF.Common.Server\XF.Common.Server.csproj", "{1E0B6B68-06BE-43F7-9040-ABD27D127A21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Common.Server", "XF.Common.Server\XF.Common.Server.csproj", "{1E0B6B68-06BE-43F7-9040-ABD27D127A21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Common.Server.Contracts", "..\XF.Common.Server.Contracts\XF.Common.Server.Contracts.csproj", "{D66567B0-CD5D-4313-A215-BC13EDD551F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.SqlServer.Contracts", "XF.SqlServer.Contracts\XF.SqlServer.Contracts.csproj", "{10FC1257-E603-45BD-B2F4-B13186465748}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.MongoDb.Contracts", "..\XF.MongoDb.Contracts\XF.MongoDb.Contracts.csproj", "{D5759DDA-390C-4836-B6B4-19D68C794950}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.MongoDb.Contracts", "XF.MongoDb.Contracts\XF.MongoDb.Contracts.csproj", "{D5759DDA-390C-4836-B6B4-19D68C794950}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.MySql.Contracts", "..\XF.MySql.Contracts\XF.MySql.Contracts.csproj", "{B5ED23DE-A8E8-4562-8C59-07D7E4A4DBFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.MySql.Contracts", "XF.MySql.Contracts\XF.MySql.Contracts.csproj", "{B5ED23DE-A8E8-4562-8C59-07D7E4A4DBFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.SqlServer.Contracts", "..\XF.SqlServer.Contracts\XF.SqlServer.Contracts.csproj", "{10FC1257-E603-45BD-B2F4-B13186465748}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,20 +29,16 @@ Global
 		{84D9F7DF-79DB-4C0A-81AA-FF0E1FBB2B53}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B1B8C274-250F-4707-B296-773D05585B3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B1B8C274-250F-4707-B296-773D05585B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1B8C274-250F-4707-B296-773D05585B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1B8C274-250F-4707-B296-773D05585B3B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D66567B0-CD5D-4313-A215-BC13EDD551F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D66567B0-CD5D-4313-A215-BC13EDD551F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D66567B0-CD5D-4313-A215-BC13EDD551F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D66567B0-CD5D-4313-A215-BC13EDD551F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1B8C274-250F-4707-B296-773D05585B3B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B8C274-250F-4707-B296-773D05585B3B}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{1E0B6B68-06BE-43F7-9040-ABD27D127A21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1E0B6B68-06BE-43F7-9040-ABD27D127A21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E0B6B68-06BE-43F7-9040-ABD27D127A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E0B6B68-06BE-43F7-9040-ABD27D127A21}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10FC1257-E603-45BD-B2F4-B13186465748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10FC1257-E603-45BD-B2F4-B13186465748}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10FC1257-E603-45BD-B2F4-B13186465748}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10FC1257-E603-45BD-B2F4-B13186465748}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D66567B0-CD5D-4313-A215-BC13EDD551F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D66567B0-CD5D-4313-A215-BC13EDD551F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D66567B0-CD5D-4313-A215-BC13EDD551F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D66567B0-CD5D-4313-A215-BC13EDD551F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5759DDA-390C-4836-B6B4-19D68C794950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5759DDA-390C-4836-B6B4-19D68C794950}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5759DDA-390C-4836-B6B4-19D68C794950}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{B5ED23DE-A8E8-4562-8C59-07D7E4A4DBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5ED23DE-A8E8-4562-8C59-07D7E4A4DBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5ED23DE-A8E8-4562-8C59-07D7E4A4DBFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10FC1257-E603-45BD-B2F4-B13186465748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10FC1257-E603-45BD-B2F4-B13186465748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10FC1257-E603-45BD-B2F4-B13186465748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10FC1257-E603-45BD-B2F4-B13186465748}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

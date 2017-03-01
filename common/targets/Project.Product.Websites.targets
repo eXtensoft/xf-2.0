@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- PROJECT.PRODUCT.WEBSITES.TARGETS -->
+
+  <Import Project="Project.Product.targets" />
+
+  <PropertyGroup>
+    <DebuggingBinsLocation>$(MSBuildProjectDirectory)\bin</DebuggingBinsLocation>
+  </PropertyGroup>
+
+  <!--Before we build, we want to clean up the location where files are dumped on successful build so
+      that you are not debugging a previous version of the binaries if a build has failed-->
+  <Target Name="CleanPromotedBinariesForDebugging" BeforeTargets="CoreCompile;Clean">
+    <Message Text="Removing binaries of project $(MSBuildProjectName) from $(DebuggingBinsLocation)" />
+    <RemoveDir Directories="$(DebuggingBinsLocation)" />
+  </Target>
+  
+  <!--For Debugging, we need to dump the produced files into the /bin/ subdirectory-->
+  <Target Name="PromoteBinariesForDebugging" AfterTargets="Build">
+    <CreateItem Include="$(OutputPath)**\*">
+      <Output ItemName="BuildArtifacts" TaskParameter="Include"/>
+    </CreateItem>
+    
+    <Message Text="Copying binaries of project $(MSBuildProjectName) to $(DebuggingBinsLocation)" />
+    <MakeDir Directories="$(DebuggingBinsLocation)" />
+    <Copy SourceFiles="@(BuildArtifacts)" DestinationFolder="$(DebuggingBinsLocation)" />
+  </Target>
+
+</Project>

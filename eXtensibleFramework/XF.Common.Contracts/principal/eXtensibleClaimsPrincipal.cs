@@ -49,7 +49,7 @@ namespace XF.Common
 
         #endregion
 
-        public eXtensibleIdentity Identity { get; private set; }
+        public new eXtensibleIdentity Identity { get; private set; }
 
 
         //#region CallerItems (List<TypedItem>)

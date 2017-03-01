@@ -292,7 +292,7 @@ namespace XF.Common
         {
             get { return Items; }
         }
-        void IContext.Set<T>(T t)
+        void IContext.Set<U>(U u)
         {
         //    if (typeof(T).IsSerializable)
         //    {

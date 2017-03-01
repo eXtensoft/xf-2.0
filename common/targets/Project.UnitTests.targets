@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- Project.UnitTests.TARGETS -->
+
+  <Import Project="Project.Common.targets" />
+
+  <!-- Global Environment -->
+  <PropertyGroup>
+    <OutputPath>$(OutputBase)\unit tests\$(MSBuildProjectName)</OutputPath>
+
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+</Project>

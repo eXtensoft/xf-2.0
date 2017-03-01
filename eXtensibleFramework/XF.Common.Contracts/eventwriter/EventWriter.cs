@@ -44,10 +44,9 @@ namespace XF.Common
                             {
                                 writer = EventWriterLoader.Load();
                             }
-                            catch (Exception ex)
+                            catch
                             {
-                                
-                                throw;
+
                             }
                         }
                     }

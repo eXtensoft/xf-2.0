@@ -1,0 +1,9 @@
+msb=msbuild /m /ds /fl /nr:false $*
+alias=doskey /macros
+showstack=pushd
+bins=pushd "%outputbase%\%configuration%"
+rebuild=msbuild /m /ds /fl /t:Clean && hg purge --all && msbuild /m /ds /fl
+clear=cls
+up=pushd ..
+up2=pushd ..\..
+up3=pushd ..\..\..
