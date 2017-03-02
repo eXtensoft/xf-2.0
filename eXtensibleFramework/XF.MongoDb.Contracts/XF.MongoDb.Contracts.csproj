@@ -29,6 +29,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\common\assemblyinfo\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="common\alert\eXAlertSubscriber.cs" />
     <Compile Include="common\eXAlert.cs" />
     <Compile Include="common\eXError.cs" />

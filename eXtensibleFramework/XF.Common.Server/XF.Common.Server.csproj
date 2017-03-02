@@ -26,6 +26,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\common\assemblyinfo\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="caching\NetMemoryCache.cs" />
     <Compile Include="caching\WebCache.cs" />
     <Compile Include="common\AppSettingsStrategyResolver.cs" />

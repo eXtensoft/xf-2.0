@@ -23,6 +23,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\common\assemblyinfo\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="contracts\IModelDataGatewayInitializable.cs" />
     <Compile Include="contracts\IModelDataGateway`1.cs" />
     <Compile Include="contracts\IRpcHander.cs" />

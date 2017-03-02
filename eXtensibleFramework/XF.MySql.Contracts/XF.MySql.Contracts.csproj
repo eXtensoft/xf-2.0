@@ -25,6 +25,11 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\common\assemblyinfo\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /Y XF.MySql.Contracts.dll  c:\xf\xf2.dlls\*.*
