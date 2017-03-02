@@ -2,22 +2,16 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <ProjectGuid>{B5ED23DE-A8E8-4562-8C59-07D7E4A4DBFB}</ProjectGuid>
+    <ProjectGuid>{014BEA88-44C4-42A0-BC1E-ACBB27B2D25E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XF.MySql</RootNamespace>
-    <AssemblyName>XF.MySql.Contracts</AssemblyName>
+    <RootNamespace>XF.WebApi.Controllers</RootNamespace>
+    <AssemblyName>XF.WebApi.Controllers</AssemblyName>
   </PropertyGroup>
   <Import Project="..\..\common\targets\Project.Product.targets" />
   <ItemGroup>
-    <Reference Include="MySql.Data">
-      <HintPath>..\solutions\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -26,10 +20,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>xcopy /Y XF.MySql.Contracts.dll  c:\xf\xf2.dlls\*.*
-xcopy /Y XF.MySql.Contracts.pdb  c:\xf\xf2.dlls\*.*</PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

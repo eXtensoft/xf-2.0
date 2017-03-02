@@ -23,7 +23,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="mdg\SqlServerModelDataGateway`1.cs" />
     <Compile Include="mdg\SqlServerModelDataGateway`2.cs" />
   </ItemGroup>

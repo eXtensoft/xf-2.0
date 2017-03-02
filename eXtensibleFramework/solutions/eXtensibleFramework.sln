@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.MySql.Contracts", "..\XF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.SqlServer.Contracts", "..\XF.SqlServer.Contracts\XF.SqlServer.Contracts.csproj", "{10FC1257-E603-45BD-B2F4-B13186465748}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.WebApi.Controllers", "..\XF.WebApi.Controllers\XF.WebApi.Controllers.csproj", "{014BEA88-44C4-42A0-BC1E-ACBB27B2D25E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.WebApi.Common", "..\XF.WebApi.Common\XF.WebApi.Common.csproj", "{F9A4D7B6-9135-478E-ACB0-BE70BD37764A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{10FC1257-E603-45BD-B2F4-B13186465748}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10FC1257-E603-45BD-B2F4-B13186465748}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10FC1257-E603-45BD-B2F4-B13186465748}.Release|Any CPU.Build.0 = Release|Any CPU
+		{014BEA88-44C4-42A0-BC1E-ACBB27B2D25E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014BEA88-44C4-42A0-BC1E-ACBB27B2D25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014BEA88-44C4-42A0-BC1E-ACBB27B2D25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014BEA88-44C4-42A0-BC1E-ACBB27B2D25E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A4D7B6-9135-478E-ACB0-BE70BD37764A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A4D7B6-9135-478E-ACB0-BE70BD37764A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A4D7B6-9135-478E-ACB0-BE70BD37764A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A4D7B6-9135-478E-ACB0-BE70BD37764A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

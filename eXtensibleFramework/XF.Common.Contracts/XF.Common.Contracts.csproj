@@ -29,7 +29,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="common\alerts\AlertAudience.cs" />
     <Compile Include="common\alerts\AlertCategories.cs" />
     <Compile Include="common\alerts\AlertInterest.cs" />
