@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<messageProvider name="generic">
+  <response identifier="generic-okay" status="200" pattern="{0}" message="none"/>
+  <response identifier="generic-okay" status="201" pattern="{0}" message="none"/>
+
+
+</messageProvider>

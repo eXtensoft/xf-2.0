@@ -11,7 +11,13 @@
   <Import Project="..\..\common\targets\Project.Product.targets" />
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Http">
+      <HintPath>..\solutions\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -23,8 +29,38 @@
     <Compile Include="..\..\common\assemblyinfo\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="configuration\ConfigConstants.cs" />
+    <Compile Include="configuration\eXtensibleWebApiConfig.cs" />
+    <Compile Include="configuration\eXtensibleWebApiElement.cs" />
+    <Compile Include="configuration\eXtensibleWebApiElementCollection.cs" />
+    <Compile Include="configuration\eXtensibleWebApiSection.cs" />
+    <Compile Include="configuration\XFWebApiConstants.cs" />
+    <Compile Include="contracts\IApiRequestProvider.cs" />
+    <Compile Include="contracts\IEndpointController.cs" />
+    <Compile Include="model\ApiError.cs" />
+    <Compile Include="model\ApiHttpStatusCode.cs" />
+    <Compile Include="model\ApiLogOption.cs" />
+    <Compile Include="model\ApiRequest.cs" />
+    <Compile Include="model\ApiRequestProfile.cs" />
+    <Compile Include="model\ApiSession.cs" />
+    <Compile Include="model\eXtensibleApiRequest.cs" />
+    <Compile Include="model\ExtensionMethods.cs" />
+    <Compile Include="RegexPattern.cs" />
+    <Compile Include="request.provider\ApiRequestProvider.cs" />
+    <Compile Include="request.provider\SqlServerApiRequestProvider.cs" />
+    <Compile Include="RequestExtensionMethods.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XF.Common.Contracts\XF.Common.Contracts.csproj">
+      <Project>{84d9f7df-79db-4c0a-81aa-ff0e1fbb2b53}</Project>
+      <Name>XF.Common.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Y XF.WebApi.Common.dll  c:\xf\xf2.dlls\*.*
+xcopy /Y XF.WebApi.Common.pdb  c:\xf\xf2.dlls\*.*</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

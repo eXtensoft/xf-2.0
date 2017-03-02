@@ -2,11 +2,11 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <ProjectGuid>{014BEA88-44C4-42A0-BC1E-ACBB27B2D25E}</ProjectGuid>
+    <ProjectGuid>{2E685742-4754-4132-999C-0550D45C59CD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XF.WebApi.Controllers</RootNamespace>
-    <AssemblyName>XF.WebApi.Controllers</AssemblyName>
+    <RootNamespace>XF.WebApi.Core</RootNamespace>
+    <AssemblyName>XF.WebApi.Core</AssemblyName>
   </PropertyGroup>
   <Import Project="..\..\common\targets\Project.Product.targets" />
   <ItemGroup>
@@ -14,8 +14,16 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\solutions\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Http">
       <HintPath>..\solutions\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors">
+      <HintPath>..\solutions\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -32,27 +40,31 @@
     <Compile Include="..\..\common\assemblyinfo\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="authorization\AdministratorAccessAuthorizationFilter.cs" />
-    <Compile Include="authorization\PublicAccessAuthorizationFilter.cs" />
-    <Compile Include="authorization\SpecialAccessAuthorizationFilter.cs" />
-    <Compile Include="authorization\WebApiAuthorizationFilter.cs" />
-    <Compile Include="EndpointController.cs" />
-    <Compile Include="EndpointServiceController.cs" />
-    <Compile Include="eXtensibleMessageDataProvider.cs" />
-    <Compile Include="MvcServiceController.cs" />
+    <Compile Include="core\ApiEndpointManager.cs" />
+    <Compile Include="core\eXtensibleMessageHandler.cs" />
+    <Compile Include="core\ExtensionMethods.cs" />
+    <Compile Include="core\WebApiRegistrar.cs" />
+    <Compile Include="HttpExtensionMethods.cs" />
+    <Compile Include="HttpResources.Designer.cs" />
+    <Compile Include="message.provider\HttpMessageProvider.cs" />
+    <Compile Include="message.provider\MessageProvider.cs" />
+    <Compile Include="message.provider\SqlServerHttpMessageProvider.cs" />
+    <Compile Include="message.provider\XmlHttpMessageProvider.cs" />
+    <Compile Include="model\Endpoint.cs" />
+    <Compile Include="mvc\ApiEndpointsController.cs" />
+    <Compile Include="mvc\ApiErrorsController.cs" />
+    <Compile Include="mvc\ApiRequestsController.cs" />
+    <Compile Include="mvc\ApiSessionsController.cs" />
+    <Compile Include="ResponseConfiguration.cs" />
+    <Compile Include="sqlserver\ApiErrorSqlAccess.cs" />
+    <Compile Include="sqlserver\ApiRequestSqlAccess.cs" />
+    <Compile Include="sqlserver\ApiSessionSqlAccess.cs" />
+    <Compile Include="WebApiCaller.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XF.Common.Contracts\XF.Common.Contracts.csproj">
       <Project>{84d9f7df-79db-4c0a-81aa-ff0e1fbb2b53}</Project>
       <Name>XF.Common.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XF.Common.Server.Contracts\XF.Common.Server.Contracts.csproj">
-      <Project>{d66567b0-cd5d-4313-a215-bc13edd551f7}</Project>
-      <Name>XF.Common.Server.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XF.Common.Server\XF.Common.Server.csproj">
-      <Project>{1e0b6b68-06be-43f7-9040-abd27d127a21}</Project>
-      <Name>XF.Common.Server</Name>
     </ProjectReference>
     <ProjectReference Include="..\XF.Common\XF.Common.csproj">
       <Project>{b1b8c274-250f-4707-b296-773d05585b3b}</Project>
@@ -63,10 +75,19 @@
       <Name>XF.WebApi.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HttpResources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\httpstatuscodes.xml" />
+    <Content Include="data\messageprovider.generic.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y XF.WebApi.Controllers.dll  c:\xf\xf2.dlls\*.*
-xcopy /Y XF.WebApi.Controllers.pdb  c:\xf\xf2.dlls\*.*</PostBuildEvent>
+    <PostBuildEvent>xcopy /Y XF.WebApi.Core.dll  c:\xf\xf2.dlls\*.*
+xcopy /Y XF.WebApi.Core.pdb  c:\xf\xf2.dlls\*.*</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
