@@ -73,7 +73,7 @@ namespace XF.WebApi
             }
             catch
             {
-
+                statusCodes = new List<ApiHttpStatusCode>();
             }
 
             string candidates = ConfigurationManager.AppSettings["api.httpcodes.whitelist"];
@@ -163,7 +163,7 @@ namespace XF.WebApi
         public virtual void GetError<T>(HttpStatusCode statusCode, T t, out string message)
         {
             // tag if statusCode is not allowed
-            message = HttpStatusCode.NotImplemented.ToString();
+            message = statusCode.ToString();
         }
 
         public virtual void GetError(string identifier, out HttpStatusCode errorCode, out string message)
