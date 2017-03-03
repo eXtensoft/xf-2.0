@@ -1,0 +1,47 @@
+﻿
+TaskType
+	Project
+		Scoping
+		Requirements
+			Personas & Scenarios
+
+		Analysis
+			RiskAnalysis
+			DomainAnalysis
+		Planning
+			Sprint makup & size
+			Project environment
+			resources
+				software
+				hardware,
+				human
+		Sizing
+			Scope Limitations
+			Estimates
+	Task
+		Design
+			Logical design
+			Component design
+		Estimation
+
+
+
+
+
+Phase
+	Inception
+	Elaboration
+	Construction
+	Transition
+	Deployment
+	Stabilization
+
+
+Requirements
+	Decision Analysis & Trade-offs
+	Business Rules Analysis
+
+Requirements Management
+
+Value Proposition
+Problem Statement

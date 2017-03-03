@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA5F1E07-1ADC-4ADD-839D-9D5677174749}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Styx</RootNamespace>
+    <AssemblyName>eXtensoft.Styx.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="common\AcceptMediaOption.cs" />
+    <Compile Include="common\ItemTypeOption.cs" />
+    <Compile Include="common\Selection.cs" />
+    <Compile Include="common\StyxConstants.cs" />
+    <Compile Include="estimates\Estimate.cs" />
+    <Compile Include="estimates\EstimateTypeOption.cs" />
+    <Compile Include="estimates\EstimateValue.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="project.mgt\BusinessCase.cs" />
+    <Compile Include="project.mgt\Feature.cs" />
+    <Compile Include="project.mgt\FeatureTypeOption.cs" />
+    <Compile Include="project.mgt\ListItem.cs" />
+    <Compile Include="project.mgt\Project.cs" />
+    <Compile Include="project.mgt\ProjectScope.cs" />
+    <Compile Include="project.mgt\Sprint.cs" />
+    <Compile Include="project.mgt\SprintTypeOption.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="scenarios\AcceptanceCriterion.cs" />
+    <Compile Include="scenarios\Condition.cs" />
+    <Compile Include="scenarios\ConditionTypeOption.cs" />
+    <Compile Include="scenarios\Persona.cs" />
+    <Compile Include="scenarios\Scenario.cs" />
+    <Compile Include="scenarios\ScenarioContext.cs" />
+    <Compile Include="scenarios\ScenarioTypeOption.cs" />
+    <Compile Include="scenarios\Step.cs" />
+    <Compile Include="scenarios\StepTypeOption.cs" />
+    <Compile Include="tasks\Task.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="plan\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\ddl.data.sql" />
+    <Content Include="notes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="design\styx.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
