@@ -33,6 +33,7 @@
       <Link>AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="authorization\AdministratorAccessAuthorizationFilter.cs" />
+    <Compile Include="authorization\HttpsAuthorizationFilter.cs" />
     <Compile Include="authorization\PublicAccessAuthorizationFilter.cs" />
     <Compile Include="authorization\SpecialAccessAuthorizationFilter.cs" />
     <Compile Include="authorization\WebApiAuthorizationFilter.cs" />
