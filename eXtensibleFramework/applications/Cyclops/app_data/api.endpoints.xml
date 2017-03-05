@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEndpoint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <Endpoint sortOrder="1" version="0" id="a36791b1-e4d3-4e90-bd14-b92810bb81dd" name="Styx FeaturesController">
+  <Whitelist />
+  <Pattern>v{version}/styx/features/{id}</Pattern>
+  <Description>This is the Feature controller for Styx</Description>
+ </Endpoint>
+ <Endpoint sortOrder="2" version="0" id="f14ef5e6-9f77-44b2-bc7d-6a83b25933af" name="Styx ItemsController">
+  <Whitelist />
+  <Pattern>v{version}/styx/items/{id}</Pattern>
+  <Description>This is the Item controller for Styx</Description>
+ </Endpoint>
+ <Endpoint sortOrder="3" version="0" id="154e0558-ea35-4856-8e43-416c965f4a3f" name="Styx PersonasController">
+  <Whitelist />
+  <Pattern>v{version}/styx/personas/{id}</Pattern>
+  <Description>This is the Persona controller for Styx</Description>
+ </Endpoint>
+ <Endpoint sortOrder="4" version="0" id="21c2fb95-4356-49e7-82c5-501608cf878f" name="Styx ProjectsController">
+  <Whitelist />
+  <Pattern>v{version}/styx/projects/{id}</Pattern>
+  <Description>This is the Project controller for Styx</Description>
+ </Endpoint>
+ <Endpoint sortOrder="5" version="0" id="b38a1def-5fff-41f0-a453-57add027e333" name="Styx ScenariosController">
+  <Whitelist />
+  <Pattern>v{version}/styx/scenarios/{id}</Pattern>
+  <Description>This is the scenario controller for Styx</Description>
+ </Endpoint>
+ <Endpoint sortOrder="6" version="0" id="c0281538-78e9-408b-8b65-0a4014795be8" name="Styx SelectionsController">
+  <Whitelist />
+  <Pattern>v{version}/styx/selections/{id}</Pattern>
+  <Description>This is the Selection controller for Styx</Description>
+ </Endpoint>
+ <Endpoint sortOrder="7" version="0" id="a9eb4228-11fa-42f9-b9b0-067b442d5c40" name="Styx TasksController">
+  <Whitelist />
+  <Pattern>v{version}/styx/tasks/{id}</Pattern>
+  <Description>This is the Task controller for Styx</Description>
+ </Endpoint>
+</ArrayOfEndpoint>

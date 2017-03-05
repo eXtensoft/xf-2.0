@@ -1,0 +1,92 @@
+﻿@model IEnumerable<XF.WebApi.Core.Endpoint>
+
+@{
+    ViewBag.Title = "Index";
+    bool isDirty = (bool)ViewBag.IsDirty;
+
+    int max = 0;
+}
+
+<p>
+
+    @{
+        if (isDirty)
+        {
+            using (Html.BeginForm("Save", "ApiEndpoints"))
+            {
+                <input type="submit" value="Save" class="btn btn-default" />
+            }
+        }
+    }
+
+</p>
+@if (!String.IsNullOrWhiteSpace(ViewBag.Message))
+{
+    <p>ViewBag.Message</p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoutePattern)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Version)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SortOrder)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+
+        var items = Model.ToList();
+        //if (Model != null && Model.Count() > 2)
+        //{
+        max = Model.Count();
+        //}
+        for (int i = 0; i < max; i++)
+        {
+
+            var item = items[i];
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoutePattern)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Version)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SortOrder)
+                </td>
+
+                <td>
+                    @if (i < max - 1)
+                    {
+                        var next = items[i + 1];
+                        @Html.ActionLink("Down", "Swap", new { xid = item.Id, yid = next.Id });
+                    }
+                </td>
+                <td>
+                    @if (i > 0)
+                    {
+                        var previous = items[i - 1];
+                        @Html.ActionLink("Up", "Swap", new { xid = previous.Id, yid = item.Id })
+                    }
+                </td>
+
+            </tr>
+
+        }
+    }
+
+</table>

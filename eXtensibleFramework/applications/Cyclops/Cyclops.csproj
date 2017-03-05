@@ -78,9 +78,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\solutions\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\..\solutions\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -144,9 +150,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\solutions\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\..\solutions\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -263,31 +266,35 @@
     </Content>
     <Content Include="views\Web.config" />
     <Content Include="views\_ViewStart.cshtml" />
-    <Content Include="views\Shared\Error.cshtml" />
-    <Content Include="views\Shared\_Layout.cshtml" />
-    <Content Include="views\Home\About.cshtml" />
-    <Content Include="views\Home\Contact.cshtml" />
-    <Content Include="views\Home\Index.cshtml" />
-    <Content Include="views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="views\Account\ConfirmEmail.cshtml" />
-    <Content Include="views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="views\Account\ForgotPassword.cshtml" />
-    <Content Include="views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="views\Account\Login.cshtml" />
-    <Content Include="views\Account\Register.cshtml" />
-    <Content Include="views\Account\ResetPassword.cshtml" />
-    <Content Include="views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="views\Account\SendCode.cshtml" />
-    <Content Include="views\Account\VerifyCode.cshtml" />
-    <Content Include="views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="views\Manage\ChangePassword.cshtml" />
-    <Content Include="views\Manage\Index.cshtml" />
-    <Content Include="views\Manage\ManageLogins.cshtml" />
-    <Content Include="views\Manage\SetPassword.cshtml" />
-    <Content Include="views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="views\Shared\Lockout.cshtml" />
-    <Content Include="views\Shared\_LoginPartial.cshtml" />
+    <Content Include="views\shared\Error.cshtml" />
+    <Content Include="views\shared\_Layout.cshtml" />
+    <Content Include="views\home\About.cshtml" />
+    <Content Include="views\home\Contact.cshtml" />
+    <Content Include="views\home\Index.cshtml" />
+    <Content Include="views\account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="views\account\ConfirmEmail.cshtml" />
+    <Content Include="views\account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="views\account\ExternalLoginFailure.cshtml" />
+    <Content Include="views\account\ForgotPassword.cshtml" />
+    <Content Include="views\account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="views\account\Login.cshtml" />
+    <Content Include="views\account\Register.cshtml" />
+    <Content Include="views\account\ResetPassword.cshtml" />
+    <Content Include="views\account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="views\account\SendCode.cshtml" />
+    <Content Include="views\account\VerifyCode.cshtml" />
+    <Content Include="views\manage\AddPhoneNumber.cshtml" />
+    <Content Include="views\manage\ChangePassword.cshtml" />
+    <Content Include="views\manage\Index.cshtml" />
+    <Content Include="views\manage\ManageLogins.cshtml" />
+    <Content Include="views\manage\SetPassword.cshtml" />
+    <Content Include="views\manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="views\shared\Lockout.cshtml" />
+    <Content Include="views\shared\_LoginPartial.cshtml" />
+    <Content Include="views\apiendpoints\Index.cshtml" />
+    <Content Include="views\apierrors\Detail.cshtml" />
+    <Content Include="views\apierrors\Index.cshtml" />
+    <Content Include="views\apirequests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app_data\" />

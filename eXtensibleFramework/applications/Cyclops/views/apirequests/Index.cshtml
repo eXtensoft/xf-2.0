@@ -1,0 +1,70 @@
+﻿@model XF.Common.Page<XF.WebApi.ApiRequest>
+
+@{
+    ViewBag.Title = "Api Requests";
+}
+
+
+<h2>Api Requests</h2>
+
+<div class="container">
+
+
+
+    @foreach (var item in Model.Items)
+    {
+        <div class="row">
+
+            <div class="col-md-2">
+                @if (item.HasErrorLog)
+                {
+                    <a href="apirequests/@item.ApiRequestId"><i>@item.ResponseCode</i></a>
+                }
+                else
+                {
+                    <a href="apirequests/@item.ApiRequestId">@item.ResponseCode</a>
+                }
+
+            </div>
+
+            <div class="col-md-8">
+                <b>
+                    @Html.DisplayFor(modelItem => item.Path)
+                </b>
+
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayFor(modelItem => item.Start)
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+
+            <div class="col-md-0 secondary">
+                @Html.DisplayFor(modelItem => item.HttpMethod)
+                @Html.DisplayFor(modelItem => item.ControllerName)
+            </div>
+
+        </div>
+        if (item.LogItems != null)
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        @foreach (var log in item.LogItems)
+                        {
+                            <li>
+                                @log.Key : @log.Value
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        }
+    }
+
+</div>
