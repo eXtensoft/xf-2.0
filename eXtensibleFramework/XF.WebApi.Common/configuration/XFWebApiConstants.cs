@@ -14,7 +14,7 @@ namespace XF.WebApi
 
         public static class Config
         {
-            public const string SectionName = "eXtensoft.webApi";
+            public const string SectionName = "xf.webApi";
             public const string IsLogToDatastoreKey = "is.logtosql";
             public const string LogToKey = "apirequest.logto";
             public const string SqlConnectionKey = "logtosql.connectionkey";
