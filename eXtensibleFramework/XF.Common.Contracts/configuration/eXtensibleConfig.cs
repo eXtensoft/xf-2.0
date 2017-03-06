@@ -37,7 +37,7 @@ namespace XF.Common
         public static readonly string ServiceToken;
         public static readonly bool Inform;
         public static readonly string LogKey;
-        public static readonly bool ProcessAlerts;
+        public static readonly bool HandleAlerts;
         public static readonly string ApiRoot;
         public static readonly string ApiErrors;
         public static readonly string ApiEvents;
@@ -105,6 +105,8 @@ namespace XF.Common
                     {
                         Context = !String.IsNullOrEmpty(candidateContext) ? candidateContext : XFConstants.Application.DefaultAppplicationKey;
                     }
+
+                    HandleAlerts = section.HandleAlerts;
                     
                     if (!String.IsNullOrEmpty(section.InstanceIdentifier))
                     {
