@@ -32,7 +32,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "insert into [dbo].[AppComponent] ( [AppId],[ComponentId] ) values (" + AppIdParamName + "," + ComponentIdParamName + ")";
+            string sql = "insert into [arc].[AppComponent] ( [AppId],[ComponentId] ) values (" + AppIdParamName + "," + ComponentIdParamName + ")";
 
             cmd.CommandText = sql;
 
@@ -46,7 +46,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [dbo].[AppComponent] set [AppId] = " + AppIdParamName + " , [ComponentId] = " + ComponentIdParamName  + " where [AppComponentId] = " + AppComponentIdParamName ;
+            string sql = "update [arc].[AppComponent] set [AppId] = " + AppIdParamName + " , [ComponentId] = " + ComponentIdParamName  + " where [AppComponentId] = " + AppComponentIdParamName ;
 
 
             cmd.CommandText = sql;
@@ -61,7 +61,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [dbo].[AppComponent] where [AppComponentId] = " + AppComponentIdParamName;
+            string sql = "delete from [arc].[AppComponent] where [AppComponentId] = " + AppComponentIdParamName;
 
             cmd.CommandText = sql;
 
@@ -74,7 +74,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [AppComponentId], [AppId], [ComponentId] from [dbo].[AppComponent] where [AppComponentId] = " + AppComponentIdParamName ;
+            string sql = "select [AppComponentId], [AppId], [ComponentId] from [arc].[AppComponent] where [AppComponentId] = " + AppComponentIdParamName ;
 
             cmd.CommandText = sql;
 
@@ -87,7 +87,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [AppComponentId], [AppId], [ComponentId] from [dbo].[AppComponent] where [AppId] = " + AppIdParamName ;
+            string sql = "select [AppComponentId], [AppId], [ComponentId] from [arc].[AppComponent] where [AppId] = " + AppIdParamName ;
             cmd.CommandText = sql;
 
             cmd.Parameters.AddWithValue( AppIdParamName, criterion.GetValue<int>("AppId") );

@@ -7,7 +7,7 @@
 
   <!-- Global Environment -->
   <PropertyGroup>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+   <!-- <ApplicationVersion>1.0.0.%2a</ApplicationVersion> -->
     <ProductOutputBase>$(OutputBase)\product</ProductOutputBase>
     <OutputPath>$(ProductOutputBase)\$(MSBuildProjectName)</OutputPath>
     <DocumentationPath>$(OutputBase)\Documentation Files</DocumentationPath>

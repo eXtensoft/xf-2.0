@@ -29,7 +29,7 @@ namespace Cyclops.Controllers
         }
 
         // POST: Server/Create
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Create(FavoriteViewModel viewModel)
         {

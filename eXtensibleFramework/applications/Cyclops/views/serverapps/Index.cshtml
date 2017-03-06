@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Cyclops.Web.ServerAppViewModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th></th>
+        <th>
+        </th>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Server)
+        </th>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.App)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Folderpath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BackupFolderpath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Scope)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Domain)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Display)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @if (item.IsFavorite)
+            {
+                <span class="glyphicon glyphicon-star"></span>
+            }
+        </td>
+
+
+        <td>
+            <a href="~/serverapps/details/@item.ServerAppId" class="glyphicon glyphicon-list-alt" />
+
+        </td>
+
+        <td>
+            @if (item.IsServerFavorite)
+            {
+                <span class="glyphicon glyphicon-star"></span>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Server)
+        </td>
+        <td>
+            @if (item.IsAppFavorite)
+            {
+                <span class="glyphicon glyphicon-star"></span>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.App)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Folderpath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BackupFolderpath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Scope )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Domain)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Display)
+        </td>
+        <td>
+            @if (User.IsInRole("admin"))
+            {
+                <a href="~/serverapps/edit/@item.ServerAppId " class="glyphicon glyphicon-pencil" />
+            }
+        </td>
+        <td>
+            @if (User.IsInRole("admin"))
+            {
+                <a href="~/serverapps/delete/@item.ServerAppId" class="glyphicon glyphicon-remove"> </a>
+            }
+        </td>
+
+    </tr>
+}
+
+</table>

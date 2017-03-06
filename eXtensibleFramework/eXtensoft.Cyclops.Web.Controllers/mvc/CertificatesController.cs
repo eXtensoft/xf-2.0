@@ -42,7 +42,7 @@ namespace Cyclops.Controllers
         }
 
 
-        [Authorize(Roles = "member")]
+        //[Authorize(Roles = "member")]
         public ActionResult Details(int id, Nullable<int> solutionapps)
         {
             var criterion = new Criterion("ServerId", id);
@@ -76,14 +76,14 @@ namespace Cyclops.Controllers
         }
 
         // GET: Server/Create
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Server/Create
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Create(CertificateViewModel viewModel)
         {
@@ -105,7 +105,7 @@ namespace Cyclops.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult AddModel(CertificateViewModel viewModel)
         {
@@ -123,7 +123,7 @@ namespace Cyclops.Controllers
 
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         // GET: Server/Edit/5
         public ActionResult Edit(int id)
         {
@@ -140,7 +140,7 @@ namespace Cyclops.Controllers
         }
 
         // POST: Server/Edit/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Edit(CertificateViewModel viewModel)
         {
@@ -163,7 +163,7 @@ namespace Cyclops.Controllers
         }
 
         // GET: Server/Delete/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpGet]
         [ActionName("Delete")]
         public ActionResult DeleteGet(int id)
@@ -181,7 +181,7 @@ namespace Cyclops.Controllers
         }
 
         // POST: Server/Delete/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Delete(int id)
         {

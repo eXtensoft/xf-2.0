@@ -28,7 +28,7 @@ namespace Cyclops.Controllers
         }
 
         // GET: Apps/Edit/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Edit(int id)
         {
             var criterion = new Criterion("SelectionId", id);
@@ -44,7 +44,7 @@ namespace Cyclops.Controllers
         }
 
         // POST: Apps/Edit/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Edit(SelectionViewModel viewModel)
         {

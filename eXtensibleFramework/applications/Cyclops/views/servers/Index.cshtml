@@ -1,0 +1,169 @@
+﻿@model IEnumerable<Cyclops.Web.ServerViewModel>
+
+@{
+    IDictionary<string, string> filters = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+    {
+      {"domain","domain={0}"},
+      {"d","domain={0}"},
+      {"os","os={0}"},
+      {"zone","zone={0}"},
+      {"z","zone={0}"},
+      {"platform","platform={0}"},
+      {"name","name={0}"},
+      {"n","name={0}"},
+      {"u","usage={0}"},
+      {"usage","usage={0}"},
+    };
+
+    ViewBag.Title = "Servers";
+    HashSet<string> hs = new HashSet<string>();
+    Dictionary<string, string> d = new Dictionary<string, string>();
+    d.Add("sort", String.Empty);
+    d.Add("filter", String.Empty);
+
+    string qs = Request.QueryString.ToString();
+
+    if (!string.IsNullOrEmpty(qs))
+    {
+        string[] kvps = qs.Split(new char[] { '&' }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (var kvp in kvps)
+        {
+            string[] t = kvp.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+            if (t.Count().Equals(2))
+            {
+                string key = t[0];
+                string val = t[1];
+                if (key.Equals("sort"))
+                {
+                    d["sort"] = String.Format("sort=", val);
+                }
+                else if (filters.ContainsKey(key))
+                {
+                    d["filter"] = String.Format("{0}={1}", key, val);
+                }
+            }
+
+        }
+
+    }
+    string urlFormat = (!String.IsNullOrWhiteSpace(d["filter"])) ? String.Format("?{0}&sort=", d["filter"]) : "?sort=";
+    urlFormat += "{0}";
+
+}
+
+@functions{
+
+    private string Compose(string format, string sortField)
+    {
+        return String.Format(format, sortField);
+
+    }
+}
+
+<h2>Servers</h2>
+
+
+<div class="row">
+    <div class="col-md-4">
+        @Html.ActionLink("Add Server", "Create")
+    </div>
+
+    <div class="col-md-4">
+        @*<div class="input-group input-group-sm">
+            <span class="input-group-addon" id="sizing-addon3">?</span>
+            <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
+        </div>*@
+    </div>
+    <div class="col-md-4">
+
+
+    </div>
+</div>
+
+@if (Model != null)
+{
+    <table class="table table-hover">
+        <tr>
+            <th></th>
+            <th>
+                <a href="@Compose(urlFormat,"os")">
+                    @Html.DisplayNameFor(model => model.OperatingSystem)
+                </a>
+            </th>
+
+
+            <th>
+                <a href="@Compose(urlFormat,"platform")">
+                    @Html.DisplayNameFor(model => model.HostPlatform)
+                </a>
+            </th>
+            <th></th>
+            <th>
+                <a href="@Compose(urlFormat,"name")">
+                    @Html.DisplayNameFor(model => model.Name)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServerSecurity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExternalIP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InternalIP)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    <a href="~/servers/details/@item.ServerId" class="glyphicon glyphicon-list-alt" />
+                </td>
+                <td>
+                    @Html.HiddenFor(modelItem => item.ServerId)
+                    @Html.DisplayFor(modelItem => item.OperatingSystem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HostPlatform)
+                </td>
+                <td>
+                    @if (item.IsFavorite)
+                    {
+                        <span class="glyphicon glyphicon-star"></span>
+                    }
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServerSecurity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExternalIP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InternalIP)
+                </td>
+                <td>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a href="~/servers/edit/@item.ServerId " class="glyphicon glyphicon-pencil" />
+                    }
+                </td>
+                <td>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a href="~/servers/delete/@item.ServerId" class="glyphicon glyphicon-remove"> </a>
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}
+

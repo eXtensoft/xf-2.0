@@ -33,7 +33,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "insert into [dbo].[SolutionApp] ( [SolutionId],[AppId],[Sort] ) values (" + SolutionIdParamName + "," + AppIdParamName + "," + SortParamName + ")";
+            string sql = "insert into [arc].[SolutionApp] ( [SolutionId],[AppId],[Sort] ) values (" + SolutionIdParamName + "," + AppIdParamName + "," + SortParamName + ")";
 
             cmd.CommandText = sql;
 
@@ -48,7 +48,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [dbo].[SolutionApp] set [SolutionId] = " + SolutionIdParamName + " , [AppId] = " + AppIdParamName + " , [Sort] = " + SortParamName + " where [SolutionAppId] = " + SolutionAppIdParamName;
+            string sql = "update [arc].[SolutionApp] set [SolutionId] = " + SolutionIdParamName + " , [AppId] = " + AppIdParamName + " , [Sort] = " + SortParamName + " where [SolutionAppId] = " + SolutionAppIdParamName;
 
 
             cmd.CommandText = sql;
@@ -64,7 +64,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [dbo].[SolutionApp] where [SolutionAppId] = " + SolutionAppIdParamName;
+            string sql = "delete from [arc].[SolutionApp] where [SolutionAppId] = " + SolutionAppIdParamName;
 
             cmd.CommandText = sql;
 
@@ -77,7 +77,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [SolutionAppId], [SolutionId], [AppId], [Sort] from [dbo].[SolutionApp] where [SolutionAppId] = " + SolutionAppIdParamName;
+            string sql = "select [SolutionAppId], [SolutionId], [AppId], [Sort] from [arc].[SolutionApp] where [SolutionAppId] = " + SolutionAppIdParamName;
 
             cmd.CommandText = sql;
 
@@ -90,7 +90,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [SolutionAppId], [SolutionId], [AppId], [Sort] from [dbo].[SolutionApp] where [SolutionId] = " + SolutionIdParamName;
+            string sql = "select [SolutionAppId], [SolutionId], [AppId], [Sort] from [arc].[SolutionApp] where [SolutionId] = " + SolutionIdParamName;
             cmd.CommandText = sql;
             cmd.Parameters.AddWithValue(SolutionIdParamName, criterion.GetValue<int>("SolutionId"));
             return cmd;

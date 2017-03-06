@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Cyclops.Web.SolutionAppViewModel>
+
+@{
+    SolutionViewModel solution = ViewBag.Solution;
+    IEnumerable<SolutionAppViewModel> apps = Model.ToList();
+    var zones = Cyclops.SelectionListUtility.GetReverseZoneDictionary();
+    
+}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th colspan="3">
+                    @solution.Name - @solution.Scope
+                </th>
+            </tr>
+            <tr>
+                <th>Apps in Solution</th>
+                @foreach (var zone in solution.Zones)
+                {                           
+                    <th colspan="2">@zone</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (SolutionAppViewModel app in apps)
+            {
+                <tr>
+                    <td>@app.Application</td>
+                    @foreach (ServerAppViewModelCollection  collection in app.ZoneServerApps)
+	                {
+
+                        if (collection != null)
+                        {
+                            
+                            var data = @solution.ScopeId + "-"  + @app.AppId + "-" + collection.Key + "-" + @solution.SolutionId;
+                            <td>
+                                <a type="button" href="~/ServerApps/Create?data=@data"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                            </td>
+                            <td>
+
+                                    @foreach (var item in collection)
+                                    {
+                                        <span>
+                                            <a type="button" href="~/serverapps/details/@item.ServerAppId?solutionapps=@solution.SolutionId"><img src="~/Content/Images/@item.Icon" height="25" style="margin-top: 5px;" /></a>
+                                            <a href="~/servers/details/@item.ServerId?solutionapps=@solution.SolutionId" data-toggle="tooltip" data-placement="right" title="@item.ExternalIP">@item.Server</a>
+                                        </span><br/>
+                                    }
+
+
+
+                                                              
+                            </td>
+                        }
+	                }
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+@section scripts{
+        
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    
+    }
+

@@ -93,6 +93,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="common\" />
     <Folder Include="mvc\" />
   </ItemGroup>
   <ItemGroup>

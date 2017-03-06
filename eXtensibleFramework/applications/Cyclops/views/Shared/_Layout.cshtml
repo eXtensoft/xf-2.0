@@ -7,6 +7,24 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <script type="text/javascript">
+// Popup window code
+function newPopup(url) {
+	popupWindow = window.open(
+		url,
+		'popUpWindow',
+		'height=300',
+		width=400,left=10,top=10,
+		resizable=yes,
+		scrollbars=yes,
+		toolbar=yes,
+		menubar=no,
+		location=no,
+		directories=no,
+		status=yes')
+}
+    </script>
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -17,14 +35,38 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Cyclops", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @*<li>@Html.ActionLink("Lookups", "Index", "Selections")</li>
+                    <li>@Html.ActionLink("Apps", "Index", "Apps")</li>
+                    <li>@Html.ActionLink("Servers", "Index", "Servers")</li>
+                    <li>@Html.ActionLink("Solutions", "Index", "Solutions")</li>*@
+
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li>@Html.ActionLink("Lookups", "Index", "Selections")</li>
+                        <li>@Html.ActionLink("Apps", "Index", "Apps")</li>
+                    }
+                    @if (User.IsInRole("guest") | User.IsInRole("member") | User.IsInRole("admin"))
+                    {
+
+                        <li>@Html.ActionLink("Servers", "Index", "Servers")</li>
+                        <li>@Html.ActionLink("Solutions", "Index", "Solutions")</li>
+                     }
+                    
                 </ul>
+                @if (User.IsInRole("member") | User.IsInRole("admin"))
+                {
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" name="q" class="form-control" placeholder="Search" />
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                }
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

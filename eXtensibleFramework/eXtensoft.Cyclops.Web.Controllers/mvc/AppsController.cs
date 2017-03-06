@@ -53,14 +53,14 @@ namespace Cyclops.Controllers
         }
 
         // GET: Apps/Create
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Apps/Create
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Create(AppViewModel viewModel)
         {
@@ -83,7 +83,7 @@ namespace Cyclops.Controllers
         }
 
         // GET: Apps/Edit/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Edit(int id)
         {
             var criterion = new Criterion("AppId", id);
@@ -99,7 +99,7 @@ namespace Cyclops.Controllers
         }
 
         // POST: Apps/Edit/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Edit(AppViewModel viewModel)
         {
@@ -122,7 +122,7 @@ namespace Cyclops.Controllers
         }
 
         // GET: Apps/Delete/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpGet]
         [ActionName("Delete")]
         public ActionResult DeleteGet(int id)
@@ -140,7 +140,7 @@ namespace Cyclops.Controllers
         }
 
         // POST: Apps/Delete/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Delete(int id)
         {

@@ -34,7 +34,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "insert into [dbo].[Solution] ( [ScopeId],[Name],[Alias],[Description] ) values (" + ScopeIdParamName + "," + NameParamName + "," + AliasParamName + "," + DescriptionParamName + ")";
+            string sql = "insert into [arc].[Solution] ( [ScopeId],[Name],[Alias],[Description] ) values (" + ScopeIdParamName + "," + NameParamName + "," + AliasParamName + "," + DescriptionParamName + ")";
 
             cmd.CommandText = sql;
 
@@ -50,7 +50,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [dbo].[Solution] set [ScopeId] = " + ScopeIdParamName + " , [Name] = " + NameParamName + " , [Alias] = " + AliasParamName + " , [Description] = " + DescriptionParamName  + " where [SolutionId] = " + SolutionIdParamName ;
+            string sql = "update [arc].[Solution] set [ScopeId] = " + ScopeIdParamName + " , [Name] = " + NameParamName + " , [Alias] = " + AliasParamName + " , [Description] = " + DescriptionParamName  + " where [SolutionId] = " + SolutionIdParamName ;
 
 
             cmd.CommandText = sql;
@@ -68,7 +68,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [dbo].[Solution] where [SolutionId] = " + SolutionIdParamName;
+            string sql = "delete from [arc].[Solution] where [SolutionId] = " + SolutionIdParamName;
 
             cmd.CommandText = sql;
 
@@ -81,8 +81,8 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [SolutionId], [Name], [Description],[ScopeId] from [dbo].[Solution] where [SolutionId] = " + SolutionIdParamName +
-                " SELECT distinct [SolutionId] ,[ZoneId] FROM [dbo].[SolutionZone] where [SolutionId] = " + SolutionIdParamName;
+            string sql = "select [SolutionId], [Name], [Description],[ScopeId] from [arc].[Solution] where [SolutionId] = " + SolutionIdParamName +
+                " SELECT distinct [SolutionId] ,[ZoneId] FROM [arc].[SolutionZone] where [SolutionId] = " + SolutionIdParamName;
 
             cmd.CommandText = sql;
 
@@ -95,8 +95,8 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [SolutionId], [Name], [Description],[ScopeId] from [dbo].[Solution] " +
-                "SELECT distinct [SolutionId] ,[ZoneId] FROM [dbo].[SolutionZone] ";
+            string sql = "select [SolutionId], [Name], [Description],[ScopeId] from [arc].[Solution] " +
+                "SELECT distinct [SolutionId] ,[ZoneId] FROM [arc].[SolutionZone] ";
             cmd.CommandText = sql;
 
             return cmd;

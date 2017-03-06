@@ -36,7 +36,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "insert into [dbo].[Selection] ( [Display],[Token],[Sort],[GroupId],[MasterId],[Icon] ) values (" + DisplayParamName + 
+            string sql = "insert into [arc].[Selection] ( [Display],[Token],[Sort],[GroupId],[MasterId],[Icon] ) values (" + DisplayParamName + 
                 "," + TokenParamName + "," + SortParamName + "," + GroupIdParamName + "," + MasterIdParamName + "," + IconParamName + ")";
 
             cmd.CommandText = sql;
@@ -55,7 +55,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [dbo].[Selection] set [Display] = " + DisplayParamName + " , [Token] = " + TokenParamName + " , [Sort] = " + SortParamName + " , [GroupId] = " + GroupIdParamName + " , [MasterId] = " + MasterIdParamName  + ",[Icon] = " + IconParamName + " where [SelectionId] = " + SelectionIdParamName ;
+            string sql = "update [arc].[Selection] set [Display] = " + DisplayParamName + " , [Token] = " + TokenParamName + " , [Sort] = " + SortParamName + " , [GroupId] = " + GroupIdParamName + " , [MasterId] = " + MasterIdParamName  + ",[Icon] = " + IconParamName + " where [SelectionId] = " + SelectionIdParamName ;
             cmd.CommandText = sql;
 
             cmd.Parameters.AddWithValue(SelectionIdParamName, model.SelectionId);
@@ -72,7 +72,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [dbo].[Selection] where [SelectionId] = " + SelectionIdParamName;
+            string sql = "delete from [arc].[Selection] where [SelectionId] = " + SelectionIdParamName;
 
             cmd.CommandText = sql;
 
@@ -85,7 +85,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select s.[SelectionId], s.[Display], s.[Token], s.[Sort], s.[GroupId], s.[MasterId],s.[Icon],COALESCE(COALESCE(s.Icon, (select [t].Icon from [dbo].[Selection] as [t] where [t].[SelectionId] = [s].[MasterId])) ,'default.icon.png') as SecondaryIcon from [dbo].[Selection]  as [s] where [s].[SelectionId] = " + SelectionIdParamName ;
+            string sql = "select s.[SelectionId], s.[Display], s.[Token], s.[Sort], s.[GroupId], s.[MasterId],s.[Icon],COALESCE(COALESCE(s.Icon, (select [t].Icon from [arc].[Selection] as [t] where [t].[SelectionId] = [s].[MasterId])) ,'default.icon.png') as SecondaryIcon from [arc].[Selection]  as [s] where [s].[SelectionId] = " + SelectionIdParamName ;
 
             cmd.CommandText = sql;
 
@@ -98,7 +98,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select s.[SelectionId], s.[Display], s.[Token], s.[Sort], s.[GroupId], s.[MasterId],s.[Icon],COALESCE(COALESCE(s.Icon, (select [t].Icon from [dbo].[Selection] as [t] where [t].[SelectionId] = [s].[MasterId])) ,'default.icon.png') as SecondaryIcon from [dbo].[Selection]  as [s]";
+            string sql = "select s.[SelectionId], s.[Display], s.[Token], s.[Sort], s.[GroupId], s.[MasterId],s.[Icon],COALESCE(COALESCE(s.Icon, (select [t].Icon from [arc].[Selection] as [t] where [t].[SelectionId] = [s].[MasterId])) ,'default.icon.png') as SecondaryIcon from [arc].[Selection]  as [s]";
             cmd.CommandText = sql;
 
             return cmd;
@@ -108,7 +108,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select s.SelectionId as Id,[Display],COALESCE(COALESCE(s.Icon, (select [t].Icon from [dbo].[Selection] as [t] where [t].[SelectionId] = [s].[MasterId])) ,'default.icon.png') as [DisplayAlt], [SelectionId] as IntVal from dbo.Selection as s ";
+            string sql = "select s.SelectionId as Id,[Display],COALESCE(COALESCE(s.Icon, (select [t].Icon from [arc].[Selection] as [t] where [t].[SelectionId] = [s].[MasterId])) ,'default.icon.png') as [DisplayAlt], [SelectionId] as IntVal from [arc].Selection as s ";
 
             cmd.CommandText = sql;
 

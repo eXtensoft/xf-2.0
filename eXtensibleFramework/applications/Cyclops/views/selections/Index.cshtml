@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Cyclops.Web.SelectionViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    var groupList = Cyclops.SelectListItemCache.Instance.ReadList("none");
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<hr/>
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Display)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Token)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sort)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MasterId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icon)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><a href="~/selections/details/@item.SelectionId"><img src="~/Content/Images/@item.SecondaryIcon" height="25" style="margin-top: 5px;" /></a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Display)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Token)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sort)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MasterId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icon)
+            </td>
+
+            <td>
+
+                @if (User.IsInRole("admin"))
+                {
+                    <a href="~/selections/edit/@item.SelectionId " class="glyphicon glyphicon-pencil" />
+                }
+           </td>
+            <td>
+                @if (User.IsInRole("admin"))
+                {
+                    <a href="~/selections/delete/@item.SelectionId" class="glyphicon glyphicon-remove"> </a>
+                }
+            </td>
+        </tr>
+    }
+
+</table>

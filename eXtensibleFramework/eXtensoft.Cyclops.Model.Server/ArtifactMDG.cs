@@ -43,9 +43,9 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = " BEGIN TRAN declare @artifactId int insert into [dbo].[Artifact] ( [Id],[ArtifactTypeId],[Mime],[ContentLength],[OriginalFilename],[Location],[Title] ,[Tds]) values (" + IdParamName + "," + ArtifactTypeIdParamName + "," + MimeParamName + "," + ContentLengthParamName + "," + OriginalFilenameParamName + "," + LocationParamName + "," + TitleParamName + "," + TdsParamName +  ")" +
+            string sql = " BEGIN TRAN declare @artifactId int insert into [arc].[Artifact] ( [Id],[ArtifactTypeId],[Mime],[ContentLength],[OriginalFilename],[Location],[Title] ,[Tds]) values (" + IdParamName + "," + ArtifactTypeIdParamName + "," + MimeParamName + "," + ContentLengthParamName + "," + OriginalFilenameParamName + "," + LocationParamName + "," + TitleParamName + "," + TdsParamName +  ")" +
                 " select @artifactId = SCOPE_IDENTITY()   IF @@ERROR <> 0 BEGIN ROLLBACK TRAN return  END " +
-                " insert into [dbo].[documentation] ([ArtifactId],[ArtifactScopeTypeId],[ArtifactScopeId]) values ( @artifactId ," + ArtifactScopeTypeIdParamName + "," + ArtifactScopeIdParamName + " ) " +
+                " insert into [arc].[documentation] ([ArtifactId],[ArtifactScopeTypeId],[ArtifactScopeId]) values ( @artifactId ," + ArtifactScopeTypeIdParamName + "," + ArtifactScopeIdParamName + " ) " +
                 " IF @@ERROR <> 0 BEGIN ROLLBACK TRAN return  END COMMIT TRAN";
 
             cmd.CommandText = sql;
@@ -68,7 +68,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [dbo].[Artifact] set [Id] = " + IdParamName + " , [ArtifactTypeId] = " + ArtifactTypeIdParamName + " , [Mime] = " + MimeParamName + " , [ContentLength] = " + ContentLengthParamName + " , [OriginalFilename] = " + OriginalFilenameParamName + " , [Location] = " + LocationParamName + " , [Title] = " + TitleParamName + " where [ArtifactId] = " + ArtifactIdParamName;
+            string sql = "update [arc].[Artifact] set [Id] = " + IdParamName + " , [ArtifactTypeId] = " + ArtifactTypeIdParamName + " , [Mime] = " + MimeParamName + " , [ContentLength] = " + ContentLengthParamName + " , [OriginalFilename] = " + OriginalFilenameParamName + " , [Location] = " + LocationParamName + " , [Title] = " + TitleParamName + " where [ArtifactId] = " + ArtifactIdParamName;
 
 
             cmd.CommandText = sql;
@@ -88,7 +88,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [dbo].[Artifact] where [ArtifactId] = " + ArtifactIdParamName;
+            string sql = "delete from [arc].[Artifact] where [ArtifactId] = " + ArtifactIdParamName;
 
             cmd.CommandText = sql;
 
@@ -104,16 +104,16 @@ namespace Cyclops
             if (criterion.ContainsStrategy())
             {
                 sql = "select a.[ArtifactId], a.[Id], a.[ArtifactTypeId], a.[Mime], a.[ContentLength], a.[OriginalFilename],a.[Location], a.[Title], a.[Tds],d.[DocumentId]," +
-                "d.[ArtifactScopeTypeId],d.[ArtifactScopeId] from [dbo].[Artifact] as a INNER JOIN [dbo].[Documentation] as d ON a.[ArtifactId] = d.[ArtifactId] " +
+                "d.[ArtifactScopeTypeId],d.[ArtifactScopeId] from [arc].[Artifact] as a INNER JOIN [arc].[Documentation] as d ON a.[ArtifactId] = d.[ArtifactId] " +
                 "where d.[DocumentId] =  " + DocumentIdParamName;
                 cmd.Parameters.AddWithValue(DocumentIdParamName, criterion.GetValue<int>("DocumentId"));
             }
             else
             {
 
-                //sql = "select [ArtifactId], [Id], [ArtifactTypeId], [Mime], [ContentLength], [OriginalFilename], [Location], [Title],[Tds] from [dbo].[Artifact] where [ArtifactId] = " + ArtifactIdParamName;
+                //sql = "select [ArtifactId], [Id], [ArtifactTypeId], [Mime], [ContentLength], [OriginalFilename], [Location], [Title],[Tds] from [arc].[Artifact] where [ArtifactId] = " + ArtifactIdParamName;
                 sql = "select a.[ArtifactId], a.[Id], a.[ArtifactTypeId], a.[Mime], a.[ContentLength], a.[OriginalFilename],a.[Location], a.[Title], a.[Tds],d.[DocumentId]," +
-                "d.[ArtifactScopeTypeId],d.[ArtifactScopeId] from [dbo].[Artifact] as a INNER JOIN [dbo].[Documentation] as d ON a.[ArtifactId] = d.[ArtifactId] " +
+                "d.[ArtifactScopeTypeId],d.[ArtifactScopeId] from [arc].[Artifact] as a INNER JOIN [arc].[Documentation] as d ON a.[ArtifactId] = d.[ArtifactId] " +
                 "where a.[ArtifactId] =  " + ArtifactIdParamName;
                 //cmd.Parameters.AddWithValue(ArtifactIdParamName, criterion.GetValue<int>("ArtifactIdId"));
             }
@@ -132,7 +132,7 @@ namespace Cyclops
             {
                 string key = criterion.GetStrategyKey();
                 string sql = "select a.[ArtifactId], a.[Id], a.[ArtifactTypeId], a.[Mime], a.[ContentLength], a.[OriginalFilename],a.[Location], a.[Title], a.[Tds],d.[DocumentId]," +
-                    "d.[ArtifactScopeTypeId],d.[ArtifactScopeId] from [dbo].[Artifact] as a INNER JOIN [dbo].[Documentation] as d ON a.[ArtifactId] = d.[ArtifactId] " +
+                    "d.[ArtifactScopeTypeId],d.[ArtifactScopeId] from [arc].[Artifact] as a INNER JOIN [arc].[Documentation] as d ON a.[ArtifactId] = d.[ArtifactId] " +
                 "where d.[ArtifactScopeTypeId] = " + ArtifactScopeTypeIdParamName + " and  d.[ArtifactScopeId] = " + ArtifactScopeIdParamName;
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue(ArtifactScopeTypeIdParamName, criterion.GetValue<int>("ScopeTypeId"));
@@ -141,7 +141,7 @@ namespace Cyclops
             else
             {
                 string sql = "select a.[ArtifactId], a.[Id], a.[ArtifactTypeId], a.[Mime], a.[ContentLength], a.[OriginalFilename],a.[Location], a.[Title], a.[Tds],d.[DocumentId]," +
-                    "d.[ArtifactScopeTypeId],d.[ArtifactScopeId] from [dbo].[Artifact] as a INNER JOIN [dbo].[Documentation] as d ON a.[ArtifactId] = d.[ArtifactId] ";
+                    "d.[ArtifactScopeTypeId],d.[ArtifactScopeId] from [arc].[Artifact] as a INNER JOIN [arc].[Documentation] as d ON a.[ArtifactId] = d.[ArtifactId] ";
                 cmd.CommandText = sql;
             }
             return cmd;

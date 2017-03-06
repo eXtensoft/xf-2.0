@@ -1,0 +1,68 @@
+﻿@model  Cyclops.Web.ArtifactViewModel
+
+@{ 
+
+
+    IEnumerable<ArtifactViewModel> list = Cyclops.SelectionListUtility.GetArtifacts(Model.ArtifactScopeTypeId, Model.ArtifactScopeId);
+
+}
+
+
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+
+        </th>
+        <th>
+             Filename
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+
+        <th>
+            Uploaded
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+@foreach (var item in list) {
+    <tr>
+        <td>
+        @if (item.IsImage)
+        {
+            <a href="/docview/image?id=@item.ArtifactId" target="_blank">view</a>
+
+        }
+        else if (item.IsText)
+        {
+            <a href="/docview/text?id=@item.ArtifactId" target="_blank">view</a>
+
+        }
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtifactType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OriginalFilename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.UploadedOn)
+        </td>
+        <td>
+            @Html.ActionLink("download","download",new { id = @item.DocumentId}))
+        </td>
+    </tr>
+}
+
+</table>
+

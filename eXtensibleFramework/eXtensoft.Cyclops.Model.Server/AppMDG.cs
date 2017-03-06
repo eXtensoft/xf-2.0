@@ -35,7 +35,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "insert into [dbo].[App] ( [AppTypeId],[Name],[Alias],[Description],[Tags] ) values (" + AppTypeIdParamName + "," + NameParamName + "," + AliasParamName + "," + DescriptionParamName + "," + TagsParamName + ")";
+            string sql = "insert into [arc].[App] ( [AppTypeId],[Name],[Alias],[Description],[Tags] ) values (" + AppTypeIdParamName + "," + NameParamName + "," + AliasParamName + "," + DescriptionParamName + "," + TagsParamName + ")";
 
             cmd.CommandText = sql;
 
@@ -52,7 +52,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [dbo].[App] set [AppTypeId] = " + AppTypeIdParamName + " , [Name] = " + NameParamName + 
+            string sql = "update [arc].[App] set [AppTypeId] = " + AppTypeIdParamName + " , [Name] = " + NameParamName + 
                 " , [Alias] = " + AliasParamName + " , [Description] = " + DescriptionParamName + " , [Tags] = " + TagsParamName  + 
                 " where [AppId] = " + AppIdParamName ;
 
@@ -73,7 +73,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [dbo].[App] where [AppId] = " + AppIdParamName;
+            string sql = "delete from [arc].[App] where [AppId] = " + AppIdParamName;
 
             cmd.CommandText = sql;
 
@@ -86,7 +86,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [AppId], [AppTypeId], [Name], [Alias], [Description], [Tags] from [dbo].[App] where [AppId] = " + AppIdParamName ;
+            string sql = "select [AppId], [AppTypeId], [Name], [Alias], [Description], [Tags] from [arc].[App] where [AppId] = " + AppIdParamName ;
 
             cmd.CommandText = sql;
 
@@ -99,7 +99,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [AppId], [AppTypeId], [Name], [Alias], [Description], [Tags] from [dbo].[App] ";
+            string sql = "select [AppId], [AppTypeId], [Name], [Alias], [Description], [Tags] from [arc].[App] ";
             cmd.CommandText = sql;
 
             return cmd;
@@ -109,7 +109,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "Select [a].[AppId] as [Id], [a].[Name] as [Display], COALESCE([s].[Icon] ,select Icon from [dbo].[selections] where [SelectionId] = [s].MasterId)as [DisplayAlt], [a].[AppId] as [IntVal] from [dbo].[App] as [a] inner join [dbo].[Selection] as [s] on " +
+            string sql = "Select [a].[AppId] as [Id], [a].[Name] as [Display], COALESCE([s].[Icon] ,select Icon from [arc].[selections] where [SelectionId] = [s].MasterId)as [DisplayAlt], [a].[AppId] as [IntVal] from [arc].[App] as [a] inner join [arc].[Selection] as [s] on " +
                 "[a].[AppTypeId] = [s].[SelectionId]";
 
             cmd.CommandText = sql;

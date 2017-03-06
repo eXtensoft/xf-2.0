@@ -1,0 +1,118 @@
+﻿@model Cyclops.Web.AppViewModel
+
+@{
+    ViewBag.Title = "Detail";
+
+    var scopeTypes = Cyclops.SelectionListUtility.GetReverseDictionary("artifact-scope");
+
+    ArtifactViewModel data = new ArtifactViewModel()
+    {
+        ArtifactScopeTypeId = scopeTypes["solution-artifact"],
+        ArtifactScopeId = Model.AppId,
+        ArtifactScope = Model.Name,
+    };
+
+    var s = data.ArtifactScope;
+
+    Tuple<string, int, bool> favorite = new Tuple<string, int, bool>("app", Model.AppId, Model.IsFavorite);
+
+}
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Server</h4>
+        <div>
+            <h4>Application</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                @Html.Partial("_AddFavorite", favorite)
+                <dt>
+                    @Html.DisplayNameFor(model => model.AppId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AppId)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AppType)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AppType)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Alias)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Alias)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Tags)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Tags)
+                </dd>
+
+                @if (User.IsInRole("admin"))
+                {
+                    <dt>
+                        <a href="~/apps/edit/@Model.AppId " class="glyphicon glyphicon-pencil"></a>
+                    </dt>
+                    <dd>
+
+                    </dd>
+
+                }
+
+            </dl>
+
+        </div>
+        <p><a href="~/apps" class="glyphicon glyphicon-list"></a></p>
+     </div>
+    <div class="col-md-6">
+
+        <div>
+            @Html.Partial("_Documents", data)
+        </div>
+
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a type="button" data-toggle="collapse" data-parent="#accordion" href="#new-deployment"><span class="glyphicon glyphicon-plus-sign"></span></a>
+            </h4>
+        </div>
+        <div id="new-deployment" class="panel-collapse collapse">
+            @Html.Partial("_FileUpload", data)
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+

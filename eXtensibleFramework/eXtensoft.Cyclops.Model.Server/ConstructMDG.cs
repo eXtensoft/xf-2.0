@@ -34,7 +34,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "insert into [dbo].[Construct] ( [ConstructTypeId],[ScopeId],[Name],[Alias] ) values (" + ConstructTypeIdParamName + "," + ScopeIdParamName + "," + NameParamName + "," + AliasParamName + ")";
+            string sql = "insert into [arc].[Construct] ( [ConstructTypeId],[ScopeId],[Name],[Alias] ) values (" + ConstructTypeIdParamName + "," + ScopeIdParamName + "," + NameParamName + "," + AliasParamName + ")";
 
             cmd.CommandText = sql;
 
@@ -50,7 +50,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [dbo].[Construct] set [ConstructTypeId] = " + ConstructTypeIdParamName + " , [ScopeId] = " + ScopeIdParamName + " , [Name] = " + NameParamName + " , [Alias] = " + AliasParamName  + " where [ConstructId] = " + ConstructIdParamName ;
+            string sql = "update [arc].[Construct] set [ConstructTypeId] = " + ConstructTypeIdParamName + " , [ScopeId] = " + ScopeIdParamName + " , [Name] = " + NameParamName + " , [Alias] = " + AliasParamName  + " where [ConstructId] = " + ConstructIdParamName ;
 
 
             cmd.CommandText = sql;
@@ -67,7 +67,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [dbo].[Construct] where [ConstructId] = " + ConstructIdParamName;
+            string sql = "delete from [arc].[Construct] where [ConstructId] = " + ConstructIdParamName;
 
             cmd.CommandText = sql;
 
@@ -80,7 +80,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [ConstructId], [ConstructTypeId], [ScopeId], [Name], [Alias] from [dbo].[Construct] where [ConstructId] = " + ConstructIdParamName ;
+            string sql = "select [ConstructId], [ConstructTypeId], [ScopeId], [Name], [Alias] from [arc].[Construct] where [ConstructId] = " + ConstructIdParamName ;
 
             cmd.CommandText = sql;
 
@@ -93,7 +93,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [ConstructId], [ConstructTypeId], [ScopeId], [Name], [Alias] from [dbo].[Construct] ";
+            string sql = "select [ConstructId], [ConstructTypeId], [ScopeId], [Name], [Alias] from [arc].[Construct] ";
             cmd.CommandText = sql;
 
             return cmd;

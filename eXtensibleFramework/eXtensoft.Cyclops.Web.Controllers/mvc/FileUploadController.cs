@@ -12,7 +12,7 @@ namespace Cyclops.Controllers
     using Web;
     using XF.Common;
 
-    //[Authorize(Roles="guest,member,admin")]
+    ////[Authorize(Roles="guest,member,admin")]
     public abstract class FileUploadController : Controller
     {
         public virtual string ErrorViewName { get { return "Error"; } }

@@ -32,7 +32,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "insert into [dbo].[ComponentConstruct] (  ) values (" +  "foo" + ")";
+            string sql = "insert into [arc].[ComponentConstruct] (  ) values (" +  "foo" + ")";
 
             cmd.CommandText = sql;
 
@@ -44,7 +44,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [dbo].[ComponentConstruct]";
+            string sql = "update [arc].[ComponentConstruct]";
 
 
             cmd.CommandText = sql;
@@ -57,7 +57,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [dbo].[ComponentConstruct] where [ComponentId] = " + ComponentIdParamName;
+            string sql = "delete from [arc].[ComponentConstruct] where [ComponentId] = " + ComponentIdParamName;
 
             cmd.CommandText = sql;
 
@@ -70,7 +70,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [ComponentConstructId], [ComponentId], [ConstructId] from [dbo].[ComponentConstruct] where [ComponentId] = " + ComponentIdParamName ;
+            string sql = "select [ComponentConstructId], [ComponentId], [ConstructId] from [arc].[ComponentConstruct] where [ComponentId] = " + ComponentIdParamName ;
 
             cmd.CommandText = sql;
 
@@ -83,7 +83,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [ComponentConstructId], [ComponentId], [ConstructId] from [dbo].[ComponentConstruct] where [ComponentId] = " + ComponentIdParamName ;
+            string sql = "select [ComponentConstructId], [ComponentId], [ConstructId] from [arc].[ComponentConstruct] where [ComponentId] = " + ComponentIdParamName ;
             cmd.CommandText = sql;
 
             cmd.Parameters.AddWithValue( ComponentIdParamName, criterion.GetValue<int>("ComponentId") );

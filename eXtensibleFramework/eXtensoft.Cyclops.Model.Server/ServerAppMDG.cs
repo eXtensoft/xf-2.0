@@ -40,7 +40,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "insert into [dbo].[ServerApp] ([ServerId],[AppId],[ZoneId],[ScopeId],[DomainId],[Folderpath],[BackupFolderpath]) values (" + ServerIdParamName + 
+            string sql = "insert into [arc].[ServerApp] ([ServerId],[AppId],[ZoneId],[ScopeId],[DomainId],[Folderpath],[BackupFolderpath]) values (" + ServerIdParamName + 
                 "," + AppIdParamName + "," + ZoneIdParamName + "," + ScopeIdParamName + "," + DomainIdParamName + "," + FolderpathParamName + "," + BackupFolderpathParamName + ")";
 
             cmd.CommandText = sql;
@@ -67,7 +67,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [dbo].[ServerApp] set [ZoneId] = " + ZoneIdParamName + ",[ScopeId] = " + ScopeIdParamName + ",[DomainId] = " + DomainIdParamName +
+            string sql = "update [arc].[ServerApp] set [ZoneId] = " + ZoneIdParamName + ",[ScopeId] = " + ScopeIdParamName + ",[DomainId] = " + DomainIdParamName +
                 ",[Folderpath] = " + FolderpathParamName + ",[BackupFolderpath] = " + BackupFolderpathParamName + " where [ServerAppId] = " + ServerAppIdParamName;
 
 
@@ -94,7 +94,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [dbo].[ServerApp] where [ServerId] = " + ServerIdParamName;
+            string sql = "delete from [arc].[ServerApp] where [ServerId] = " + ServerIdParamName;
 
             cmd.CommandText = sql;
 
@@ -107,7 +107,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "SELECT sa.ServerAppId, sa.ServerId, sa.AppId, sa.Folderpath, sa.BackupFolderpath, sa.ZoneId, sa.ScopeId, sa.DomainId, s.SecurityId, s.ExternalIP, s.InternalIP FROM dbo.ServerApp AS sa INNER JOIN dbo.Server AS s ON sa.ServerId = s.ServerId where sa.[ServerAppId] = " + ServerAppIdParamName;
+            string sql = "SELECT sa.ServerAppId, sa.ServerId, sa.AppId, sa.Folderpath, sa.BackupFolderpath, sa.ZoneId, sa.ScopeId, sa.DomainId, s.SecurityId, s.ExternalIP, s.InternalIP FROM [arc].ServerApp AS sa INNER JOIN [arc].Server AS s ON sa.ServerId = s.ServerId where sa.[ServerAppId] = " + ServerAppIdParamName;
 
             cmd.CommandText = sql;
 
@@ -120,7 +120,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "SELECT sa.ServerAppId, sa.ServerId, sa.AppId, sa.Folderpath, sa.BackupFolderpath, sa.ZoneId, sa.ScopeId, sa.DomainId, s.SecurityId, s.ExternalIP, s.InternalIP FROM dbo.ServerApp AS sa INNER JOIN dbo.Server AS s ON sa.ServerId = s.ServerId ";
+            string sql = "SELECT sa.ServerAppId, sa.ServerId, sa.AppId, sa.Folderpath, sa.BackupFolderpath, sa.ZoneId, sa.ScopeId, sa.DomainId, s.SecurityId, s.ExternalIP, s.InternalIP FROM [arc].ServerApp AS sa INNER JOIN [arc].Server AS s ON sa.ServerId = s.ServerId ";
             if (criterion != null)
             {
                 if (criterion.ContainsStrategy())

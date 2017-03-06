@@ -39,7 +39,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "insert into [dbo].[Server] ( [OperatingSystemId],[HostPlatformId],[SecurityId],[Name],[Alias],[Description],[ExternalIP],[InternalIP],[Tags] ) values (" + OperatingSystemIdParamName + "," + HostPlatformIdParamName + "," + SecurityIdParamName + "," + NameParamName + "," + AliasParamName + "," + DescriptionParamName + "," + ExternalIPParamName + "," + InternalIPParamName + "," + TagsParamName + ")";
+            string sql = "insert into [arc].[Server] ( [OperatingSystemId],[HostPlatformId],[SecurityId],[Name],[Alias],[Description],[ExternalIP],[InternalIP],[Tags] ) values (" + OperatingSystemIdParamName + "," + HostPlatformIdParamName + "," + SecurityIdParamName + "," + NameParamName + "," + AliasParamName + "," + DescriptionParamName + "," + ExternalIPParamName + "," + InternalIPParamName + "," + TagsParamName + ")";
 
             cmd.CommandText = sql;
 
@@ -60,7 +60,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [dbo].[Server] set [OperatingSystemId] = " + OperatingSystemIdParamName + " , [HostPlatformId] = " + HostPlatformIdParamName + " , [SecurityId] = " + SecurityIdParamName + " , [Name] = " + NameParamName + " , [Alias] = " + AliasParamName + " , [Description] = " + DescriptionParamName + " , [ExternalIP] = " + ExternalIPParamName + " , [InternalIP] = " + InternalIPParamName + " , [Tags] = " + TagsParamName  + " where [ServerId] = " + ServerIdParamName ;
+            string sql = "update [arc].[Server] set [OperatingSystemId] = " + OperatingSystemIdParamName + " , [HostPlatformId] = " + HostPlatformIdParamName + " , [SecurityId] = " + SecurityIdParamName + " , [Name] = " + NameParamName + " , [Alias] = " + AliasParamName + " , [Description] = " + DescriptionParamName + " , [ExternalIP] = " + ExternalIPParamName + " , [InternalIP] = " + InternalIPParamName + " , [Tags] = " + TagsParamName  + " where [ServerId] = " + ServerIdParamName ;
 
 
             cmd.CommandText = sql;
@@ -83,7 +83,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [dbo].[Server] where [ServerId] = " + ServerIdParamName;
+            string sql = "delete from [arc].[Server] where [ServerId] = " + ServerIdParamName;
 
             cmd.CommandText = sql;
 
@@ -96,7 +96,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [ServerId], [OperatingSystemId], [HostPlatformId], [SecurityId], [Name], [Alias], [Description], [ExternalIP], [InternalIP], [Tags] from [dbo].[Server] where [ServerId] = " + ServerIdParamName ;
+            string sql = "select [ServerId], [OperatingSystemId], [HostPlatformId], [SecurityId], [Name], [Alias], [Description], [ExternalIP], [InternalIP], [Tags] from [arc].[Server] where [ServerId] = " + ServerIdParamName ;
 
             cmd.CommandText = sql;
 
@@ -109,7 +109,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [ServerId], [OperatingSystemId], [HostPlatformId], [SecurityId], [Name], [Alias], [Description], [ExternalIP], [InternalIP], [Tags] from [dbo].[Server] ";
+            string sql = "select [ServerId], [OperatingSystemId], [HostPlatformId], [SecurityId], [Name], [Alias], [Description], [ExternalIP], [InternalIP], [Tags] from [arc].[Server] ";
             StringBuilder sb = new StringBuilder();
             sb.Append(sql);
             int i = 0;

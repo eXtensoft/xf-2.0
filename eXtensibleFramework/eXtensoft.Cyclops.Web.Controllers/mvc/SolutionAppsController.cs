@@ -106,7 +106,7 @@ namespace Cyclops.Controllers
             return RedirectToAction("Index", "SolutionApps", 1);
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         // GET: SolutionApps/Create
         public ActionResult Create()
         {
@@ -114,7 +114,7 @@ namespace Cyclops.Controllers
         }
 
         // POST: SolutionApps/Create
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -131,14 +131,14 @@ namespace Cyclops.Controllers
         }
 
         // GET: SolutionApps/Edit/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Edit(int id)
         {
             return View();
         }
 
         // POST: SolutionApps/Edit/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -155,7 +155,7 @@ namespace Cyclops.Controllers
         }
 
         // GET: SolutionApps/Delete/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Delete(int id)
         {
             return View();

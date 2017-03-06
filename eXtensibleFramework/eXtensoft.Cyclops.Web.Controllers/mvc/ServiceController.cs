@@ -10,7 +10,7 @@ namespace Cyclops.Controllers
     using System.Web.Mvc;
     using XF.Common;
 
-    [Authorize(Roles = "guest,member")]
+   // //[Authorize(Roles = "guest,member")]
     public abstract class ServiceController : Controller
     {
         public virtual string ErrorViewName { get { return "Error"; } }

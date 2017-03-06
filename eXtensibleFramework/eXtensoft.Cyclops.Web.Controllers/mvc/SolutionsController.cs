@@ -44,14 +44,14 @@ namespace Cyclops.Controllers
         }
 
         // GET: Solution/Create
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Solution/Create
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Create(SolutionViewModel vm)
         {
@@ -74,7 +74,7 @@ namespace Cyclops.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult AddApp(int solutionId, int appId)
         {
@@ -96,7 +96,7 @@ namespace Cyclops.Controllers
 
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult AddZone(SolutionZoneViewModel viewModel)
         {
@@ -115,7 +115,7 @@ namespace Cyclops.Controllers
         }
 
         // GET: Solution/Edit/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Edit(int id)
         {
             Criterion c = new Criterion("SolutionId", id);
@@ -134,7 +134,7 @@ namespace Cyclops.Controllers
         }
 
         // POST: Solution/Edit/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Edit(SolutionViewModel viewModel)
         {
@@ -157,14 +157,14 @@ namespace Cyclops.Controllers
         }
 
         // GET: Solution/Delete/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Delete(int id)
         {
             return View();
         }
 
         // POST: Solution/Delete/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Delete(SolutionViewModel viewModel)
         {

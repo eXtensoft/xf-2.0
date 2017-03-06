@@ -69,7 +69,7 @@ namespace Cyclops.Controllers
         }
 
         // GET: ServerApps/Create
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult Create(string data)
         {
@@ -96,7 +96,7 @@ namespace Cyclops.Controllers
         }
 
         // POST: ServerApps/Create
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Create(ServerAppViewModel viewModel)
         {
@@ -116,7 +116,7 @@ namespace Cyclops.Controllers
         }
 
         // GET: ServerApps/Edit/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Edit(int id, Nullable<int> solutionapps)
         {
             var criterion = new Criterion("ServerAppId", id);
@@ -133,7 +133,7 @@ namespace Cyclops.Controllers
         }
 
         // POST: ServerApps/Edit/5
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Edit(ServerAppViewModel viewModel)
         {

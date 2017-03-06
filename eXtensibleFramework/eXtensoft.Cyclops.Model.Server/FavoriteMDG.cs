@@ -24,10 +24,10 @@ namespace Cyclops
         {
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            string sql = "if exists (select 1 from dbo.Favorite where Model = " + ModelParamname + " and Username = " + UserParamname +
-                " and ModelId = " + ModelIdParamname + ") begin delete from dbo.Favorite where Model = " + ModelParamname +
+            string sql = "if exists (select 1 from [arc].[Favorite] where Model = " + ModelParamname + " and Username = " + UserParamname +
+                " and ModelId = " + ModelIdParamname + ") begin delete from [arc].[Favorite] where Model = " + ModelParamname +
                 " and Username = " + UserParamname + " and ModelId = " + ModelIdParamname + " end else begin " +
-                "insert into [dbo].[Favorite]([Username],[Model],[ModelId]) values (" + UserParamname +
+                "insert into [arc].[Favorite]([Username],[Model],[ModelId]) values (" + UserParamname +
                 "," + ModelParamname + "," + ModelIdParamname + ") end";
             cmd.CommandText = sql;
             cmd.Parameters.AddWithValue(UserParamname, t.Username);
@@ -42,7 +42,7 @@ namespace Cyclops
         {
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            StringBuilder sb = new StringBuilder("select[FavoriteId],[Username],[Model],[ModelId],[Tds] from[dbo].[Favorite] ");
+            StringBuilder sb = new StringBuilder("select[FavoriteId],[Username],[Model],[ModelId],[Tds] from[arc].[Favorite] ");
             if (criterion.ContainsStrategy())
             {
                 int i = 0;

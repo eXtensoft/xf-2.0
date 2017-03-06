@@ -32,7 +32,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "insert into [dbo].[Zone] ( [Name],[Alias] ) values (" + NameParamName + "," + AliasParamName + ")";
+            string sql = "insert into [arc].[Zone] ( [Name],[Alias] ) values (" + NameParamName + "," + AliasParamName + ")";
 
             cmd.CommandText = sql;
 
@@ -46,7 +46,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [dbo].[Zone] set [Name] = " + NameParamName + " , [Alias] = " + AliasParamName  + " where [ZoneId] = " + ZoneIdParamName ;
+            string sql = "update [arc].[Zone] set [Name] = " + NameParamName + " , [Alias] = " + AliasParamName  + " where [ZoneId] = " + ZoneIdParamName ;
 
 
             cmd.CommandText = sql;
@@ -61,7 +61,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [dbo].[Zone] where [ZoneId] = " + ZoneIdParamName;
+            string sql = "delete from [arc].[Zone] where [ZoneId] = " + ZoneIdParamName;
 
             cmd.CommandText = sql;
 
@@ -74,7 +74,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [ZoneId], [Name], [Alias] from [dbo].[Zone] where [ZoneId] = " + ZoneIdParamName ;
+            string sql = "select [ZoneId], [Name], [Alias] from [arc].[Zone] where [ZoneId] = " + ZoneIdParamName ;
 
             cmd.CommandText = sql;
 
@@ -87,7 +87,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [ZoneId], [Name], [Alias] from [dbo].[Zone] ";
+            string sql = "select [ZoneId], [Name], [Alias] from [arc].[Zone] ";
             cmd.CommandText = sql;
 
             return cmd;

@@ -34,7 +34,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "insert into [dbo].[Component] ( [ComponentTypeId],[Name],[Alias],[Description] ) values (" + ComponentTypeIdParamName + "," + NameParamName + "," + AliasParamName + "," + DescriptionParamName + ")";
+            string sql = "insert into [arc].[Component] ( [ComponentTypeId],[Name],[Alias],[Description] ) values (" + ComponentTypeIdParamName + "," + NameParamName + "," + AliasParamName + "," + DescriptionParamName + ")";
 
             cmd.CommandText = sql;
 
@@ -50,7 +50,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [dbo].[Component] set [ComponentTypeId] = " + ComponentTypeIdParamName + " , [Name] = " + NameParamName + " , [Alias] = " + AliasParamName + " , [Description] = " + DescriptionParamName  + " where [ComponentId] = " + ComponentIdParamName ;
+            string sql = "update [arc].[Component] set [ComponentTypeId] = " + ComponentTypeIdParamName + " , [Name] = " + NameParamName + " , [Alias] = " + AliasParamName + " , [Description] = " + DescriptionParamName  + " where [ComponentId] = " + ComponentIdParamName ;
 
 
             cmd.CommandText = sql;
@@ -67,7 +67,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [dbo].[Component] where [ComponentId] = " + ComponentIdParamName;
+            string sql = "delete from [arc].[Component] where [ComponentId] = " + ComponentIdParamName;
 
             cmd.CommandText = sql;
 
@@ -80,7 +80,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [ComponentId], [ComponentTypeId], [Name], [Alias], [Description] from [dbo].[Component] where [ComponentId] = " + ComponentIdParamName ;
+            string sql = "select [ComponentId], [ComponentTypeId], [Name], [Alias], [Description] from [arc].[Component] where [ComponentId] = " + ComponentIdParamName ;
 
             cmd.CommandText = sql;
 
@@ -93,7 +93,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [ComponentId], [ComponentTypeId], [Name], [Alias], [Description] from [dbo].[Component] ";
+            string sql = "select [ComponentId], [ComponentTypeId], [Name], [Alias], [Description] from [arc].[Component] ";
             cmd.CommandText = sql;
 
             return cmd;

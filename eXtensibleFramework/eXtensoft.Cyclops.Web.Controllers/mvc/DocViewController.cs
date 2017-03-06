@@ -12,6 +12,7 @@ namespace Cyclops.Controllers
     using System.Web.Mvc;
     using Web;
     using XF.Common;
+
     public sealed class DocViewController : ServiceController
     {
         //public ActionResult Text(string location)
