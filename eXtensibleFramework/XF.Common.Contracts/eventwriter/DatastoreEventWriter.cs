@@ -16,17 +16,20 @@ namespace XF.Common
                     eXError error = new eXError(properties);
                     SqlServerEventWriter.Post(error);
                     break;
+                case EventTypeOption.Alert:
+                    SqlServerEventWriter.PostAlert(properties);
+                    break;
                 case EventTypeOption.Status:
                 case EventTypeOption.Task:
-                case EventTypeOption.Alert:
                 case EventTypeOption.Kpi:
                 case EventTypeOption.None:
                 case EventTypeOption.Event:
                 default:
-                    SqlServerEventWriter.Post(properties);
+                    SqlServerEventWriter.PostList(properties);
                     break;
             }
         }
+
 
         protected override void Publish(eXMetric metric)
         {

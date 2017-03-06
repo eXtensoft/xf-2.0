@@ -37,7 +37,7 @@ namespace XF.Common
         public static readonly string ServiceToken;
         public static readonly bool Inform;
         public static readonly string LogKey;
-
+        public static readonly bool ProcessAlerts;
         public static readonly string ApiRoot;
         public static readonly string ApiErrors;
         public static readonly string ApiEvents;
