@@ -30,7 +30,31 @@ namespace XF.Common
             //typeof(DateTimeOffset),
             typeof(Guid),
         };
-
+        public static string ToConcat(this IEnumerable<string> list, string delimiter = ",", bool toLower = false, string delimeterSubstitute = "-")
+        {
+            int i = 0;
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in list)
+            {
+                if (i++ > 0)
+                {
+                    sb.Append(delimiter);
+                }
+                if (!String.IsNullOrEmpty(item))
+                {
+                    string input = item.Contains(delimiter) ? item.Replace(delimiter, delimeterSubstitute).Trim() : item.Trim();
+                    if (toLower)
+                    {
+                        sb.Append(input.ToLower());
+                    }
+                    else
+                    {
+                        sb.Append(input.Trim());
+                    }
+                }
+            }
+            return sb.ToString();
+        }
         public static T Clone<T>(this T item) where T : class, new()
         {
             T t = default(T);

@@ -36,7 +36,7 @@ namespace XF.Common
         public DateTimeOffset Tds { get; set; }
 
         [DataMember]
-        public IEnumerable<TypedItem> Items { get; set; }
+        public List<TypedItem> Items { get; set; }
 
         [DataMember]
         public Guid MessageId { get; set; }
