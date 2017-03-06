@@ -44,6 +44,8 @@ namespace XF.Common
 
         public const string IsAsyncAttributeName = "isAsync";
 
+        public const string HandleAlerts = "handleAlerts";
+
         public const string CaptureMetricsAttributeName = "captureMetrics";
 
         public const string UserIdParamNameAttributName = "userIdParamName";

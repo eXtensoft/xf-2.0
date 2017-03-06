@@ -4,6 +4,7 @@
 
 namespace XF.Common
 {
+    using System;
     using System.Configuration;
 
     public sealed class eXtensibleFrameworkSection : ConfigurationSection
@@ -148,5 +149,23 @@ namespace XF.Common
             set { this[ConfigConstants.ServiceTokenAttributeName] = value; }
         }
 
+        [ConfigurationProperty(ConfigConstants.HandleAlerts, IsRequired = false)]
+        public bool HandleAlerts
+        {
+            get
+            {
+                bool b = false;
+                object o = this[ConfigConstants.HandleAlerts];
+                if (o != null && Boolean.TryParse(o.ToString(), out b))
+                {
+                    return b;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            set { this[ConfigConstants.HandleAlerts] = value; }
+        }
     }
 }

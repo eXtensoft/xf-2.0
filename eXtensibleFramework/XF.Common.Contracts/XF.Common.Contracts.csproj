@@ -34,8 +34,10 @@
     </Compile>
     <Compile Include="common\alerts\AlertAudience.cs" />
     <Compile Include="common\alerts\AlertCategories.cs" />
+    <Compile Include="common\alerts\AlertHandler.cs" />
     <Compile Include="common\alerts\AlertInterest.cs" />
     <Compile Include="common\alerts\AlertPublisher.cs" />
+    <Compile Include="common\alerts\AlertPublisherLoader.cs" />
     <Compile Include="common\alerts\AlertSubscriber.cs" />
     <Compile Include="common\alerts\AlertTarget.cs" />
     <Compile Include="common\alerts\AlertWriter.cs" />

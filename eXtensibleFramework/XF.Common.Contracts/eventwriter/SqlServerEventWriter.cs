@@ -60,9 +60,9 @@ namespace XF.Common
         public static void PostAlert(List<TypedItem> properties)
         {
             eXAlert model = new eXAlert(properties);
-            if (eXtensibleConfig.ProcessAlerts)
+            if (eXtensibleConfig.HandleAlerts)
             {
-                ProcessAlert(model);
+                HandleAlert(model);
             }
             PostAlert(model);
         }
@@ -99,7 +99,7 @@ namespace XF.Common
             }
         }
 
-        private static void ProcessAlert(eXAlert model)
+        private static void HandleAlert(eXAlert model)
         {
 
         }
@@ -146,7 +146,7 @@ namespace XF.Common
                         cmd.Parameters.AddWithValue(urgencyParamName, model.Urgency);
                         var xml = GenericSerializer.DbParamFromItem(model);
                         cmd.Parameters.AddWithValue(XmlDataParamName, xml);
-                        cmd.Parameters.AddWithValue(dispositionParamName, model.Dispositions.ToConcat(";", true));
+                        cmd.Parameters.AddWithValue(dispositionParamName, "none");
                         cmd.Parameters.AddWithValue(createdAtParamName, DateTime.Now);
 
                         cmd.CommandText = sql;
