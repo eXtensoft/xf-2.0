@@ -10,6 +10,8 @@ namespace XF.Common
     using System.Data;
     using System.Linq;
     using System.Text;
+    using Wcf;
+
     //using XF.Common.Wcf;
 
     public class Message<T> : IMessage<T>, IRequest<T>, IResponse<T>, IRequestContext where T : class, new()
@@ -294,19 +296,19 @@ namespace XF.Common
         }
         void IContext.Set<U>(U u)
         {
-        //    if (typeof(T).IsSerializable)
-        //    {
-        //        try
-        //        {
-        //            string s = GenericSerializer.GenericItemToParam<T>(t);
-        //            _Items.Add(new TypedItem(XFConstants.EventWriter.ModelT, t));
-        //        }
-        //        catch 
-        //        {
-        //            _Items.Add(new TypedItem(XFConstants.EventWriter.ModelT, "Model could not be serialized."));
-        //        }
+            if (typeof(T).IsSerializable)
+            {
+                try
+                {
+                    string s = GenericSerializer.GenericItemToParam<U>(u);
+                    _Items.Add(new TypedItem(XFConstants.EventWriter.ModelT, u));
+                }
+                catch
+                {
+                    _Items.Add(new TypedItem(XFConstants.EventWriter.ModelT, "Model could not be serialized."));
+                }
 
-        //    }  
+            }
         }
 
         public override string ToString()
@@ -329,45 +331,45 @@ namespace XF.Common
         }
 
 
-        //public virtual void Assimilate(DataPacket item)
-        //{
-        //    item.Items.Clear();
-        //    item.Items = this.Items;
-            
-        //    switch (item.ModelAction)
-        //    {
-        //        case ModelActionOption.None:
-        //            break;
-        //        case ModelActionOption.Delete:
-        //            break;
-        //        case ModelActionOption.Post:
-        //        case ModelActionOption.Put:
-        //        case ModelActionOption.Get:
-        //            if (this.Content != null && this.Content.Count >= 1 && this.Content[0] != null)
-        //            {
-        //                item.Buffer = GenericSerializer.ItemToByteArray(Content[0]);
-        //            }
-        //            break;
-        //        case ModelActionOption.GetAll:
-        //        case ModelActionOption.GetAllProjections:
-        //            if (this.Content != null)
-        //            {
-        //                item.Buffer = GenericSerializer.ItemToByteArray(this.Content);
-        //            }
-        //            break;               
-        //        case ModelActionOption.ExecuteAction:
-        //            break;
-        //        case ModelActionOption.ExecuteCommand:
-        //            item.Tables = new DataSet();
-        //            if (this.Data != null && this.Data.Tables.Count >0)
-        //            {
-        //                item.Tables = this.Data;
-        //            }
-        //            break;
-        //        default:
-        //            break;
-        //    }            
-        //}
+        public virtual void Assimilate(DataPacket item)
+        {
+            item.Items.Clear();
+            item.Items = this.Items;
+
+            switch (item.ModelAction)
+            {
+                case ModelActionOption.None:
+                    break;
+                case ModelActionOption.Delete:
+                    break;
+                case ModelActionOption.Post:
+                case ModelActionOption.Put:
+                case ModelActionOption.Get:
+                    if (this.Content != null && this.Content.Count >= 1 && this.Content[0] != null)
+                    {
+                        item.Buffer = GenericSerializer.ItemToByteArray(Content[0]);
+                    }
+                    break;
+                case ModelActionOption.GetAll:
+                case ModelActionOption.GetAllProjections:
+                    if (this.Content != null)
+                    {
+                        item.Buffer = GenericSerializer.ItemToByteArray(this.Content);
+                    }
+                    break;
+                case ModelActionOption.ExecuteAction:
+                    break;
+                case ModelActionOption.ExecuteCommand:
+                    item.Tables = new DataSet();
+                    if (this.Data != null && this.Data.Tables.Count > 0)
+                    {
+                        item.Tables = this.Data;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
 
         string IContext.Zone
         {
