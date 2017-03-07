@@ -90,6 +90,11 @@
   <ItemGroup>
     <Content Include="data\httpstatuscodes.xml" />
     <Content Include="data\messageprovider.generic.xml" />
+    <Content Include="sql.scripts\log\ddl.log.Alert.sql" />
+    <Content Include="sql.scripts\log\ddl.log.eXtensibleList.sql" />
+    <Content Include="sql.scripts\log\ddl.log.Error.sql" />
+    <Content Include="sql.scripts\log\ddl.log.ApiRequest.sql" />
+    <Content Include="sql.scripts\schema\ddl.schemas.log.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
