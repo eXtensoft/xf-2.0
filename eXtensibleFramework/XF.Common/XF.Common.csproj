@@ -28,7 +28,6 @@
       <Link>AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="api\ApiModelRequestService.cs" />
-    <Compile Include="ColorConsole.cs" />
     <Compile Include="common\auth\Authorization.cs" />
     <Compile Include="common\auth\GrantOption.cs" />
     <Compile Include="common\auth\Permission.cs" />

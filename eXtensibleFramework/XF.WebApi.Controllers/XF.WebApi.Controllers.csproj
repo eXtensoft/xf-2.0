@@ -40,6 +40,7 @@
     <Compile Include="EndpointController.cs" />
     <Compile Include="EndpointServiceController.cs" />
     <Compile Include="eXtensibleMessageDataProvider.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="MvcServiceController.cs" />
   </ItemGroup>
   <ItemGroup>

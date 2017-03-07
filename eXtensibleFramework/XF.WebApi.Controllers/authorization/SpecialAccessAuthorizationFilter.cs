@@ -12,6 +12,7 @@ namespace XF.WebApi
     using System.Threading.Tasks;
     using System.Web.Http.Controllers;
 
+
     public class SpecialAccessAuthorizationFilter : WebApiAuthorizationFilter
     {
         protected override bool IsAuthorized(HttpActionContext context)
@@ -22,14 +23,19 @@ namespace XF.WebApi
             {
                 string authSchema = authHeader.Scheme;
                 string authValue = authHeader.Parameter;
-                if (authSchema.Equals("special"))
+                if (authSchema.Equals("special") && !String.IsNullOrWhiteSpace(authValue))
                 {
-                    //if (authValue.Equals(eXtensibleConfig.ServiceToken))
-                    //{
-                        b = true;
-                    //}
+                    b = authValue.IsSpecial();
                 }
             }
+            return b;
+        }
+
+        private static bool IsSpecial(string token)
+        {
+            bool b = false;
+
+
             return b;
         }
     }
