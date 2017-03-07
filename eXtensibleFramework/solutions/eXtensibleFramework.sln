@@ -41,6 +41,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eXtensoft.Styx.Model.Server
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyclops", "..\applications\Cyclops\Cyclops.csproj", "{BE5BEEC9-6E02-4A31-8F0C-B824D43B4BDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoService", "..\applications\DemoService\DemoService.csproj", "{FFB79B25-03F2-45C3-AFD4-EA990774A530}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoHarness", "..\applications\DemoHarness\DemoHarness.csproj", "{9CB22190-5FE9-4393-BE9A-A2C44C47983C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +119,14 @@ Global
 		{BE5BEEC9-6E02-4A31-8F0C-B824D43B4BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE5BEEC9-6E02-4A31-8F0C-B824D43B4BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE5BEEC9-6E02-4A31-8F0C-B824D43B4BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFB79B25-03F2-45C3-AFD4-EA990774A530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFB79B25-03F2-45C3-AFD4-EA990774A530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFB79B25-03F2-45C3-AFD4-EA990774A530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFB79B25-03F2-45C3-AFD4-EA990774A530}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB22190-5FE9-4393-BE9A-A2C44C47983C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB22190-5FE9-4393-BE9A-A2C44C47983C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB22190-5FE9-4393-BE9A-A2C44C47983C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB22190-5FE9-4393-BE9A-A2C44C47983C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

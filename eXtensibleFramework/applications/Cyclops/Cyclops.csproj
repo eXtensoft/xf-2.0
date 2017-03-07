@@ -260,6 +260,10 @@
     <Content Include="content\themes\light\bootstrap.css" />
     <Content Include="content\themes\light\bootstrap.min.css" />
     <Content Include="content\themes\light\Site.css" />
+    <Content Include="db.configs\cyclops.dbconfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="GenericService.svc" />
     <Content Include="Global.asax" />

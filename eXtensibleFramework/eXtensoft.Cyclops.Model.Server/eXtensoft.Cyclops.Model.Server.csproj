@@ -67,6 +67,7 @@
     <Compile Include="ComponentMDG.cs" />
     <Compile Include="ConstructMDG.cs" />
     <Compile Include="FavoriteMDG.cs" />
+    <Compile Include="NoteMDG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectionMDG.cs" />
     <Compile Include="ServerAppMDG.cs" />

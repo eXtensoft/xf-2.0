@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{71A9EE8E-153F-41B8-ADD1-021B87D09918}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConsoleServer</RootNamespace>
+    <AssemblyName>ConsoleServer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Company.Technology.Model\Company.Technology.Model.csproj">
+      <Project>{1f9a9867-dcfc-4744-9c2c-00b060559b0a}</Project>
+      <Name>Company.Technology.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common.Contracts\XF.Common.Contracts.csproj">
+      <Project>{fa50240d-01b2-4cf5-a48d-061174f9cc0f}</Project>
+      <Name>XF.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common.Server.Contracts\XF.Common.Server.Contracts.csproj">
+      <Project>{b59977e0-0aeb-4139-9f6e-41b3c41b70f8}</Project>
+      <Name>XF.Common.Server.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common.Server\XF.Common.Server.csproj">
+      <Project>{0338d1c0-dd0f-421f-a7fb-1e6e5b134a30}</Project>
+      <Name>XF.Common.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common\XF.Common.csproj">
+      <Project>{1409b4cc-a9f6-4f3d-9d84-8bbb33fbedb9}</Project>
+      <Name>XF.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Services.Server\XF.Services.Server.csproj">
+      <Project>{1a8323ef-6717-411e-b558-7c48a71f068d}</Project>
+      <Name>XF.Services.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Services\XF.Services.csproj">
+      <Project>{d49fabcd-087f-4c36-ba2b-146abd91ec5e}</Project>
+      <Name>XF.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.SqlServer.Contracts\XF.SqlServer.Contracts.csproj">
+      <Project>{0c195d61-dfe7-46f7-a72e-635293ce558b}</Project>
+      <Name>XF.SqlServer.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

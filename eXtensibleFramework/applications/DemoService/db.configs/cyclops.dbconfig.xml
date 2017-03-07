@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DbConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" appKey="cyclops">
+  <Models>
+    <Model key="Cyclops.Note" modelType="Cyclops.Note">
+      <ModelActions>
+        <ModelAction verb="Post" dbCommandKey="post" />
+        <ModelAction verb="Put" dbCommandKey="put" />
+        <ModelAction verb="Delete" dbCommandKey="delete" />
+        <ModelAction verb="Get" dbCommandKey="get" />
+        <ModelAction verb="GetAll" dbCommandKey="getall" />
+        <ModelAction verb="GetAllProjections" dbCommandKey="getallprojections" />
+      </ModelActions>
+      <Commands>
+        <DbCommand key="post" type="Text">
+          <Parameters>
+            <Parameter name="@subject" dataType="String" mode="in" allowsNull="false" target="Subject" />
+            <Parameter name="@body" dataType="String" mode="in" allowsNull="false" target="Body" />
+            <Parameter name="@useridentity" dataType="String" mode="in" allowsNull="false" target="UserIdentity" />
+            <Parameter name="@tds" dataType="DateTime" mode="in" allowsNull="false" target="Tds" />
+          </Parameters>
+          <CommandText>insert into [dbo].[Note] ( [Subject],[Body],[UserIdentity],[Tds]) values (@subject,@body,@useridentity,@tds) select [NoteId],[Subject],[Body],[UserIdentity],[Tds] from [dbo].[Note] where [NoteId] = scope_identity()</CommandText>
+        </DbCommand>
+        <DbCommand key="put" type="Text">
+          <Parameters>
+            <Parameter name="@subject" dataType="String" mode="in" allowsNull="false" target="Subject" />
+            <Parameter name="@body" dataType="String" mode="in" allowsNull="false" target="Body" />
+            <Parameter name="@useridentity" dataType="String" mode="in" allowsNull="false" target="UserIdentity" />
+            <Parameter name="@tds" dataType="DateTime" mode="in" allowsNull="false" target="Tds" />
+          </Parameters>
+          <CommandText>update [dbo].[Note] set [Subject] = [@subject],[Body] = [@body],[UserIdentity] = [@useridentity],[Tds] = [@tds] where [dbo].[Note] = @noteid select [NoteId],[Subject],[Body],[UserIdentity],[Tds] from [dbo].[dbo] where [NoteId] = @noteid</CommandText>
+        </DbCommand>
+        <DbCommand key="put" type="Text">
+          <Parameters>
+            <Parameter name="@noteid" dataType="Int32" mode="in" allowsNull="false" target="NoteId" />
+          </Parameters>
+          <CommandText>delete from [dbo].[Note] where [NoteId] = @noteid</CommandText>
+        </DbCommand>
+        <DbCommand key="get" type="Text">
+          <Parameters>
+            <Parameter name="@noteid" dataType="Int32" mode="in" allowsNull="false" target="NoteId" />
+          </Parameters>
+          <CommandText>select [NoteId],[Subject],[Body],[UserIdentity],[Tds] from [dbo].[dbo] where [NoteId] = @noteid</CommandText>
+        </DbCommand>
+        <DbCommand key="get-all" type="Text">
+          <Parameters />
+          <CommandText>select [NoteId],[Subject],[Body],[UserIdentity],[Tds]</CommandText>
+        </DbCommand>
+      </Commands>
+      <DataMaps />
+    </Model>
+  </Models>
+</DbConfig>
