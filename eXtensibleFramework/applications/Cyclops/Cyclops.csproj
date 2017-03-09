@@ -275,8 +275,8 @@
     </Content>
     <Content Include="app_config\appSettings.config" />
     <Content Include="app_config\connectionStrings.config" />
-    <Content Include="app_config\xf.webApi.config" />
-    <Content Include="app_config\xf.application.config" />
+    <Content Include="app_config\eXtensoft.webApi.config" />
+    <Content Include="app_config\eXtensoft.application.config" />
     <Content Include="app_config\selectDatabase.config" />
     <Content Include="content\themes\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="content\themes\fonts\glyphicons-halflings-regular.ttf" />
