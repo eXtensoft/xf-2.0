@@ -8,7 +8,7 @@ namespace XF.WebApi
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using Common;
+    using XF.Common;
     using System.ComponentModel.Composition;
     using System.Xml;
     using System.Xml.Serialization;

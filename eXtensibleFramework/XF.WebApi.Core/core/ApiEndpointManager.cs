@@ -4,7 +4,7 @@
 
 namespace XF.WebApi.Core
 {
-    using Common;
+    using XF.Common;
     using System;
     using System.Web.Hosting;
     using System.Collections;

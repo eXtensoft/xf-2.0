@@ -39,11 +39,10 @@
     <Compile Include="contracts\IApiRequestProvider.cs" />
     <Compile Include="contracts\IEndpointController.cs" />
     <Compile Include="HttpExtensionMethods.cs" />
-    <Compile Include="HttpResources.Designer.cs" />
-    <Compile Include="HttpResources1.Designer.cs">
-      <DependentUpon>HttpResources.resx</DependentUpon>
+    <Compile Include="HttpResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>HttpResources.resx</DependentUpon>
     </Compile>
     <Compile Include="message.provider\HttpMessageProvider.cs" />
     <Compile Include="message.provider\MessageProvider.cs" />
@@ -71,14 +70,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="data\httpstatuscodes.xml" />
+    <Content Include="data\httpstatuscodes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="data\messageprovider.generic.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="HttpResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>HttpResources1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+      <LastGenOutput>HttpResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,6 +2,7 @@
 
 namespace XF.WebApi
 {
+    using Common;
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
