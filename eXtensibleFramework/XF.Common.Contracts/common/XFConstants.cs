@@ -79,8 +79,8 @@ namespace XF.Common
             public const string FRAMEWORKSTRATEGYGROUPNAME = "xf.Plugin.Strategy";
             public const string MODELS = "Models";
             public const string ModelDataGateways = "MDG";
-            public const string SectionName = "xf.application";
-            public const string DefaultLogSource = "xf.Log";
+            public const string SectionName = "eXtensoft.application";
+            public const string DefaultLogSource = "eXtensoft.Log";
             public const string DefaultServiceToken = "80FF8B69-54DB-46B0-976D-96CB16C35B9F";
             //public const string STRATEGYSECTIONNAME = "";
         }
