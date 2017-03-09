@@ -4,7 +4,7 @@
 
 namespace XF.WebApi
 {
-    using Common;
+    using XF.Common;
     using System;
     using System.Collections.Generic;
 
@@ -31,7 +31,7 @@ namespace XF.WebApi
             public const LoggingModeOption LoggingMode = LoggingModeOption.All;
             public const string MessageProviderFolder = "messageprovider";
             public const string CatchAllControllerId = "CCCBFDC2-783C-49E6-B938-61F8ABDBB3C3";
-            public const string MessageIdHeaderKey = "X-Message-Id";
+            public const string MessageIdHeaderKey = "x-message-id";
             public const bool IsEditRegistration = false;
         }
     }

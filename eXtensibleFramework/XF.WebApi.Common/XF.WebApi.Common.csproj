@@ -14,6 +14,7 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Http">
       <HintPath>..\solutions\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
@@ -37,6 +38,16 @@
     <Compile Include="configuration\XFWebApiConstants.cs" />
     <Compile Include="contracts\IApiRequestProvider.cs" />
     <Compile Include="contracts\IEndpointController.cs" />
+    <Compile Include="HttpExtensionMethods.cs" />
+    <Compile Include="HttpResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HttpResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="message.provider\HttpMessageProvider.cs" />
+    <Compile Include="message.provider\MessageProvider.cs" />
+    <Compile Include="message.provider\SqlServerHttpMessageProvider.cs" />
+    <Compile Include="message.provider\XmlHttpMessageProvider.cs" />
     <Compile Include="model\ApiError.cs" />
     <Compile Include="model\ApiHttpStatusCode.cs" />
     <Compile Include="model\ApiLogOption.cs" />
@@ -49,12 +60,26 @@
     <Compile Include="request.provider\ApiRequestProvider.cs" />
     <Compile Include="request.provider\SqlServerApiRequestProvider.cs" />
     <Compile Include="RequestExtensionMethods.cs" />
+    <Compile Include="ResponseConfiguration.cs" />
+    <Compile Include="WebApiCaller.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XF.Common.Contracts\XF.Common.Contracts.csproj">
       <Project>{84d9f7df-79db-4c0a-81aa-ff0e1fbb2b53}</Project>
       <Name>XF.Common.Contracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\httpstatuscodes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\messageprovider.generic.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HttpResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HttpResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

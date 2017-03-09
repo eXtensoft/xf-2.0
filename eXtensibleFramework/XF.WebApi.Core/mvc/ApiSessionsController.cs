@@ -1,7 +1,7 @@
 ﻿
 namespace XF.WebApi.Core.mvc
 {
-    using Common;
+    using XF.Common;
     using System;
     using System.Collections.Generic;
     using System.Linq;
