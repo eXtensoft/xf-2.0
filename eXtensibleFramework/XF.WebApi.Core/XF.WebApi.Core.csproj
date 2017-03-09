@@ -44,27 +44,14 @@
     <Compile Include="core\eXtensibleMessageHandler.cs" />
     <Compile Include="core\ExtensionMethods.cs" />
     <Compile Include="core\WebApiRegistrar.cs" />
-    <Compile Include="HttpExtensionMethods.cs" />
-    <Compile Include="HttpResources.Designer.cs" />
-    <Compile Include="HttpResources1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HttpResources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="message.provider\HttpMessageProvider.cs" />
-    <Compile Include="message.provider\MessageProvider.cs" />
-    <Compile Include="message.provider\SqlServerHttpMessageProvider.cs" />
-    <Compile Include="message.provider\XmlHttpMessageProvider.cs" />
     <Compile Include="model\Endpoint.cs" />
     <Compile Include="mvc\ApiEndpointsController.cs" />
     <Compile Include="mvc\ApiErrorsController.cs" />
     <Compile Include="mvc\ApiRequestsController.cs" />
     <Compile Include="mvc\ApiSessionsController.cs" />
-    <Compile Include="ResponseConfiguration.cs" />
     <Compile Include="sqlserver\ApiErrorSqlAccess.cs" />
     <Compile Include="sqlserver\ApiRequestSqlAccess.cs" />
     <Compile Include="sqlserver\ApiSessionSqlAccess.cs" />
-    <Compile Include="WebApiCaller.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XF.Common.Contracts\XF.Common.Contracts.csproj">
@@ -81,15 +68,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HttpResources.resx">
-      <SubType>Designer</SubType>
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>HttpResources1.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="data\httpstatuscodes.xml" />
-    <Content Include="data\messageprovider.generic.xml" />
     <Content Include="sql.scripts\log\ddl.log.Alert.sql" />
     <Content Include="sql.scripts\log\ddl.log.eXtensibleList.sql" />
     <Content Include="sql.scripts\log\ddl.log.Error.sql" />
