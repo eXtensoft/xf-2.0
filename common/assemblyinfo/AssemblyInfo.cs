@@ -8,4 +8,4 @@ using System.Reflection;
 [assembly: AssemblyProduct("eXtensoft Web")]
 [assembly: AssemblyCopyright("Copyright © eXtensoft LLC 2017")]
 [assembly: AssemblyTrademark("eXtensoft")]
-[assembly: AssemblyVersion("3.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
