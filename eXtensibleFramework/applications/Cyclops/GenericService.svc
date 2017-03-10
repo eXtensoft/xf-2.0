@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="XF.Common.Wcf.DataPacketService"  %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="XF.Common.Wcf.GenericService"  %>
