@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,12 +19,25 @@ namespace DemoHarness
         {
             Console.WriteLine("ready...");
             Console.ReadLine();
-            GetSelections();
+            //GetSelections();
             //Execute();
+
+            ConfigProvide();
             Console.WriteLine("done...");
             Console.ReadLine();
         }
 
+        private static void ConfigProvide()
+        {
+            foreach (ConnectionStringSettings item in ConfigurationManager.ConnectionStrings)
+            {
+                Console.WriteLine(String.Format("{0}\t{1}", item.Name, item.ConnectionString));
+            }
+            foreach (ConnectionStringSettings item in ConfigurationProvider.ConnectionStrings)
+            {
+                ColorConsole.WriteLine(ConsoleColor.Blue,String.Format("{0}\t{1}", item.Name, item.ConnectionString));
+            }
+        }
         private static void Execute()
         {
             var svc = GetWcfModelService();
