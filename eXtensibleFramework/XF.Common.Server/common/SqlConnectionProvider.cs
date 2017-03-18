@@ -20,7 +20,7 @@ namespace XF.Common
         public static string GetConnectionString(string key)
         {
             string s = (!String.IsNullOrEmpty(key)) ? key : "default";
-            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[s];
+            ConnectionStringSettings settings = ConfigurationProvider.ConnectionStrings[s];
             return (settings != null) ? settings.ConnectionString : String.Empty;
         }
     }

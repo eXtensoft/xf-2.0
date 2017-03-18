@@ -60,7 +60,7 @@ namespace XF.WebApi.Core
                 XmlDataParamName + "," + MessageIdParamName + "," + BasicTokenParamName + "," + BearerTokenParamName + "," + AuthSchemaParamName + "," + AuthValueParamName + "," + MessageBodyParamName + ")";
 
 
-            var settings = ConfigurationManager.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
+            var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
             if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
             {
                 try
@@ -116,7 +116,7 @@ namespace XF.WebApi.Core
         //public static ApiRequest Get(int id)
         //{
         //    string schema = eXtensibleConfig.Zone.Equals("production", StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower() : "log";
-        //    var settings = ConfigurationManager.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
+        //    var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
         //    if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
         //    {
         //        try
@@ -162,7 +162,7 @@ namespace XF.WebApi.Core
         {
            List<ApiRequest> list = new List<ApiRequest>();
            string schema = eXtensibleConfig.Zone.Equals("production",StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower():"log";
-            var settings = ConfigurationManager.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
+            var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
             if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
             {
                 try
@@ -243,7 +243,7 @@ namespace XF.WebApi.Core
             List<ApiRequest> list = new List<ApiRequest>();
             totalCount = 0;
             string schema = eXtensibleConfig.Zone.Equals("production", StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower() : "log";
-            var settings = ConfigurationManager.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
+            var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
             if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
             {
                 try
@@ -416,7 +416,7 @@ namespace XF.WebApi.Core
             ApiRequest item = null;
 
             string sql = "";
-            var settings = ConfigurationManager.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
+            var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
             if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
             {
                 try

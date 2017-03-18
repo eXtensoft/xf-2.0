@@ -111,7 +111,7 @@ namespace XF.WebApi
         {
             List<ApiRequest> list = new List<ApiRequest>();
             string schema = eXtensibleConfig.Zone.Equals("production", StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower() : "log";
-            var settings = ConfigurationManager.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
+            var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
             if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
             {
                 try
@@ -175,7 +175,7 @@ namespace XF.WebApi
             ApiRequest item = null;
 
             string sql = "";
-            var settings = ConfigurationManager.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
+            var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
             if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
             {
                 try
@@ -218,7 +218,7 @@ namespace XF.WebApi
                 "," + AuthValueParamName + "," + MessageBodyParamName + "," + ErrorLogParamName + ")";
 
 
-            var settings = ConfigurationManager.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
+            var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
             if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
             {
                 try

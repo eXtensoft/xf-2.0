@@ -47,9 +47,9 @@ namespace XF.WebApi
 
                 LoggingModeOption loggingMode;
                 LoggingStrategyOption loggingStrategy;
-                string logToCandidate = ConfigurationManager.AppSettings[XFWebApiConstants.Config.LogToKey];
-                string loggingModeCandidate = ConfigurationManager.AppSettings[XFWebApiConstants.Config.LoggingModeKey];
-                string sqlConnectionKeyCandidate = ConfigurationManager.AppSettings[XFWebApiConstants.Config.SqlConnectionKey];
+                string logToCandidate = ConfigurationProvider.AppSettings[XFWebApiConstants.Config.LogToKey];
+                string loggingModeCandidate = ConfigurationProvider.AppSettings[XFWebApiConstants.Config.LoggingModeKey];
+                string sqlConnectionKeyCandidate = ConfigurationProvider.AppSettings[XFWebApiConstants.Config.SqlConnectionKey];
 
                 var configfilemap = new ExeConfigurationFileMap() { ExeConfigFilename = configfilepath };
                 Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configfilemap, ConfigurationUserLevel.None);
@@ -116,7 +116,7 @@ namespace XF.WebApi
                     {
                         try
                         {
-                            string cnText = ConfigurationManager.ConnectionStrings[SqlConnectionKey].ConnectionString;
+                            string cnText = ConfigurationProvider.ConnectionStrings[SqlConnectionKey].ConnectionString;
                             using (System.Data.SqlClient.SqlConnection cn = new System.Data.SqlClient.SqlConnection(cnText))
                             {
                                 cn.Open();

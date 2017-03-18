@@ -27,7 +27,7 @@ namespace XF.Common
         public bool Initialize(string connectionKey)
         {
             bool b = false;
-            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[connectionKey];
+            ConnectionStringSettings settings = ConfigurationProvider.ConnectionStrings[connectionKey];
             if (settings != null)
             {
                 b = Initialize(settings);

@@ -22,7 +22,7 @@ namespace XF.WebApi
         {
             try
             {
-                string customKeyCandidate = ConfigurationManager.AppSettings["api-custom-key"];
+                string customKeyCandidate = ConfigurationProvider.AppSettings["api-custom-key"];
                 if (!String.IsNullOrWhiteSpace(customKeyCandidate))
                 {
                     StringBuilder sb = new StringBuilder();

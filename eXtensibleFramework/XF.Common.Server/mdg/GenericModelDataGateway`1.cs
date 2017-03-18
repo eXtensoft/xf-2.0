@@ -932,10 +932,10 @@ namespace XF.Common
             }
             if (String.IsNullOrEmpty(connectionStringKey))
             {
-                int connectionStringCount = ConfigurationManager.ConnectionStrings.Count;
+                int connectionStringCount = ConfigurationProvider.ConnectionStrings.Count;
                 if (connectionStringCount > 0)
                 {
-                    var found = ConfigurationManager.ConnectionStrings[connectionStringCount - 1];
+                    var found = ConfigurationProvider.ConnectionStrings[connectionStringCount - 1];
                     connectionStringKey = found.Name;
                     if (eXtensibleConfig.Inform)
                     {
@@ -951,7 +951,7 @@ namespace XF.Common
             }
             else
             {
-                ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[connectionStringKey];
+                ConnectionStringSettings settings = ConfigurationProvider.ConnectionStrings[connectionStringKey];
                 if (settings == null)
                 {
                     var message = Exceptions.ComposeDbConnectionNullSettingsError<T>(option, t, context, connectionStringKey);
