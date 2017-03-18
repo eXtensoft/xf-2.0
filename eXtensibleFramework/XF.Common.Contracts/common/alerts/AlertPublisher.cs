@@ -79,7 +79,7 @@ namespace XF.Common
             {
                 if (String.IsNullOrWhiteSpace(_FromAddress))
                 {
-                    _FromAddress = System.Configuration.ConfigurationManager.AppSettings["alert.from.address"];
+                    _FromAddress = ConfigurationProvider.AppSettings["alert.from.address"];
                 }
                 return _FromAddress;            
             }

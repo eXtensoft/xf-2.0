@@ -25,6 +25,7 @@ namespace XF.Common
         public static readonly string ServicePlugins;
         public static readonly string ModelDataGatewayPlugins;
         public static readonly string RemoteProcedureCallPlugins;
+        public static readonly string ConfigurationProviderPlugins;
         public static readonly string DbConfigs;
         public static readonly string BaseDirectory;
         public static readonly string Context;
@@ -66,22 +67,23 @@ namespace XF.Common
                 ServicePlugins = configFolder + "\\" + "services";
                 RemoteProcedureCallPlugins = configFolder + "\\" + "rpc";
                 DbConfigs = configFolder + "\\" + "db.configs";
+                ConfigurationProviderPlugins = configFolder + "\\" + "config.provider";
                 BaseDirectory = configFolder;
                 var configfilemap = new ExeConfigurationFileMap() { ExeConfigFilename = configfilepath };
-                Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configfilemap, ConfigurationUserLevel.None);
+                Configuration config = ConfigurationProvider.OpenMappedExeConfiguration(configfilemap, ConfigurationUserLevel.None);
                 eXtensibleFrameworkSection section = config.Sections[XFConstants.Config.SectionName] as eXtensibleFrameworkSection;
                 if (section != null)
                 {
-                    string candidateContext = ConfigurationManager.AppSettings[XFConstants.Application.Config.ApplicationKey];
-                    string candidateZone = ConfigurationManager.AppSettings[XFConstants.Application.Config.ZoneKey];
-                    //string candidateLogging = ConfigurationManager.AppSettings[XFConstants.Application.Config.LoggingStrategyKey];
-                    //string candidateLoggingSeverity = ConfigurationManager.AppSettings[XFConstants.Application.Config.LoggingSeverityKey];
-                    string candidateConnectionStringKey = ConfigurationManager.AppSettings[XFConstants.Application.Config.ConnectionStringKey];
-                    string candidateLogSource = ConfigurationManager.AppSettings[XFConstants.Application.Config.LogSourceKey];
-                    string candidateBigDataUrl = ConfigurationManager.AppSettings[XFConstants.Application.Config.BigDataUrlKey];
-                    string candidateServiceToken = ConfigurationManager.AppSettings[XFConstants.Application.Config.ServiceTokenKey];
-                    string candidateInstance = ConfigurationManager.AppSettings[XFConstants.Application.Config.InstanceIdentifierKey];
-                    string candidateInfer = ConfigurationManager.AppSettings[XFConstants.Application.Config.InferKey];
+                    string candidateContext = ConfigurationProvider.AppSettings[XFConstants.Application.Config.ApplicationKey];
+                    string candidateZone = ConfigurationProvider.AppSettings[XFConstants.Application.Config.ZoneKey];
+                    //string candidateLogging = ConfigurationProvider.AppSettings[XFConstants.Application.Config.LoggingStrategyKey];
+                    //string candidateLoggingSeverity = ConfigurationProvider.AppSettings[XFConstants.Application.Config.LoggingSeverityKey];
+                    string candidateConnectionStringKey = ConfigurationProvider.AppSettings[XFConstants.Application.Config.ConnectionStringKey];
+                    string candidateLogSource = ConfigurationProvider.AppSettings[XFConstants.Application.Config.LogSourceKey];
+                    string candidateBigDataUrl = ConfigurationProvider.AppSettings[XFConstants.Application.Config.BigDataUrlKey];
+                    string candidateServiceToken = ConfigurationProvider.AppSettings[XFConstants.Application.Config.ServiceTokenKey];
+                    string candidateInstance = ConfigurationProvider.AppSettings[XFConstants.Application.Config.InstanceIdentifierKey];
+                    string candidateInfer = ConfigurationProvider.AppSettings[XFConstants.Application.Config.InferKey];
 
                     ZoneOption option;
                     if (Enum.TryParse<ZoneOption>(section.Zone, true, out option))

@@ -22,7 +22,7 @@ namespace XF.WebApi
             {
                 Guid id = new Guid(messageId);
                 string schema = eXtensibleConfig.Zone.Equals("production", StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower() : "log";
-                var settings = ConfigurationManager.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
+                var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
                 if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
                 {
                     try
@@ -70,7 +70,7 @@ namespace XF.WebApi
             Page<ApiError> page = new Page<ApiError>();
 
             string schema = eXtensibleConfig.Zone.Equals("production", StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower() : "log";
-            var settings = ConfigurationManager.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
+            var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
             if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
             {
                 try

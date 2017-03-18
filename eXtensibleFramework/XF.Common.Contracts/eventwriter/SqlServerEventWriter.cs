@@ -30,7 +30,7 @@ namespace XF.Common
         {
             try
             {
-                var settings = ConfigurationManager.ConnectionStrings[eXtensibleConfig.LogKey];
+                var settings = ConfigurationProvider.ConnectionStrings[eXtensibleConfig.LogKey];
                 if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
                 {
                     cnString = settings.ConnectionString;

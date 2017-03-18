@@ -18,17 +18,17 @@ namespace XF.Common
                 if (args.Length == 1)
                 {
                     string appkey = args[0];
-                    resolution = ConfigurationManager.AppSettings[appkey];
+                    resolution = ConfigurationProvider.AppSettings[appkey];
                 }
                 else if (args.Length == 2)
                 {
                     string appkey = string.Format("{0}.{1}", args[0], args[1]).Trim(new char[]{'.'});
-                    resolution = ConfigurationManager.AppSettings[appkey];
+                    resolution = ConfigurationProvider.AppSettings[appkey];
                 }
                 else if (args.Length == 3)
                 {
                     string appkey = string.Format("{0}.{1}.{2}", args[0], args[1].Trim(new char[] { '.' }), args[2]);
-                    resolution = ConfigurationManager.AppSettings[appkey];
+                    resolution = ConfigurationProvider.AppSettings[appkey];
                 }
             }
 

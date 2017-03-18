@@ -546,7 +546,7 @@ namespace XF.DataServices
             }
             else
             {
-                var cn = ConfigurationManager.ConnectionStrings[key];
+                var cn = ConfigurationProvider.ConnectionStrings[key];
                 if (cn != null)
                 {
                     MongoConnectionInfo info = new MongoConnectionInfo();

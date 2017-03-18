@@ -23,7 +23,7 @@ namespace XF.WebApi
             {
 
                 string schema = eXtensibleConfig.Zone.Equals("production", StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower() : "log";
-                var settings = ConfigurationManager.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
+                var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
                 if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
                 {
                     List<ApiSession> list = new List<ApiSession>();
@@ -75,7 +75,7 @@ namespace XF.WebApi
             Page<ApiSession> page = new Page<ApiSession>();
             List<ApiSession> list = new List<ApiSession>();
             string schema = eXtensibleConfig.Zone.Equals("production", StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower() : "log";
-            var settings = ConfigurationManager.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
+            var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
             if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
             {
                 try

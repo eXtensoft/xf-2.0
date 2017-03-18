@@ -21,7 +21,7 @@ namespace XF.Common
         {
             try
             {
-                string customKeyCandidate = ConfigurationManager.AppSettings["xf-custom-key"];
+                string customKeyCandidate = ConfigurationProvider.AppSettings["xf-custom-key"];
                 if (!String.IsNullOrWhiteSpace(customKeyCandidate))
                 {
                     StringBuilder sb = new StringBuilder();

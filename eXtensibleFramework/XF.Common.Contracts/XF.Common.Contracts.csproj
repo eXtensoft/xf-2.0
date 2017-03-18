@@ -60,6 +60,7 @@
     <Compile Include="common\StringExtensionMethods.cs" />
     <Compile Include="common\WindowsIdentityProvider.cs" />
     <Compile Include="common\XFConstants.cs" />
+    <Compile Include="configuration.provider\ConfigurationModule.cs" />
     <Compile Include="configuration\eXtensibleConfig.cs" />
     <Compile Include="configuration\eXtensibleFrameworkElement.cs" />
     <Compile Include="configuration\eXtensibleFrameworkElementCollection.cs" />
@@ -70,10 +71,13 @@
     <Compile Include="configuration\eXtensibleStrategySection.cs" />
     <Compile Include="configuration\eXtensibleStrategySectionGroup.cs" />
     <Compile Include="configuration\StrategyTypeOption.cs" />
+    <Compile Include="configuration.provider\SystemConfigurationProvider.cs" />
     <Compile Include="configuration\XmlConstants.cs" />
+    <Compile Include="configuration.provider\ConfigurationProvider.cs" />
     <Compile Include="contracts\ICache.cs" />
     <Compile Include="contracts\ICacheable`1.cs" />
     <Compile Include="contracts\IConfigStrategyResolver.cs" />
+    <Compile Include="contracts\IConfigurationProvider.cs" />
     <Compile Include="contracts\IContext.cs" />
     <Compile Include="contracts\ICriterion.cs" />
     <Compile Include="contracts\IDataRequestService.cs" />
@@ -113,6 +117,7 @@
     <Compile Include="enumerations\TraceEventTypeOption.cs" />
     <Compile Include="enumerations\ZoneOption.cs" />
     <Compile Include="eventwriter\CommonServicesWriter.cs" />
+    <Compile Include="configuration.provider\ConfigurationProviderLoader.cs" />
     <Compile Include="eventwriter\DatastoreEventWriter.cs" />
     <Compile Include="eventwriter\DebugEventWriter.cs" />
     <Compile Include="eventwriter\EventLogWriter.cs" />

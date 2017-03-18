@@ -77,7 +77,7 @@ namespace XF.WebApi
                 statusCodes = new List<ApiHttpStatusCode>();
             }
 
-            string candidates = ConfigurationManager.AppSettings["api.httpcodes.whitelist"];
+            string candidates = ConfigurationProvider.AppSettings["api.httpcodes.whitelist"];
             List<int> codes = new List<int>();
             if (!String.IsNullOrWhiteSpace(candidates))
             {
