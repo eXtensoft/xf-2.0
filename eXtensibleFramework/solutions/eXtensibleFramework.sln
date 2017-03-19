@@ -47,7 +47,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoHarness", "..\applicati
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{67E319E3-F558-4882-8ABD-B599044D2339}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Styx.Config", "..\ancillary\Styx.Config\Styx.Config.csproj", "{CBB9592C-07E8-4A20-9425-1ECE78403B4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Styx.ConfigurationProvider.Development", "..\ancillary\Styx.ConfigurationProvider.Development\Styx.ConfigurationProvider.Development.csproj", "{43F2B540-06FA-4013-85CF-A603B745D9CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,10 +131,10 @@ Global
 		{9CB22190-5FE9-4393-BE9A-A2C44C47983C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CB22190-5FE9-4393-BE9A-A2C44C47983C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CB22190-5FE9-4393-BE9A-A2C44C47983C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CBB9592C-07E8-4A20-9425-1ECE78403B4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CBB9592C-07E8-4A20-9425-1ECE78403B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CBB9592C-07E8-4A20-9425-1ECE78403B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CBB9592C-07E8-4A20-9425-1ECE78403B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43F2B540-06FA-4013-85CF-A603B745D9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F2B540-06FA-4013-85CF-A603B745D9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F2B540-06FA-4013-85CF-A603B745D9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F2B540-06FA-4013-85CF-A603B745D9CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -156,6 +156,6 @@ Global
 		{AA5F1E07-1ADC-4ADD-839D-9D5677174749} = {39152F15-6AC8-4F47-9458-42CE2257138E}
 		{D1FF4932-1073-4B76-AE56-95AEEB75850E} = {39152F15-6AC8-4F47-9458-42CE2257138E}
 		{9615B638-E557-4EAF-AD8F-E0DEB69BE08F} = {39152F15-6AC8-4F47-9458-42CE2257138E}
-		{CBB9592C-07E8-4A20-9425-1ECE78403B4A} = {67E319E3-F558-4882-8ABD-B599044D2339}
+		{43F2B540-06FA-4013-85CF-A603B745D9CF} = {67E319E3-F558-4882-8ABD-B599044D2339}
 	EndGlobalSection
 EndGlobal

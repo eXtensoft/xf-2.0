@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Styx.Config")]
+[assembly: AssemblyTitle("Styx.ConfigurationProvider.Development")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Styx.Config")]
+[assembly: AssemblyProduct("Styx.ConfigurationProvider.Development")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("cbb9592c-07e8-4a20-9425-1ece78403b4a")]
+[assembly: Guid("43f2b540-06fa-4013-85cf-a603b745d9cf")]
 
 // Version information for an assembly consists of the following four values:
 //
