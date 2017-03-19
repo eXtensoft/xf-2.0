@@ -53,6 +53,7 @@
     <Compile Include="common\GenericSerializer.cs" />
     <Compile Include="common\HttpService.cs" />
     <Compile Include="common\KeyPairStrategyResolver.cs" />
+    <Compile Include="common\ModuleLoader`1.cs" />
     <Compile Include="common\NetMemoryCache.cs" />
     <Compile Include="common\ParamsParser.cs" />
     <Compile Include="common\Parser.cs" />

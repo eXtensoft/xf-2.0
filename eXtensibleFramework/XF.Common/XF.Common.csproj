@@ -39,7 +39,6 @@
     <Compile Include="common\Infoset.cs" />
     <Compile Include="common\MetaSet.cs" />
     <Compile Include="common\ModelConverter.cs" />
-    <Compile Include="common\ModuleLoader`1.cs" />
     <Compile Include="common\ReplacementMap.cs" />
     <Compile Include="common\Replacer.cs" />
     <Compile Include="common\TypeMapCache.cs" />

@@ -40,25 +40,35 @@ namespace XF.Common.Contracts
                     try
                     {
                         FileInfo info = new FileInfo(file);
-                        Assembly assembly = Assembly.Load(info.FullName);
-                        foreach (Type type in assembly.GetTypes())
+                        List<string> folderpaths = new List<string>();
+                        folderpaths.Add(info.Directory.FullName);
+                        ConfigurationModule module = null;
+                        ModuleLoader<ConfigurationModule> loader = new ModuleLoader<ConfigurationModule>();
+                        loader.Folderpaths = folderpaths;
+                        if (loader.Load(out module) && module.Providers != null && module.Providers.Count > 0)
                         {
-                            if (typeof(IConfigurationProvider).IsAssignableFrom(type) && type.GetConstructor(Type.EmptyTypes) != null)
-                            {
-                                try
-                                {
-                                    provider = (IConfigurationProvider)Activator.CreateInstance(type);
-                                    b = true;
-                                    break;
-                                }
-                                catch (Exception ex)
-                                {
-                                    string activationMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
-                                    IEventWriter writer = new EventLogWriter();
-                                    writer.WriteError(activationMessage, SeverityType.Critical, "ConfigurationProvider");
-                                }
-                            }
+                            var x = module.Providers[0];
+                            var s = x.GetType();
                         }
+                        //Assembly assembly = Assembly.Load(info.FullName);
+                        //foreach (Type type in assembly.GetTypes())
+                        //{
+                        //    if (typeof(IConfigurationProvider).IsAssignableFrom(type) && type.GetConstructor(Type.EmptyTypes) != null)
+                        //    {
+                        //        try
+                        //        {
+                        //            provider = (IConfigurationProvider)Activator.CreateInstance(type);
+                        //            b = true;
+                        //            break;
+                        //        }
+                        //        catch (Exception ex)
+                        //        {
+                        //            string activationMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                        //            IEventWriter writer = new EventLogWriter();
+                        //            writer.WriteError(activationMessage, SeverityType.Critical, "ConfigurationProvider");
+                        //        }
+                        //    }
+                        //}
                     }
                     catch (Exception ex)
                     {
