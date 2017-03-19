@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using XF.Common.Contracts;
+﻿
 
 namespace XF.Common.Contracts
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.Composition;
+
     public class ConfigurationModule
     {
-        [Import]
-        public IEnumerable<IConfigurationProvider> Providers { get; set; }
+        [ImportMany(typeof(IConfigurationProvider))]
+        public List<IConfigurationProvider> Providers { get; set; }
 
     }
 }
