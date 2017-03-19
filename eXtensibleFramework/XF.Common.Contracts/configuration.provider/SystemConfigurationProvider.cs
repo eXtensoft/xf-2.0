@@ -44,7 +44,7 @@ namespace XF.Common.Contracts
             RefreshSection(sectionName);
         }
 
-        protected virtual NameValueCollection AppSettings { get { return ConfigurationProvider.AppSettings; } }
+        protected virtual NameValueCollection AppSettings { get { return ConfigurationManager.AppSettings; } }
 
         protected virtual ConnectionStringSettingsCollection ConnectionStrings { get { return ConfigurationManager.ConnectionStrings; } }
 
