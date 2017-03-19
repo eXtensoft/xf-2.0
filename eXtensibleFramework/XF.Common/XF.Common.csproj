@@ -48,6 +48,7 @@
     <Compile Include="common\TypeMappedHandler.cs" />
     <Compile Include="common\VersionInfo.cs" />
     <Compile Include="rpc\RpcClient`1.cs" />
+    <Compile Include="rpc\RpcConfigurationProvider.cs" />
     <Compile Include="services\ModelRequestService.cs" />
     <Compile Include="services\PassThroughModelRequestService.cs" />
     <Compile Include="services\PassThroughRpcRequestService.cs" />

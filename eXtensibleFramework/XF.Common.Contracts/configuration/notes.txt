@@ -1,0 +1,12 @@
+﻿AppContext
+Zone
+Region
+
+Expected
+	ConnectionStringMoniker
+	AppSettings
+
+ConnectionStrings
+	name
+	connectionString
+	provider

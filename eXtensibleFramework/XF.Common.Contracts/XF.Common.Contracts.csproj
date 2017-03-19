@@ -91,6 +91,7 @@
     <Compile Include="contracts\IModelRequestService.cs" />
     <Compile Include="contracts\IModelService.cs" />
     <Compile Include="contracts\IProject.cs" />
+    <Compile Include="contracts\IRemoteConfigService.cs" />
     <Compile Include="contracts\IRequestContext.cs" />
     <Compile Include="contracts\IRequest`1.cs" />
     <Compile Include="contracts\IResponse`1.cs" />
@@ -192,6 +193,7 @@
     <Compile Include="wcf\StatusCheckServiceClient.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="configuration\notes.txt" />
     <Content Include="packages.config.txt" />
   </ItemGroup>
   <ItemGroup>
