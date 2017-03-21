@@ -34,6 +34,8 @@ namespace XF.Common
 
         public const string ZoneAttributeName = "zone";
 
+        public const string ScopeAttributeName = "scope";
+
         public const string LoggingAttributeName = "loggingKey";
 
         public const string LogSourceAttributeName = "logSource";

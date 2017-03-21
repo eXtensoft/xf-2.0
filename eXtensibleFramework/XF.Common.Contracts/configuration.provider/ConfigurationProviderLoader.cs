@@ -47,28 +47,12 @@ namespace XF.Common.Contracts
                         loader.Folderpaths = folderpaths;
                         if (loader.Load(out module) && module.Providers != null && module.Providers.Count > 0)
                         {
-                            var x = module.Providers[0];
-                            var s = x.GetType();
+                           provider = module.Providers[0];
+                            if (provider != null)
+                            {
+                                b = true;
+                            }
                         }
-                        //Assembly assembly = Assembly.Load(info.FullName);
-                        //foreach (Type type in assembly.GetTypes())
-                        //{
-                        //    if (typeof(IConfigurationProvider).IsAssignableFrom(type) && type.GetConstructor(Type.EmptyTypes) != null)
-                        //    {
-                        //        try
-                        //        {
-                        //            provider = (IConfigurationProvider)Activator.CreateInstance(type);
-                        //            b = true;
-                        //            break;
-                        //        }
-                        //        catch (Exception ex)
-                        //        {
-                        //            string activationMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
-                        //            IEventWriter writer = new EventLogWriter();
-                        //            writer.WriteError(activationMessage, SeverityType.Critical, "ConfigurationProvider");
-                        //        }
-                        //    }
-                        //}
                     }
                     catch (Exception ex)
                     {

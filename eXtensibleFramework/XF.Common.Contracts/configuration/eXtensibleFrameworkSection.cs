@@ -9,7 +9,14 @@ namespace XF.Common
 
     public sealed class eXtensibleFrameworkSection : ConfigurationSection
     {
-       
+
+        [ConfigurationProperty(ConfigConstants.ScopeAttributeName, IsRequired = false)]
+        public string Scope
+        {
+            get { return (string)this[ConfigConstants.ScopeAttributeName]; }
+            set { this[ConfigConstants.ScopeAttributeName] = value; }
+        }
+
         [ConfigurationProperty(ConfigConstants.ZoneAttributeName, IsRequired = true)]
         public string Zone
         {
