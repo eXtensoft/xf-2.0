@@ -9,27 +9,6 @@ namespace XF.WebApi.Config
 
     public sealed class eXtensibleWebApiSection : ConfigurationSection
     {
-        //[ConfigurationProperty(ConfigConstants.ZoneAttributeName, IsRequired = true)]
-        //public string Zone
-        //{
-        //    get { return (string)this[ConfigConstants.ZoneAttributeName]; }
-        //    set { this[ConfigConstants.ZoneAttributeName] = value; }
-        //}
-
-        //[ConfigurationProperty(ConfigConstants.ContextAttributeName, IsRequired = false)]
-        //public string Context
-        //{
-        //    get { return (string)this[ConfigConstants.ContextAttributeName]; }
-        //    set { this[ConfigConstants.ContextAttributeName] = value; }
-        //}
-
-        //[ConfigurationProperty(ConfigConstants.InstanceIdAttributeName, IsRequired = false)]
-        //public string InstanceIdentifier
-        //{
-        //    get { return (string)this[ConfigConstants.InstanceIdAttributeName]; }
-        //    set { this[ConfigConstants.InstanceIdAttributeName] = value; }
-        //}
-
         [ConfigurationProperty(ConfigConstants.LogSourceAttributeName, IsRequired = false)]
         public string LogSource
         {

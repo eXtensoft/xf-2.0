@@ -11,6 +11,7 @@ namespace XF.Common
 
     public static class eXtensibleConfig
     {
+        public static readonly string Scope;
         public static readonly bool Extant;
         public static readonly string Exception;
         public static readonly string Zone;

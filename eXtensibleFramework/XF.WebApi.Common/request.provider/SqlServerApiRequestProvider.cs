@@ -165,6 +165,9 @@ namespace XF.WebApi
                 catch (Exception ex)
                 {
                     var message = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                    var props = eXtensibleConfig.GetProperties();
+                    IEventWriter writer = new EventLogWriter();
+                    writer.WriteError(message, SeverityType.Critical, "ApiRequest", props);
                 }
             }
             return list;
@@ -199,6 +202,9 @@ namespace XF.WebApi
                 catch (Exception ex)
                 {
                     var message = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                    var props = eXtensibleConfig.GetProperties();
+                    IEventWriter writer = new EventLogWriter();
+                    writer.WriteError(message, SeverityType.Critical, "ApiRequest", props);
                 }
             }
 
