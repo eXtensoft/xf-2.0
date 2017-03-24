@@ -22,9 +22,28 @@ namespace DemoHarness
             //GetSelections();
             //Execute();
 
-            ConfigProvide();
+            //ConfigProvide();
+
+            ExecuteAlert();
             Console.WriteLine("done...");
             Console.ReadLine();
+        }
+
+        private static void ExecuteAlert()
+        {
+            //List<string> list = new List<string>();
+            //list.Add(AlertAudiences.Developer.ToString());
+            //list.Add(AlertAudiences.CTO.ToString());
+            //var props = eXtensibleConfig.GetProperties();
+            //AlertWriter.Alert("alert title","alert message",new string[] { "DataAccess","METL" }, ScaleOption.High, ScaleOption.High,props,list.ToArray());
+
+            AlertWriter alert = new AlertWriter("source", "title", "message");
+            alert.Categories = AlertCategories.WebService | AlertCategories.Database;
+            alert.Audiences = AlertAudiences.Business | AlertAudiences.Operations;
+            alert.Importance = ScaleOption.Low;
+            alert.Urgency = ScaleOption.MediumHigh;
+            alert.SendAlert();
+
         }
 
         private static void ConfigProvide()
