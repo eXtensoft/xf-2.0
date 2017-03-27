@@ -57,7 +57,8 @@ namespace XF.WebApi
                     {
                         var message = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
                         var props = eXtensibleConfig.GetProperties();
-                        EventWriter.WriteError(message, SeverityType.Error, "DataAccess", props);
+                        IEventWriter writer = new EventLogWriter();
+                        writer.WriteError(message, SeverityType.Error, "DataAccess", props);
                     }
                 }
             }
@@ -99,7 +100,8 @@ namespace XF.WebApi
                 {
                     var message = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
                     var props = eXtensibleConfig.GetProperties();
-                    EventWriter.WriteError(message, SeverityType.Error, "DataAccess", props);
+                    IEventWriter writer = new EventLogWriter();
+                    writer.WriteError(message, SeverityType.Error, "DataAccess", props);
                 }
             }
 

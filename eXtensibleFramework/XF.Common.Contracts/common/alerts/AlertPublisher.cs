@@ -46,11 +46,11 @@ namespace XF.Common
         {
             get
             {
-                throw new NotImplementedException();
+                return FromAddress;
             }
             set
             {
-                throw new NotImplementedException();
+                FromAddress = value;
             }
         }
 
