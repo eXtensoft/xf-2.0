@@ -113,51 +113,7 @@ namespace XF.WebApi.Core
 
         }
 
-        //public static ApiRequest Get(int id)
-        //{
-        //    string schema = eXtensibleConfig.Zone.Equals("production", StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower() : "log";
-        //    var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
-        //    if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
-        //    {
-        //        try
-        //        {
-        //            using (SqlConnection cn = new SqlConnection(settings.ConnectionString))
-        //            {
-        //                cn.Open();
-        //                using (SqlCommand cmd = cn.CreateCommand())
-        //                {
-
-        //                    string sql = "SELECT   r.ApiRequestId, r.XmlData AS XmlRequest,  l.XmlData AS XmlLog" +
-        //                        " FROM[log].Error AS l RIGHT OUTER JOIN [log].ApiRequest AS r ON l.MessageId = r.MessageId" +
-        //                    " where r.[ApiRequestId] = " + ApiRequestIdParamName;
-        //                    cmd.Parameters.AddWithValue(ApiRequestIdParamName, id);
-
-        //                    cmd.CommandType = CommandType.Text;
-        //                    cmd.CommandText = sql;
-        //                    cmd.CommandTimeout = 0;
-
-        //                    using (SqlDataReader reader = cmd.ExecuteReader())
-        //                    {
-        //                        if (reader.Read())
-        //                        {
-
-        //                            string xml = reader.GetString(reader.GetOrdinal("XmlRequest"));
-        //                            var apiRequest = StringToRequest(xml);
-        //                            apiRequest.ApiRequestId = reader.GetInt64(reader.GetOrdinal("ApiRequestId"));
-        //                            list.Add(apiRequest);
-
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        catch(Exception ex)
-        //        {
-
-        //        }
-        //     }
-        //}
-
+ 
         public static IEnumerable<ApiRequest> Get(int id)
         {
            List<ApiRequest> list = new List<ApiRequest>();
@@ -221,6 +177,9 @@ namespace XF.WebApi.Core
                 catch (Exception ex)
                 {
                     var message = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                    IEventWriter writer = new EventLogWriter();
+                    var props = eXtensibleConfig.GetProperties();
+                    writer.WriteError(message, SeverityType.Critical, "ApiRequestSqlAccess", props);
                 }
             }
             return list;
@@ -403,6 +362,9 @@ namespace XF.WebApi.Core
                 catch (Exception ex)
                 {
                     var message = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                    IEventWriter writer = new EventLogWriter();
+                    var props = eXtensibleConfig.GetProperties();
+                    writer.WriteError(message, SeverityType.Critical, "ApiRequestSqlAccess", props);
                 }
             }
             return list;
@@ -440,6 +402,9 @@ namespace XF.WebApi.Core
                 catch (Exception ex)
                 {
                     var message = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                    IEventWriter writer = new EventLogWriter();
+                    var props = eXtensibleConfig.GetProperties();
+                    writer.WriteError(message, SeverityType.Critical, "ApiRequestSqlAccess", props);
                 }
             }
 
@@ -486,5 +451,6 @@ namespace XF.WebApi.Core
         {
             throw new NotImplementedException();
         }
+
     }
 }
