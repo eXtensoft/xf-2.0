@@ -8,6 +8,7 @@ namespace XF.WebApi
     using System.Collections.Generic;
     using System.Configuration;
     using System.IO;
+    using System.Text;
     using XF.Common;
     using XF.WebApi.Config;
 
@@ -37,6 +38,9 @@ namespace XF.WebApi
 
         static eXtensibleWebApiConfig()
         {
+            IEventWriter writer = new EventLogWriter();
+            StringBuilder message = new StringBuilder();
+            var props = eXtensibleConfig.GetProperties();
             try
             {
                 string configfilepath = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
@@ -54,12 +58,16 @@ namespace XF.WebApi
                 var configfilemap = new ExeConfigurationFileMap() { ExeConfigFilename = configfilepath };
                 Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configfilemap, ConfigurationUserLevel.None);
                 eXtensibleWebApiSection section = config.Sections[XFWebApiConstants.Config.SectionName] as eXtensibleWebApiSection;
+                message.AppendLine(String.Format("{0}: {1}", "configFolder", configFolder));
 
-                
                 if (section != null)
                 {
                     MessageProviderFolder = section.MessageProviderFolder;
                     var found = section.Elements.GetForLoggingMode(section.LoggingKey);
+                    if (found != null)
+                    {
+                        message.AppendLine(String.Format("{0}: {1}", XFWebApiConstants.Config.SectionName, "found"));
+                    }
 
                     if (Enum.TryParse<LoggingStrategyOption>(found.LoggingStrategy, true, out loggingStrategy)
                         && Enum.TryParse<LoggingModeOption>(found.LoggingMode, true, out loggingMode))
@@ -70,11 +78,13 @@ namespace XF.WebApi
                         }
                         LoggingMode = loggingMode;
                         LogTo = loggingStrategy;
+                        message.AppendLine(String.Format("{0}: {1}", "parsing", "success"));
                     }
                     else
                     {
                         loggingMode = XFWebApiConstants.Default.LoggingMode;
                         LogTo = XFWebApiConstants.Default.LogTo;
+                        message.AppendLine(String.Format("{0}: {1}", "parsing", "failure"));
                     }
 
                     IsEditRegistration = section.EditRegistration;
@@ -88,28 +98,34 @@ namespace XF.WebApi
                     if (!String.IsNullOrWhiteSpace(loggingModeCandidate) && Enum.TryParse<LoggingModeOption>(loggingModeCandidate, true, out loggingMode))
                     {
                         LoggingMode = loggingMode;
+                        message.AppendLine(String.Format("{0}: {1}", "parse LoggingMode", true));
                     }
                     else
                     {
                         LoggingMode = XFWebApiConstants.Default.LoggingMode;
+                        message.AppendLine(String.Format("{0}: {1}", "parse LoggingMode", false));
                     }
                     // read from appsettings or use defaults
                     if (!String.IsNullOrWhiteSpace(logToCandidate) && Enum.TryParse<LoggingStrategyOption>(logToCandidate, true, out loggingStrategy))
                     {
                         LogTo = loggingStrategy;
+                        message.AppendLine(String.Format("{0}: {1}", "parse LoggingTo", true));
                     }
                     else
                     {
                         LogTo = XFWebApiConstants.Default.LogTo;
+                        message.AppendLine(String.Format("{0}: {1}", "parse LoggingTo", false));
                     }
 
                     if (!String.IsNullOrWhiteSpace(sqlConnectionKeyCandidate))
                     {
                         SqlConnectionKey = sqlConnectionKeyCandidate;
+                        message.AppendLine(String.Format("{0}: {1}", "key", SqlConnectionKey));
                     }
                     else
                     {
                         SqlConnectionKey = XFWebApiConstants.Default.DatastoreConnectionKey;
+                        message.AppendLine(String.Format("{0}: {1}", "key", "default"));
                     }
 
                     if (LogTo.Equals(LoggingStrategyOption.Datastore))
@@ -120,6 +136,8 @@ namespace XF.WebApi
                             using (System.Data.SqlClient.SqlConnection cn = new System.Data.SqlClient.SqlConnection(cnText))
                             {
                                 cn.Open();
+                                message.AppendLine(String.Format("{0}: {1}", "cnState", cn.State));
+
                                 if (cn.State == System.Data.ConnectionState.Open)
                                 {
                                     IsLogToDatastore = true;
@@ -127,12 +145,16 @@ namespace XF.WebApi
                                 else
                                 {
                                     LogTo = XFWebApiConstants.Default.LogTo;
+                                    message.AppendLine(String.Format("{0}: {1}: {2}", "LogTo", "revert to default", LogTo));
                                 }
                             }
                         }
-                        catch
+                        catch(Exception innerEx)
                         {
                             LogTo = LoggingStrategyOption.None;
+                            message.AppendLine(String.Format("{0}: {1}: {2}", "LogTo", "on error", LogTo));
+                            string m = innerEx.InnerException != null ? innerEx.InnerException.Message : innerEx.Message;
+                            message.AppendLine(m);
                         }
                     }
                     MessageProviderFolder = XFWebApiConstants.Default.MessageProviderFolder;
@@ -143,7 +165,7 @@ namespace XF.WebApi
 
 
             }
-            catch
+            catch(Exception ex)
             {
                 // nows setup defaults
                 MessageProviderFolder = XFWebApiConstants.Default.MessageProviderFolder;
@@ -152,7 +174,10 @@ namespace XF.WebApi
                 IsEditRegistration = XFWebApiConstants.Default.IsEditRegistration;
                 CatchAll = XFWebApiConstants.Default.CatchAllControllerId;
                 MessageIdHeaderKey = XFWebApiConstants.Default.MessageIdHeaderKey;
+                var m = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                message.AppendLine(m);
             }
+            writer.WriteError(message.ToString(), SeverityType.Critical, "webApiconfig", props);
         }
     }
 

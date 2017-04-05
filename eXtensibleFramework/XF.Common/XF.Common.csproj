@@ -31,7 +31,6 @@
     <Compile Include="common\auth\Authorization.cs" />
     <Compile Include="common\auth\GrantOption.cs" />
     <Compile Include="common\auth\Permission.cs" />
-    <Compile Include="common\EventsBroker.cs" />
     <Compile Include="common\EventService.cs" />
     <Compile Include="common\EventSubscriber.cs" />
     <Compile Include="common\ExtensionMethods.cs" />

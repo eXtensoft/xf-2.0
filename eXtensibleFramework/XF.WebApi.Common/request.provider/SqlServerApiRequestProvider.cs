@@ -275,6 +275,13 @@ namespace XF.WebApi
                     writer.WriteError(message, SeverityType.Critical, "ApiRequest", props);
                 }
             }
+            else
+            {
+                var message = "settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString) = FALSE";
+                var props = eXtensibleConfig.GetProperties();
+                IEventWriter writer = new EventLogWriter();
+                writer.WriteError(message, SeverityType.Critical, "ApiRequestProvider", props);
+            }
 
         }
 

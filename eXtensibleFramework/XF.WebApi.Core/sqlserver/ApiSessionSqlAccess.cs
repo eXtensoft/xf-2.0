@@ -70,7 +70,7 @@ namespace XF.WebApi
         }
 
 
-        public static Page<ApiSession> Get(int pageSize, int pageIndex)
+        public static Page<ApiSession> Get(int pageSize = 20, int pageIndex = 0, int tenantId = 0, int patronId = 0, string ipAddress = "", string basicToken = "", string marker = "")
         {
             Page<ApiSession> page = new Page<ApiSession>();
             List<ApiSession> list = new List<ApiSession>();
