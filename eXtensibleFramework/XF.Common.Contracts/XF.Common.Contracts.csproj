@@ -50,6 +50,7 @@
     <Compile Include="common\entries\expanded\Metric.cs" />
     <Compile Include="common\entries\reporting\ErrorItem.cs" />
     <Compile Include="common\ExtensionMethods.cs" />
+    <Compile Include="common\Extensions.cs" />
     <Compile Include="common\GenericSerializer.cs" />
     <Compile Include="common\HttpService.cs" />
     <Compile Include="common\KeyPairStrategyResolver.cs" />
