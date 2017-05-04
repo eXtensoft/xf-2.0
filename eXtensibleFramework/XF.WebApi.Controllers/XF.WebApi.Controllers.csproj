@@ -14,6 +14,7 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Http">
       <HintPath>..\solutions\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
@@ -42,6 +43,7 @@
     <Compile Include="eXtensibleMessageDataProvider.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="MvcServiceController.cs" />
+    <Compile Include="RouteHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XF.Common.Contracts\XF.Common.Contracts.csproj">
