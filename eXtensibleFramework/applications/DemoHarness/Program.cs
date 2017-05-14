@@ -9,6 +9,7 @@ using System.Xml;
 using System.Xml.Linq;
 using XF.Common;
 using XF.Common.Wcf;
+using XF.Common.Special;
 
 
 namespace DemoHarness
@@ -21,12 +22,27 @@ namespace DemoHarness
             Console.ReadLine();
             //GetSelections();
             //Execute();
-
+            ExecuteSchema();
             //ConfigProvide();
 
             ExecuteAlert();
             Console.WriteLine("done...");
             Console.ReadLine();
+        }
+
+        private static void ExecuteSchema()
+        {
+            DateTime d = DateTime.Now;
+            Console.WriteLine(d.ToLongDateString());
+            Console.WriteLine(d.ToSchema( DateTimeSchemaOption.None));
+            Console.WriteLine(d.ToSchema(DateTimeSchemaOption.None, "foo"));
+            Console.WriteLine(d.ToSchema(DateTimeSchemaOption.WeekOfYear));
+            Console.WriteLine(d.ToSchema(DateTimeSchemaOption.DayOfWeek));
+            Console.WriteLine(d.ToSchema(DateTimeSchemaOption.DayOfYear));
+            Console.WriteLine(d.ToSchema(DateTimeSchemaOption.MonthOfYear));
+            Console.WriteLine(d.ToSchema(DateTimeSchemaOption.HourOfDay));
+            Console.WriteLine(d.ToString("HH"));
+
         }
 
         private static void ExecuteAlert()
