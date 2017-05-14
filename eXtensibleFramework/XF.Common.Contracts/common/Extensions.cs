@@ -10,19 +10,22 @@
             switch (option)
             {
                 case DateTimeSchemaOption.MonthOfYear:
-                    s = DateTime.Today.ToString("MMM");
+                    s = now.Date.ToString("MMM");
                     break;
                 case DateTimeSchemaOption.WeekOfYear:
-                    s = DateTime.Today.WeekOfYear().ToString("000");
+                    s = now.Date.WeekOfYear().ToString("000");
                     break;
                 case DateTimeSchemaOption.DayOfWeek:
-                    s = DateTime.Now.DayOfWeek.ToString().Substring(0,2);
+                    s = now.DayOfWeek.ToString().Substring(0,3);
                     break;
                 case DateTimeSchemaOption.DayOfYear:
-                    s = DateTime.Today.DayOfYear.ToString("000");
+                    s = now.DayOfYear.ToString("000");
                     break;
                 case DateTimeSchemaOption.HourOfDay:
-                    s = DateTime.Now.Hour.ToString("hh");
+                    s = now.Hour.ToString("HH");
+                    break;
+                case DateTimeSchemaOption.HourOfDayOfWeek:
+                    s = String.Format("{0}{1}", (int)now.DayOfWeek, now.Hour.ToString("HH"));
                     break;
                 case DateTimeSchemaOption.None:
                 default:
