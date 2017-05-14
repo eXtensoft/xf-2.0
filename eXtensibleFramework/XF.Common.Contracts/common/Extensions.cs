@@ -22,10 +22,10 @@
                     s = now.DayOfYear.ToString("000");
                     break;
                 case DateTimeSchemaOption.HourOfDay:
-                    s = now.Hour.ToString("HH");
+                    s = now.ToString("HH");
                     break;
                 case DateTimeSchemaOption.HourOfDayOfWeek:
-                    s = String.Format("{0}{1}", (int)now.DayOfWeek, now.Hour.ToString("HH"));
+                    s = String.Format("{0}{1}", now.Hour.ToString("HH"),(int)now.DayOfWeek);
                     break;
                 case DateTimeSchemaOption.None:
                 default:
