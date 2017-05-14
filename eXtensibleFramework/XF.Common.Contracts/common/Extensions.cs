@@ -3,6 +3,45 @@
     using System;
     public static class Extensions
     {
+        public static string ToSchema(this DateTime now, DateTimeSchemaOption option, string defaultSchema = "log")
+        {
+            string s = !String.IsNullOrWhiteSpace(defaultSchema) ? defaultSchema.Trim() : "log";
+
+            switch (option)
+            {
+                case DateTimeSchemaOption.MonthOfYear:
+                    s = DateTime.Today.ToString("MMM");
+                    break;
+                case DateTimeSchemaOption.WeekOfYear:
+                    s = DateTime.Today.WeekOfYear().ToString("000");
+                    break;
+                case DateTimeSchemaOption.DayOfWeek:
+                    s = DateTime.Now.DayOfWeek.ToString().Substring(0,2);
+                    break;
+                case DateTimeSchemaOption.DayOfYear:
+                    s = DateTime.Today.DayOfYear.ToString("000");
+                    break;
+                case DateTimeSchemaOption.HourOfDay:
+                    s = DateTime.Now.Hour.ToString("hh");
+                    break;
+                case DateTimeSchemaOption.None:
+                default:
+                    break;
+            }
+
+            return s.ToLower();
+        }
+
+        public static int WeekOfYear(this DateTime now)
+        {
+            int day = (int)now.DayOfWeek;
+            if (--day < 0)
+            {
+                day = 6;
+            }
+            int weekNumber = (now.AddDays(3 - day).DayOfYear - 1) / 7 + 1;
+            return weekNumber;
+        }
         public static Guid ToSpecial(this Guid guid)
         {
             DateTime now = DateTime.Now;

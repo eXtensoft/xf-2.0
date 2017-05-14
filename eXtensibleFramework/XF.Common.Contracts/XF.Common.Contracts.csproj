@@ -107,6 +107,7 @@
     <Compile Include="contracts\ITypeMapCache.cs" />
     <Compile Include="contracts\IUserIdentityProvider.cs" />
     <Compile Include="enumerations\CommunicationTypeOption.cs" />
+    <Compile Include="enumerations\DateTimeSchemaOption.cs" />
     <Compile Include="enumerations\EventTypeOption.cs" />
     <Compile Include="enumerations\ExceptionMessageOption.cs" />
     <Compile Include="enumerations\InformTypeOption.cs" />
