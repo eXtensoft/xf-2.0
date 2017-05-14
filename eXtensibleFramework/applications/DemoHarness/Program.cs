@@ -41,6 +41,8 @@ namespace DemoHarness
             Console.WriteLine(d.ToSchema(DateTimeSchemaOption.DayOfYear));
             Console.WriteLine(d.ToSchema(DateTimeSchemaOption.MonthOfYear));
             Console.WriteLine(d.ToSchema(DateTimeSchemaOption.HourOfDay));
+            Console.WriteLine(d.ToSchema(DateTimeSchemaOption.HourOfDayOfWeek));
+            Console.WriteLine(d.ToString(XFConstants.DateTimeFormat));
             Console.WriteLine(d.ToString("HH"));
 
         }
