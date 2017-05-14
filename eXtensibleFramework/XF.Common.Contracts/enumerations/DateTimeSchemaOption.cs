@@ -17,6 +17,7 @@ namespace XF.Common
         DayOfWeek,
         DayOfYear,
         HourOfDay,
+        HourOfDayOfWeek,
     }
 
 }
