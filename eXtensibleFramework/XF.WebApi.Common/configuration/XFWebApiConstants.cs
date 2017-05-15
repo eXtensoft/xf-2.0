@@ -19,6 +19,7 @@ namespace XF.WebApi
             public const string LogToKey = "apirequest.logto";
             public const string SqlConnectionKey = "logtosql.connectionkey";
             public const string LoggingModeKey = "apirequest.loggingmode";
+            public const string LoggingSchema = "apirequest.loggingschema";
             public const string MessageProviderFolder = "message-provider.folder";
 
         }

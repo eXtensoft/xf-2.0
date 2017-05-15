@@ -12,6 +12,7 @@ namespace XF.WebApi
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Data;
+    using XF.Common.Special;
 
     public sealed class SqlServerApiRequestProvider : ApiRequestProvider
     {
@@ -110,7 +111,7 @@ namespace XF.WebApi
         private static IEnumerable<ApiRequest> LocalGet(int id)
         {
             List<ApiRequest> list = new List<ApiRequest>();
-            string schema = eXtensibleConfig.Zone.Equals("production", StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower() : "log";
+            string schema = GetSchema();
             var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
             if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
             {
@@ -213,7 +214,7 @@ namespace XF.WebApi
 
         private static void LocalPost(ApiRequest model)
         {
-            string schema = eXtensibleConfig.Zone.Equals("production", StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower() : "log";
+            string schema = GetSchema();
             string sql = "insert into [" + schema + "].[ApiRequest] ( [AppKey],[AppZone],[AppInstance],[Elapsed],[Start],[Protocol],[Host],[Path]" +
                 ",[ClientIP],[UserAgent],[HttpMethod],[ControllerName],[ControllerMethod],[MethodReturnType],[ResponseCode],[ResponseText]" +
                 ",[XmlData],[MessageId],[BasicToken],[BearerToken],[AuthSchema],[AuthValue],[MessageBody],[HasLog] ) values (" + AppKeyParamName + "," + AppZoneParamName + "," +
@@ -285,7 +286,11 @@ namespace XF.WebApi
 
         }
 
-
+        private static string GetSchema()
+        {
+            DateTime now = DateTime.Now;
+            return now.ToSchema(eXtensibleWebApiConfig.LoggingSchema, "log");
+        }
     }
 
 }
