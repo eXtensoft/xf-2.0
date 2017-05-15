@@ -14,6 +14,7 @@ namespace XF.WebApi.Core
     using System.Xml.Serialization;
     using System.IO;
     using XF.Common;
+    using XF.Common.Special;
 
     public static class ApiRequestSqlAccess
     {
@@ -48,9 +49,14 @@ namespace XF.WebApi.Core
         private const string DbSchema = "log";
         #endregion local fields
 
+        private static string GetSchema()
+        {
+            DateTime now = DateTime.Now;
+            return now.ToSchema(eXtensibleWebApiConfig.LoggingSchema, "log");
+        }
         public static void Post(ApiRequest model)
         {
-            string schema = eXtensibleConfig.Zone.Equals("production",StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower():"log";
+            string schema = GetSchema();
             string sql = "insert into [" + schema + "].[ApiRequest] ( [AppKey],[AppZone],[AppInstance],[Elapsed],[Start],[Protocol],[Host],[Path]" +
                 ",[ClientIP],[UserAgent],[HttpMethod],[ControllerName],[ControllerMethod],[MethodReturnType],[ResponseCode],[ResponseText]" +
                 ",[XmlData],[MessageId],[BasicToken],[BearerToken],[AuthSchema],[AuthValue],[MessageBody] ) values (" + AppKeyParamName + "," + AppZoneParamName + "," + 

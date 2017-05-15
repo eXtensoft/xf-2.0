@@ -17,6 +17,7 @@ namespace XF.WebApi
             public const string SectionName = "eXtensoft.webApi";
             public const string IsLogToDatastoreKey = "is.logtosql";
             public const string LogToKey = "apirequest.logto";
+            public const string LoggingSchema = "apirequest.loggingschema";
             public const string SqlConnectionKey = "logtosql.connectionkey";
             public const string LoggingModeKey = "apirequest.loggingmode";
             public const string MessageProviderFolder = "message-provider.folder";
