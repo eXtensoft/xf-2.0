@@ -25,7 +25,7 @@
                     s = now.ToString("HH");
                     break;
                 case DateTimeSchemaOption.HourOfDayOfWeek:
-                    s = String.Format("{0}{1}", now.Hour.ToString("HH"),(int)now.DayOfWeek);
+                    s = String.Format("{0}{1}", now.ToString("HH"),(int)now.DayOfWeek);
                     break;
                 case DateTimeSchemaOption.None:
                 default:
