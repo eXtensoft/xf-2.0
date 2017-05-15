@@ -54,6 +54,7 @@ namespace XF.WebApi.Core
             DateTime now = DateTime.Now;
             return now.ToSchema(eXtensibleWebApiConfig.LoggingSchema, "log");
         }
+
         public static void Post(ApiRequest model)
         {
             string schema = GetSchema();
@@ -123,7 +124,7 @@ namespace XF.WebApi.Core
         public static IEnumerable<ApiRequest> Get(int id)
         {
            List<ApiRequest> list = new List<ApiRequest>();
-           string schema = eXtensibleConfig.Zone.Equals("production",StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower():"log";
+            string schema = GetSchema();
             var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
             if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
             {
@@ -207,7 +208,7 @@ namespace XF.WebApi.Core
         {
             List<ApiRequest> list = new List<ApiRequest>();
             totalCount = 0;
-            string schema = eXtensibleConfig.Zone.Equals("production", StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower() : "log";
+            string schema = GetSchema();
             var settings = ConfigurationProvider.ConnectionStrings[eXtensibleWebApiConfig.SqlConnectionKey];
             if (settings != null && !String.IsNullOrWhiteSpace(settings.ConnectionString))
             {

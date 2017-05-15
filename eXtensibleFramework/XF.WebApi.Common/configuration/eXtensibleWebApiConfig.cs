@@ -81,8 +81,8 @@ namespace XF.WebApi
                         }
                         LoggingMode = loggingMode;
                         LogTo = loggingStrategy;
-                        if (!String.IsNullOrEmpty(found.LoggingSchema) 
-                            && Enum.TryParse<DateTimeSchemaOption>(found.LoggingSchema,true,out loggingSchema))
+                        if (!String.IsNullOrEmpty(found.LoggingSchema)
+                            && Enum.TryParse<DateTimeSchemaOption>(found.LoggingSchema, true, out loggingSchema))
                         {
                             LoggingSchema = loggingSchema;
                         }
@@ -138,7 +138,7 @@ namespace XF.WebApi
                     }
 
                     if (!String.IsNullOrWhiteSpace(logSchemaCandidate)
-                        && Enum.TryParse<DateTimeSchemaOption>(logSchemaCandidate,true,out loggingSchema))
+                        && Enum.TryParse<DateTimeSchemaOption>(logSchemaCandidate, true, out loggingSchema))
                     {
                         LoggingSchema = loggingSchema;
                     }
@@ -168,7 +168,7 @@ namespace XF.WebApi
                                 }
                             }
                         }
-                        catch(Exception innerEx)
+                        catch (Exception innerEx)
                         {
                             LogTo = LoggingStrategyOption.None;
                             message.AppendLine(String.Format("{0}: {1}: {2}", "LogTo", "on error", LogTo));
@@ -184,7 +184,7 @@ namespace XF.WebApi
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 // nows setup defaults
                 MessageProviderFolder = XFWebApiConstants.Default.MessageProviderFolder;
