@@ -196,7 +196,8 @@ namespace XF.WebApi
                 var m = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
                 message.AppendLine(m);
             }
-            writer.WriteError(message.ToString(), SeverityType.Critical, "webApiconfig", props);
+            //writer.WriteError(message.ToString(), SeverityType.Critical, "webApiconfig", props);
+            writer.WriteEvent(message.ToString(), "webApiConfig", props);
         }
     }
 
