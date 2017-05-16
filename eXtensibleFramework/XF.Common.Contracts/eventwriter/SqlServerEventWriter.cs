@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XF.Common.Special;
 
 namespace XF.Common
 {
@@ -169,6 +170,11 @@ namespace XF.Common
             //throw new NotImplementedException();
         }
 
+        private static string GetSchema()
+        {
+            DateTime now = DateTime.Now;
+            return now.ToSchema(eXtensibleConfig.LoggingSchema, "log");
+        }
         private static void PostError(eXError model)
         {
             if (isInitialized)
@@ -181,8 +187,7 @@ namespace XF.Common
                         using (SqlCommand cmd = cn.CreateCommand())
                         {
                             cmd.CommandType = CommandType.Text;
-                            string schema = eXtensibleConfig.Zone.Equals("production", StringComparison.OrdinalIgnoreCase) ? DateTime.Today.ToString("MMM").ToLower() : "log";
-
+                            string schema = GetSchema();
                             string sql = "insert into [" + schema + "].[Error] ( [ApplicationKey],[Zone],[AppContextInstance],[MessageId]," +
                                 "[Category],[Severity],[Message],[XmlData] ) values (" +
                                 ApplicationKeyParamName + "," + ZoneParamName + "," + AppContextInstanceParamName + "," +

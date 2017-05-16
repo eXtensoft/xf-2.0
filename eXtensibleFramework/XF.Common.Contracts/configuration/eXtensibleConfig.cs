@@ -19,6 +19,7 @@ namespace XF.Common
         public static readonly LoggingStrategyOption LoggingStrategy;
         public static readonly LoggingModeOption LoggingMode;
         public static readonly TraceEventTypeOption LoggingSeverity;
+        public static DateTimeSchemaOption LoggingSchema;
         public static readonly string ModelServicesStrategySectionGroupName;
         public static readonly string DataServicesStrategySectionGroupName;
         public static readonly string DataPlugins;
@@ -70,6 +71,9 @@ namespace XF.Common
                 DbConfigs = configFolder + "\\" + "db.configs";
                 ConfigurationProviderPlugins = configFolder + "\\" + "config.provider";
                 BaseDirectory = configFolder;
+
+                DateTimeSchemaOption loggingSchema;
+
                 var configfilemap = new ExeConfigurationFileMap() { ExeConfigFilename = configfilepath };
                 Configuration config = ConfigurationProvider.OpenMappedExeConfiguration(configfilemap, ConfigurationUserLevel.None);
                 eXtensibleFrameworkSection section = config.Sections[XFConstants.Config.SectionName] as eXtensibleFrameworkSection;
@@ -81,6 +85,7 @@ namespace XF.Common
                     //string candidateLoggingSeverity = ConfigurationProvider.AppSettings[XFConstants.Application.Config.LoggingSeverityKey];
                     string candidateConnectionStringKey = ConfigurationProvider.AppSettings[XFConstants.Application.Config.ConnectionStringKey];
                     string candidateLogSource = ConfigurationProvider.AppSettings[XFConstants.Application.Config.LogSourceKey];
+                    string logSchemaCandidate = ConfigurationProvider.AppSettings[XFConstants.Application.Config.LoggingSchema];
                     string candidateBigDataUrl = ConfigurationProvider.AppSettings[XFConstants.Application.Config.BigDataUrlKey];
                     string candidateServiceToken = ConfigurationProvider.AppSettings[XFConstants.Application.Config.ServiceTokenKey];
                     string candidateInstance = ConfigurationProvider.AppSettings[XFConstants.Application.Config.InstanceIdentifierKey];
@@ -159,6 +164,11 @@ namespace XF.Common
                     {
                         LoggingStrategy = loggingStrategy;
                         inform = found.Inform;
+                        if (!String.IsNullOrWhiteSpace(found.LoggingSchema) 
+                            && Enum.TryParse<DateTimeSchemaOption>(found.LoggingSchema,true,out loggingSchema))
+                        {
+                            LoggingSchema = loggingSchema;
+                        }
 
                     }
                     else

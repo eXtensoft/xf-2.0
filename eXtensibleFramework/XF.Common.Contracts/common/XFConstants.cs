@@ -47,6 +47,7 @@ namespace XF.Common
                 public const string LoggingStrategyKey = "eXtensoft.app.logging.strategy";
                 public const string LoggingSeverityKey = "eXtensoft.app.logging.severity";
                 public const string LogSourceKey = "eXtensoft.app.logging.source";
+                public const string LoggingSchema = "eXtensoft.app.logging.schema";
                 public const string ConnectionStringKey = "eXtensoft.app.connectionstring.key";
                 public const string BigDataUrlKey = "eXtensoft.app.bigdataurl.key";
                 public const string ServiceTokenKey = "eXtensoft.app.servicetoken.key";

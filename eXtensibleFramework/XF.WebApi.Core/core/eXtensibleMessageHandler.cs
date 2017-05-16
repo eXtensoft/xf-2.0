@@ -240,10 +240,18 @@ namespace XF.WebApi.Core
                 {
                     d.Add("xf-request.message.bearer-token", bearerToken);
                 }
-                bool b = eXtensibleWebApiConfig.LoggingMode != LoggingModeOption.None || d.ContainsKey("xf-id");
+                bool b = false;
+                if (eXtensibleWebApiConfig.LoggingMode.Equals(LoggingModeOption.All))
+                {
+                    b = true;
+                }
+                else if(eXtensibleWebApiConfig.LoggingMode.Equals(LoggingModeOption.Sparse))
+                {
+                    b = d.ContainsKey("xf-id");
+                }
+
                 if (b)
                 {
-                    xfId = d.Get<Guid>("xf-id");
                     Writer.Invoke(d);
                 }
 

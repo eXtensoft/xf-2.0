@@ -18,7 +18,8 @@ namespace XF.WebApi
     using System.Web.Http.ValueProviders.Providers;
     using System.Xml;
     using System.Xml.Serialization;
-
+    using System.Threading;
+    using XF.Common;
 
     public static class HttpExtensionMethods
     {
@@ -45,7 +46,7 @@ namespace XF.WebApi
         }
         public static HttpResponseMessage GenerateErrorResponse<T>(this HttpRequestMessage request, System.Net.HttpStatusCode statusCode, T t)
         {
-            
+            EnsureMessageId(request);
             HttpResponseMessage response = null;
             ResponseConfiguration.MessageProvider.VetStatusCode(statusCode, t);
             string message;
@@ -55,11 +56,26 @@ namespace XF.WebApi
         }
         public static HttpResponseMessage GenerateErrorResponse(this HttpRequestMessage request, System.Net.HttpStatusCode statusCode, string message)
         {
+            EnsureMessageId(request);
             HttpResponseMessage response = null;
             ResponseConfiguration.MessageProvider.VetStatusCode(statusCode);
             response = request.CreateErrorResponse(statusCode, message);
             return response;
         }
+
+        private static void EnsureMessageId(HttpRequestMessage request)
+        {
+            var principal = Thread.CurrentPrincipal as eXtensibleClaimsPrincipal;
+            if (principal != null)
+            {
+                if (!principal.Items.ContainsKey("xf-id"))
+                {
+                    principal.Items.Add(new TypedItem("xf-id", Guid.NewGuid()));
+                }
+            }
+
+        }
+
         #endregion
 
         #region code object
