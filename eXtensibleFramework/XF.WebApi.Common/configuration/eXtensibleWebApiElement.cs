@@ -63,21 +63,6 @@ namespace XF.WebApi.Config
             set { this["datastoreKey"] = value; }
         }
 
-        [ConfigurationProperty("loggingSchema", IsRequired = false)]
-        public string LoggingSchema
-        {
-            get
-            {
-                object o = this["loggingSchema"];
-                string s = o != null ? o.ToString() : DateTimeSchemaOption.None.ToString();
-                DateTimeSchemaOption option;
-                Enum.TryParse<DateTimeSchemaOption>(s, true, out option);
-                return option.ToString();
-            }
-            set { this["loggingSchema"] = value; }
-        }
-
-
 
     }
 
