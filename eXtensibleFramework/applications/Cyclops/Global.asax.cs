@@ -41,6 +41,14 @@ namespace Cyclops
             };
             jsonFormatter.SerializerSettings = settings;
 
+            SelectListItemCache.Instance.RegisterProvider("operating-systems", SelectionListUtility.GetOperatingSystems);
+            SelectListItemCache.Instance.RegisterProvider("hosting", SelectionListUtility.GetHosting);
+            SelectListItemCache.Instance.RegisterProvider("server-security", SelectionListUtility.GetServerSecurity);
+            SelectListItemCache.Instance.RegisterProvider("app-types", SelectionListUtility.GetAppTypes);
+            SelectListItemCache.Instance.RegisterProvider("scopes", SelectionListUtility.GetScopes);
+            SelectListItemCache.Instance.RegisterProvider("zones", SelectionListUtility.GetZones);
+            SelectListItemCache.Instance.RegisterProvider("domains", SelectionListUtility.GetDomains);
+           // SelectListItemCache.Instance.RegisterProvider("urls", SelectionListUtility.GetUrls);
 
         }
     }

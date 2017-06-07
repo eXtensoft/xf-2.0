@@ -76,6 +76,15 @@ namespace Cyclops.Api.Controllers
         #endregion
 
         [HttpGet]
+        public HttpResponseMessage Get(int version)
+        {
+            HttpResponseMessage message = null;
+
+            message = Request.GenerateResponse(HttpStatusCode.OK);
+            return message;
+        }
+
+        [HttpGet]
         public HttpResponseMessage Get(int version, string id)
         {
             HttpResponseMessage message = null;

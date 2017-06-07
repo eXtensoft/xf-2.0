@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<Cyclops.Web.SolutionAppViewModel>
 
 @{
-    SolutionViewModel solution = ViewBag.Solution;
-    IEnumerable<SolutionAppViewModel> apps = Model.ToList();
+    Cyclops.Web.SolutionViewModel solution = ViewBag.Solution;
+    IEnumerable<Cyclops.Web.SolutionAppViewModel> apps = Model.ToList();
     var zones = Cyclops.SelectionListUtility.GetReverseZoneDictionary();
     
 }
@@ -24,11 +24,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (SolutionAppViewModel app in apps)
+            @foreach (Cyclops.Web.SolutionAppViewModel app in apps)
             {
                 <tr>
                     <td>@app.Application</td>
-                    @foreach (ServerAppViewModelCollection  collection in app.ZoneServerApps)
+                    @foreach (Cyclops.Web.ServerAppViewModelCollection  collection in app.ZoneServerApps)
 	                {
 
                         if (collection != null)

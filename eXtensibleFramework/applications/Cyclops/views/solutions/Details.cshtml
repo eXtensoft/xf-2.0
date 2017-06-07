@@ -7,14 +7,14 @@
 
     var appsInSolution = Cyclops.SelectionListUtility.GetAppsInSolution(@Model.SolutionId);
     var vms = from x in appsInSolution
-              select new SolutionAppViewModel(x);
+              select new Cyclops.Web.SolutionAppViewModel(x);
     var zoneList = Cyclops.SelectListItemCache.Instance.ReadList("zones");
     var scopeList = Cyclops.SelectListItemCache.Instance.ReadList("scopes");
     var domainList = Cyclops.SelectListItemCache.Instance.ReadList("domains");
 
     var zonesForSolution = Cyclops.SelectionListUtility.GetZonesForSolution(@Model.SolutionId);
     var vmz = from x in zonesForSolution
-              select new SolutionZoneViewModel(x);
+              select new Cyclops.Web.SolutionZoneViewModel(x);
 
     string editor = "admin";   
               

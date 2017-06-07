@@ -5,7 +5,7 @@
 
     var scopeTypes = Cyclops.SelectionListUtility.GetReverseDictionary("artifact-scope");
 
-    ArtifactViewModel data = new ArtifactViewModel()
+    Cyclops.Web.ArtifactViewModel data = new Cyclops.Web.ArtifactViewModel()
     {
         ArtifactScopeTypeId = scopeTypes["server-app-artifact"],
         ArtifactScopeId = Model.ServerAppId,

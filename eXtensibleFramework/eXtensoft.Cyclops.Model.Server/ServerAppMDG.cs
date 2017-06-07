@@ -154,9 +154,9 @@ namespace Cyclops
                     }
                     else if (key.Equals("solution", StringComparison.OrdinalIgnoreCase))
                     {
-                        sql += " where ( sa.[AppId] in (select AppId from SolutionApp where SolutionId = " + SolutionIdParamName + ")" +
-                            " AND sa.[ZoneId] in (select ZoneId from SolutionZone where SolutionId = " + SolutionIdParamName + ")" +
-                            " AND [ScopeId] in (select ScopeId from Solution where SolutionId = " + SolutionIdParamName + "))";
+                        sql += " where ( sa.[AppId] in (select AppId from [arc].[SolutionApp] where SolutionId = " + SolutionIdParamName + ")" +
+                            " AND sa.[ZoneId] in (select ZoneId from [arc].[SolutionZone] where SolutionId = " + SolutionIdParamName + ")" +
+                            " AND [ScopeId] in (select ScopeId from [arc].[Solution] where SolutionId = " + SolutionIdParamName + "))";
 
                         cmd.Parameters.AddWithValue(SolutionIdParamName, criterion.GetValue<int>("SolutionId"));
                     }

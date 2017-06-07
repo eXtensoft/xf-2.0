@@ -24,7 +24,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.OperatingSystem, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.OperatingSystemId, osList, new { htmlAttributes = new { @class = "form-control" } });
+                @Html.DropDownListFor(model => model.OperatingSystemId, osList, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.OperatingSystem, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -32,14 +32,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.HostPlatform, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.HostPlatformId, hostList, new { htmlAttributes = new { @class = "form-control" } });
+                @Html.DropDownListFor(model => model.HostPlatformId, hostList, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.HostPlatform, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.ServerSecurity, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.ServerSecurityId, securityList, new { htmlAttributes = new { @class = "form-control" } });
+                @Html.DropDownListFor(model => model.ServerSecurityId, securityList, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ServerSecurity, "", new { @class = "text-danger" })
             </div>
         </div>

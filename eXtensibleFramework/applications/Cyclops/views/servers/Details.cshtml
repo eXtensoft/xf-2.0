@@ -7,7 +7,7 @@
 
     var appsOnServer = Cyclops.SelectionListUtility.GetAppsOnServer(@Model.ServerId);
     var vms = from x in appsOnServer
-              select new ServerAppViewModel(x);
+              select new Cyclops.Web.ServerAppViewModel(x);
 
     Tuple<string, int,bool> favorite = new Tuple<string, int,bool>("server", Model.ServerId,Model.IsFavorite);
 

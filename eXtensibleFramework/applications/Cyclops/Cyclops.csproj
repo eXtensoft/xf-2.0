@@ -231,28 +231,72 @@
     <Content Include="content\bootstrap-theme.min.css" />
     <Content Include="content\bootstrap.css" />
     <Content Include="content\bootstrap.min.css" />
-    <Content Include="content\icons\app.datastore.png" />
-    <Content Include="content\icons\app.mongo.png" />
-    <Content Include="content\icons\app.processing.png" />
-    <Content Include="content\icons\app.webservice.png" />
-    <Content Include="content\icons\app.website.png" />
-    <Content Include="content\icons\app.windows.png" />
-    <Content Include="content\icons\server.blue.png" />
-    <Content Include="content\icons\server.green.png" />
-    <Content Include="content\icons\server.grey.png" />
-    <Content Include="content\icons\server.red.png" />
-    <Content Include="content\icons\server.webserver.png" />
-    <Content Include="content\images\app.datastore.png" />
-    <Content Include="content\images\app.mongo.png" />
-    <Content Include="content\images\app.processing.png" />
-    <Content Include="content\images\app.webservice.png" />
-    <Content Include="content\images\app.website.png" />
-    <Content Include="content\images\app.windows.png" />
-    <Content Include="content\images\server.blue.png" />
-    <Content Include="content\images\server.green.png" />
-    <Content Include="content\images\server.grey.png" />
-    <Content Include="content\images\server.red.png" />
-    <Content Include="content\images\server.webserver.png" />
+    <Content Include="content\icons\app.datastore.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\icons\app.mongo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\icons\app.processing.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\icons\app.webservice.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\icons\app.website.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\icons\app.windows.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\icons\server.blue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\icons\server.green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\icons\server.grey.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\icons\server.red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\icons\server.webserver.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\app.datastore.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\app.mongo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\app.processing.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\app.webservice.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\app.website.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\app.windows.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\server.blue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\server.green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\server.grey.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\server.red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\server.webserver.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="content\themes\dark\bootstrap.css" />
     <Content Include="content\themes\dark\bootstrap.min.css" />
     <Content Include="content\themes\dark\site.css" />
@@ -273,11 +317,15 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="app_config\appSettings.config" />
-    <Content Include="app_config\connectionStrings.config" />
-    <Content Include="app_config\eXtensoft.webApi.config" />
-    <Content Include="app_config\eXtensoft.application.config" />
-    <Content Include="app_config\select.Database.config" />
+    <Content Include="app_config\appSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="app_config\connectionStrings.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="app_config\xf.webApi.config" />
+    <Content Include="app_config\xf.application.config" />
+    <Content Include="app_config\xf.datastoreSelection.config" />
     <Content Include="content\themes\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="content\themes\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="content\themes\fonts\glyphicons-halflings-regular.woff" />

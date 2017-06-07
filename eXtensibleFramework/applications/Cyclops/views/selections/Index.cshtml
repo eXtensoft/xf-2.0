@@ -40,7 +40,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td><a href="~/selections/details/@item.SelectionId"><img src="~/Content/Images/@item.SecondaryIcon" height="25" style="margin-top: 5px;" /></a>
+            <td><a href="~/selections/details/@item.SelectionId"><img src="~/content/icons/@item.SecondaryIcon" height="25" style="margin-top: 5px;" /></a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Display)
