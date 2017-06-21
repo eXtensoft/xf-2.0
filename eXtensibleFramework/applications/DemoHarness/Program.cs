@@ -21,8 +21,8 @@ namespace DemoHarness
             Console.WriteLine("ready...");
             Console.ReadLine();
             //GetSelections();
-            //Execute();
-            ExecuteSchema();
+            Execute();
+           // ExecuteSchema();
             //ConfigProvide();
 
             ExecuteAlert();

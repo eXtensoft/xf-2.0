@@ -85,6 +85,9 @@ namespace Cyclops.Web
             {
                 IsFavorite = true;
             }
+            ResolveIcon(model.OperatingSystemId);
+
+
             OperatingSystem = SelectionConverter.Convert(model.OperatingSystemId);
             HostPlatform = SelectionConverter.Convert(model.HostPlatformId);
             ServerSecurity = SelectionConverter.Convert(model.SecurityId);

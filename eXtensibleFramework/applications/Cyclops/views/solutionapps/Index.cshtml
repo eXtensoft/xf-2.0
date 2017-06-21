@@ -43,7 +43,7 @@
                                     @foreach (var item in collection)
                                     {
                                         <span>
-                                            <a type="button" href="~/serverapps/details/@item.ServerAppId?solutionapps=@solution.SolutionId"><img src="~/Content/Images/@item.Icon" height="25" style="margin-top: 5px;" /></a>
+                                            <a type="button" href="~/serverapps/details/@item.ServerAppId?solutionapps=@solution.SolutionId"><img src="~/Content/Icons/@item.Icon" height="25" style="margin-top: 5px;" /></a>
                                             <a href="~/servers/details/@item.ServerId?solutionapps=@solution.SolutionId" data-toggle="tooltip" data-placement="right" title="@item.ExternalIP">@item.Server</a>
                                         </span><br/>
                                     }

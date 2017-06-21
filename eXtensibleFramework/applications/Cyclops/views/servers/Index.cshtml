@@ -120,7 +120,8 @@
             <tr>
 
                 <td>
-                    <a href="~/servers/details/@item.ServerId" class="glyphicon glyphicon-list-alt" />
+                    @*<a href="~/servers/details/@item.ServerId" class="glyphicon glyphicon-list-alt" />*@
+                    <a href="~/servers/details/@item.ServerId"><img src="~/content/icons/@item.Icon" height="25" /></a>
                 </td>
                 <td>
                     @Html.HiddenFor(modelItem => item.ServerId)

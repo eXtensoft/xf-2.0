@@ -249,6 +249,14 @@
     <Content Include="content\icons\app.windows.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="content\icons\datastore.mysql.2.png" />
+    <Content Include="content\icons\datastore.mysql.png" />
+    <Content Include="content\icons\datastore.sqlserver.png" />
+    <Content Include="content\icons\datastore.redis.png" />
+    <Content Include="content\icons\none.png" />
+    <Content Include="content\icons\os.linux.png" />
+    <Content Include="content\icons\os.windows.color.png" />
+    <Content Include="content\icons\os.windows.png" />
     <Content Include="content\icons\server.blue.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -426,6 +434,7 @@
     <Content Include="views\shared\_FileDrop.cshtml" />
     <Content Include="views\shared\_FileUpload.cshtml" />
     <Content Include="views\shared\_Viewer.cshtml" />
+    <Content Include="views\serverapp\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app_data\" />

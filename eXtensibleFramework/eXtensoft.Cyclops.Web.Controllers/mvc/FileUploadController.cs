@@ -193,8 +193,6 @@ namespace Cyclops.Controllers
                     {
                         viewModel.FileUpload.SaveAs(m.Location);
                     }
-
-
                 }
                 result = RedirectToAction("index", new { id = viewModel.ArtifactScopeId });
             }

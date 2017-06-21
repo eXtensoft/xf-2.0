@@ -23,7 +23,7 @@ namespace Cyclops.Web
 
         public string GroupName { get; set; }
 
-        public string SecondaryIcon { get; set; }
+        public string DisplayIcon { get; set; }
 
         public override bool IsValid()
         {
@@ -53,7 +53,7 @@ namespace Cyclops.Web
             Sort = model.Sort;
             GroupId = model.GroupId;
             MasterId = model.MasterId;
-            SecondaryIcon = model.SecondaryIcon;
+            DisplayIcon = model.DisplayIcon;
             Icon = model.Icon;
             if (model.MasterId > 0)
             {

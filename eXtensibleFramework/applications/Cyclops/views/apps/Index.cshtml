@@ -37,7 +37,7 @@
     <tr>
         <td>
             @*<a href="~/apps/details/@item.AppId" class="glyphicon glyphicon-list-alt" />*@
-            <a href="~/apps/details/@item.AppId"><img src="~/Content/Images/@item.Icon" height="25" style="margin-top: 5px;" /></a>
+            <a href="~/apps/details/@item.AppId"><img src="~/Content/Icons/@item.Icon" height="25" style="margin-top: 5px;" /></a>
         </td>
         <td>
             @if (item.IsFavorite)
@@ -49,7 +49,7 @@
             @Html.HiddenFor(modelItem => item.AppId)
             @Html.DisplayFor(modelItem => item.Name)
         </td>
-        <td>@*<img src="~/Content/Images/@item.Icon" height="25" style="margin-top: 5px;" />*@</td>
+        <td>@*<img src="~/Content/Icons/@item.Icon" height="25" style="margin-top: 5px;" />*@</td>
         <td>
             @Html.DisplayFor(modelItem => item.AppType)
         </td>

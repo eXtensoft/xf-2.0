@@ -94,11 +94,11 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "delete from [arc].[ServerApp] where [ServerId] = " + ServerIdParamName;
+            string sql = "delete from [arc].[ServerApp] where [ServerAppId] = " + ServerIdParamName;
 
             cmd.CommandText = sql;
 
-            cmd.Parameters.AddWithValue( ServerIdParamName, criterion.GetValue<int>("ServerId") );
+            cmd.Parameters.AddWithValue( ServerIdParamName, criterion.GetValue<int>("ServerAppId") );
 
             return cmd;
         }

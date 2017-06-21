@@ -85,7 +85,14 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select s.[SelectionId], s.[Display], s.[Token], s.[Sort], s.[GroupId], s.[MasterId],s.[Icon],COALESCE(COALESCE(s.Icon, (select [t].Icon from [arc].[Selection] as [t] where [t].[SelectionId] = [s].[MasterId])) ,'default.icon.png') as SecondaryIcon from [arc].[Selection]  as [s] where [s].[status] = 'active' and  [s].[SelectionId] = " + SelectionIdParamName ;
+            string sql = "select s.[SelectionId], s.[Display],s.[Token], s.[Sort], s.[GroupId], s.[MasterId],s.[Icon]," +
+                "coalesce(s.[Icon], coalesce(coalesce((select[t].Icon from [arc].[Selection] as [t] where[t].[SelectionId] = [s].[GroupId])," +
+                 "(select[t].Icon from[arc].[Selection] as [t] where[t].[SelectionId] = [s].[MasterId])),(select Icon from[arc].[Selection] where SelectionId = 0))) as DisplayIcon " +
+                 "from [arc].[Selection] as [s] where [s].[status] = 'active' and  [s].[SelectionId] = " + SelectionIdParamName;
+
+            //string sql = "select s.[SelectionId], s.[Display], s.[Token], s.[Sort], s.[GroupId], s.[MasterId],s.[Icon]," +
+            //    "COALESCE(COALESCE(s.Icon, (select [t].Icon from [arc].[Selection] as [t] where [t].[SelectionId] = [s].[MasterId])) ,'default.icon.png') as SecondaryIcon" +
+            //    "from [arc].[Selection]  as [s] where [s].[status] = 'active' and  [s].[SelectionId] = " + SelectionIdParamName ;
 
             cmd.CommandText = sql;
 
@@ -98,7 +105,11 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select s.[SelectionId], s.[Display], s.[Token], s.[Sort], s.[GroupId], s.[MasterId],s.[Icon],COALESCE(COALESCE(s.Icon, (select [t].Icon from [arc].[Selection] as [t] where [t].[SelectionId] = [s].[MasterId])) ,'default.icon.png') as SecondaryIcon from [arc].[Selection]  as [s] where [s].[status] = 'active'";
+            //string sql = "select s.[SelectionId], s.[Display], s.[Token], s.[Sort], s.[GroupId], s.[MasterId],s.[Icon],COALESCE(COALESCE(s.Icon, (select [t].Icon from [arc].[Selection] as [t] where [t].[SelectionId] = [s].[MasterId])) ,'default.icon.png') as SecondaryIcon from [arc].[Selection]  as [s] where [s].[status] = 'active'";
+            string sql = "select s.[SelectionId], s.[Display],s.[Token], s.[Sort], s.[GroupId], s.[MasterId],s.[Icon]," +
+                "coalesce(s.[Icon], coalesce(coalesce((select[t].Icon from [arc].[Selection] as [t] where[t].[SelectionId] = [s].[GroupId])," +
+                 "(select[t].Icon from[arc].[Selection] as [t] where[t].[SelectionId] = [s].[MasterId])),(select Icon from[arc].[Selection] where SelectionId = 0))) as DisplayIcon " +
+                 "from [arc].[Selection] as [s] where [s].[status] = 'active'";
             cmd.CommandText = sql;
 
             return cmd;
@@ -108,7 +119,11 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select s.SelectionId as Id,[Display],COALESCE(COALESCE(s.Icon, (select [t].Icon from [arc].[Selection] as [t] where [t].[SelectionId] = [s].[MasterId])) ,'default.icon.png') as [DisplayAlt], [SelectionId] as IntVal from [arc].Selection as s where [s].[status] = 'active'";
+            // string sql = "select s.SelectionId as Id,[Display],COALESCE(COALESCE(s.Icon, (select [t].Icon from [arc].[Selection] as [t] where [t].[SelectionId] = [s].[MasterId])) ,'default.icon.png') as [DisplayAlt], [SelectionId] as IntVal from [arc].Selection as s where [s].[status] = 'active'";
+
+            string sql = "select s.[SelectionId] as [Id], s.[Display], coalesce(s.[Icon], coalesce(coalesce((select[t].Icon from[arc].[Selection] as [t] where[t].[SelectionId] = [s].[GroupId])," +
+                          " (select[t].Icon from[arc].[Selection] as [t] where[t].[SelectionId] = [s].[MasterId])),(select Icon from[arc].[Selection] " +
+                            "where SelectionId = 0))) as DisplayAlt, s.[SelectionId] as [IntVal] from[arc].[Selection] as [s]  where[s].[status] = 'active'";
 
             cmd.CommandText = sql;
 
@@ -124,7 +139,7 @@ namespace Cyclops
 
             while (reader.Read())
             {
-               bool hasIcon = reader.FieldExists("SecondaryIcon");
+               bool hasIcon = reader.FieldExists("DisplayIcon");
                 var model = new Selection();
                 model.SelectionId = reader.GetInt32(reader.GetOrdinal("SelectionId"));
                 model.Display = reader.GetString(reader.GetOrdinal("Display"));
@@ -142,9 +157,9 @@ namespace Cyclops
                 {
                     model.Icon = reader.GetString(reader.GetOrdinal("Icon"));
                 }
-                if (hasIcon && !reader.IsDBNull(reader.GetOrdinal("SecondaryIcon")))
+                if (hasIcon && !reader.IsDBNull(reader.GetOrdinal("DisplayIcon")))
                 {
-                    model.SecondaryIcon = reader.GetString(reader.GetOrdinal("SecondaryIcon"));
+                    model.DisplayIcon = reader.GetString(reader.GetOrdinal("DisplayIcon"));
                 }
                 list.Add(model);
 

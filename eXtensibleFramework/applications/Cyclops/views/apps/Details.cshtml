@@ -3,16 +3,18 @@
 @{
     ViewBag.Title = "Detail";
 
-    var scopeTypes = Cyclops.SelectionListUtility.GetReverseDictionary("artifact-scope");
+    var artifactScopes = Cyclops.SelectionListUtility.GetReverseDictionary("artifact-scope");
+
+    //var scopeTypes = Cyclops.SelectionListUtility.GetReverseDictionary("artifact-type");
 
     Cyclops.Web.ArtifactViewModel data = new Cyclops.Web.ArtifactViewModel()
     {
-        ArtifactScopeTypeId = scopeTypes["solution-artifact"],
+        ArtifactScopeTypeId = artifactScopes["app-artifact"],
         ArtifactScopeId = Model.AppId,
         ArtifactScope = Model.Name,
     };
 
-    var s = data.ArtifactScope;
+    //var s = data.ArtifactScope;
 
     Tuple<string, int, bool> favorite = new Tuple<string, int, bool>("app", Model.AppId, Model.IsFavorite);
 

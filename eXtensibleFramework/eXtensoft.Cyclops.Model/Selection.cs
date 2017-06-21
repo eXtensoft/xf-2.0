@@ -33,7 +33,7 @@ namespace Cyclops
 
         public string Icon { get; set; }
 
-        public string SecondaryIcon { get; set; }
+        public string DisplayIcon { get; set; }
 
         #endregion properties
 

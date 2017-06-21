@@ -41,16 +41,11 @@ namespace Cyclops.Web
 
         public AppViewModel(App model)
         {
-            //Icon = ResolveIcon(model.AppTypeId);
             AppId = model.AppId;
             Name = model.Name;
             AppTypeId = model.AppTypeId;
             AppType = SelectionConverter.Convert(model.AppTypeId);
-            var icons = SelectionListUtility.GetSelectionsDictionary();
-            if (icons.ContainsKey(model.AppTypeId))
-            {
-                Icon = icons[model.AppTypeId];
-            }
+            ResolveIcon(model.AppTypeId);
             Alias = model.Alias;
             Description = model.Description;
             Tags = model.Tags;
