@@ -6,15 +6,17 @@
     var scopeTypes = Cyclops.SelectionListUtility.GetReverseDictionary("artifact-scope");
 
 
-    Cyclops.Web.ArtifactViewModel data = new Cyclops.Web.ArtifactViewModel()
-    {
-        ArtifactScopeTypeId = scopeTypes["server-app-artifact"],
-        ArtifactScopeId = Model.ServerAppId,
-        ArtifactScope = Model.Display,
-        ArtifactScopeType = "serverapp"
-    };
+        Cyclops.Web.ArtifactViewModel data = new Cyclops.Web.ArtifactViewModel()
+        {
+            ArtifactScopeTypeId = scopeTypes["server-app-artifact"],
+            ArtifactScopeId = Model.ServerAppId,
+            ArtifactScope = Model.Display,
+            ArtifactScopeType = "serverapp"
+        };
 
-    var s = data.ArtifactScope;
+        var s = data.ArtifactScope;
+    
+
 
 }
 

@@ -25,6 +25,8 @@ namespace Cyclops
 
         public string Alias { get; set; }
 
+        public string Token { get; set; }
+
         #endregion properties
 
         #region constructors

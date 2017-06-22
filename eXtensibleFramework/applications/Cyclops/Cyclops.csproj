@@ -428,13 +428,15 @@
     <Content Include="views\solutionzones\Delete.cshtml" />
     <Content Include="views\solutionzones\Details.cshtml" />
     <Content Include="views\solutionzones\Edit.cshtml" />
-    <Content Include="views\zones\Create.cshtml" />
     <Content Include="views\shared\_AddFavorite.cshtml" />
     <Content Include="views\shared\_Documents.cshtml" />
     <Content Include="views\shared\_FileDrop.cshtml" />
     <Content Include="views\shared\_FileUpload.cshtml" />
     <Content Include="views\shared\_Viewer.cshtml" />
     <Content Include="views\serverapp\Delete.cshtml" />
+    <Content Include="views\zones\Index.cshtml" />
+    <Content Include="views\zones\Edit.cshtml" />
+    <Content Include="views\zones\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app_data\" />

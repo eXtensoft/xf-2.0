@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Cyclops.Web.ZoneViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Icon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alias)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="~/zones/details/@item.ZoneId"><img src="~/content/icons/@item.Icon" height="25" /></a>
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alias)
+        </td>
+        <td>
+            @if (User.IsInRole("Admin"))
+            {
+                <a href="~/zones/edit/@item.ZoneId" class="glyphicon glyphicon-pencil" ></a>
+            }
+        </td>
+        <td>
+            @if (User.IsInRole("Admin"))
+            {
+                <a href="~/zones/delete/@item.ZoneId" class="glyphicon glyphicon-remove" ></a>
+            }
+        </td>
+    </tr>
+}
+
+</table>

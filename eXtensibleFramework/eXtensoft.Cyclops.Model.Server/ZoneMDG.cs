@@ -22,6 +22,7 @@ namespace Cyclops
         private const string ZoneIdParamName = "@zoneid";
         private const string NameParamName = "@name";
         private const string AliasParamName = "@alias";
+        private const string TokenParamName = "@token";
 
         #endregion local fields
 
@@ -32,12 +33,13 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "insert into [arc].[Zone] ( [Name],[Alias] ) values (" + NameParamName + "," + AliasParamName + ")";
+            string sql = "insert into [arc].[Zone] ( [Name],[Alias],[Token] ) values (" + NameParamName + "," + AliasParamName + "," + TokenParamName + ")";
 
             cmd.CommandText = sql;
 
             cmd.Parameters.AddWithValue( NameParamName, model.Name );
             cmd.Parameters.AddWithValue( AliasParamName, model.Alias );
+            cmd.Parameters.AddWithValue(TokenParamName, model.Token);
 
             return cmd;
         }
@@ -46,13 +48,15 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "update [arc].[Zone] set [Name] = " + NameParamName + " , [Alias] = " + AliasParamName  + " where [ZoneId] = " + ZoneIdParamName ;
+            string sql = "update [arc].[Zone] set [Name] = " + NameParamName + " , [Alias] = " + AliasParamName  + ",[Token] = " + TokenParamName + " where [ZoneId] = " + ZoneIdParamName ;
 
 
             cmd.CommandText = sql;
 
             cmd.Parameters.AddWithValue( NameParamName, model.Name );
             cmd.Parameters.AddWithValue( AliasParamName, model.Alias );
+            cmd.Parameters.AddWithValue(TokenParamName, model.Token);
+            cmd.Parameters.AddWithValue(ZoneIdParamName, model.ZoneId);
 
             return cmd;
         }
@@ -74,7 +78,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [ZoneId], [Name], [Alias] from [arc].[Zone] where [ZoneId] = " + ZoneIdParamName ;
+            string sql = "select [ZoneId], [Name], [Alias],[Token] from [arc].[Zone] where [ZoneId] = " + ZoneIdParamName ;
 
             cmd.CommandText = sql;
 
@@ -87,7 +91,7 @@ namespace Cyclops
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = "select [ZoneId], [Name], [Alias] from [arc].[Zone] ";
+            string sql = "select [ZoneId], [Name], [Alias],[Token] from [arc].[Zone] ";
             cmd.CommandText = sql;
 
             return cmd;
@@ -116,6 +120,7 @@ namespace Cyclops
                 model.ZoneId = reader.GetInt32(reader.GetOrdinal("ZoneId"));
                 model.Name = reader.GetString(reader.GetOrdinal("Name"));
                 model.Alias = reader.GetString(reader.GetOrdinal("Alias"));
+                model.Token = reader.GetString(reader.GetOrdinal("Token"));
                 list.Add(model);
 
             }

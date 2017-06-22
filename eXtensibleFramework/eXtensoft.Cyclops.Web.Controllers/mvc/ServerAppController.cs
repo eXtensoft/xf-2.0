@@ -77,7 +77,8 @@ namespace Cyclops.Controllers
             }
             else
             {
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                return RedirectToAction("Index", "ServerApps");
             }
         }
 

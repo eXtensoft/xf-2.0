@@ -27,7 +27,7 @@ namespace Cyclops.Controllers
         //[Authorize(Roles = "member")]
         public ActionResult Details(int id)
         {
-            var criterion = new Criterion("ServerId", id);
+            var criterion = new Criterion("ZoneId", id);
             var response = Service.Get<Zone>(criterion);
             if (!response.IsOkay)
             {
@@ -70,7 +70,7 @@ namespace Cyclops.Controllers
         // GET: Server/Edit/5
         public ActionResult Edit(int id)
         {
-            var criterion = new Criterion("ServerId", id);
+            var criterion = new Criterion("ZoneId", id);
             var response = Service.Get<Zone>(criterion);
             if (!response.IsOkay)
             {
@@ -111,7 +111,7 @@ namespace Cyclops.Controllers
         [ActionName("Delete")]
         public ActionResult DeleteGet(int id)
         {
-            var criterion = new Criterion("ServerId", id);
+            var criterion = new Criterion("ZoneId", id);
             var response = Service.Get<Zone>(criterion);
             if (!response.IsOkay)
             {
@@ -128,7 +128,7 @@ namespace Cyclops.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            var criterion = new Criterion("ServerId", id);
+            var criterion = new Criterion("ZoneId", id);
             var response = Service.Delete<Zone>(criterion);
             if (!response.IsOkay)
             {

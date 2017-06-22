@@ -16,6 +16,8 @@ namespace Cyclops.Web
 
         public string Alias { get; set; }
 
+        public string Token { get; set; }
+
 
         public ZoneViewModel() { }
 
@@ -24,6 +26,7 @@ namespace Cyclops.Web
             ZoneId = model.ZoneId;
             Name = model.Name;
             Alias = model.Alias;
+            Token = model.Token;
         }
 
         public override bool IsValid()
@@ -37,6 +40,7 @@ namespace Cyclops.Web
             model.ZoneId = ZoneId;
             model.Name = Name;
             model.Alias = Alias;
+            model.Token = Token;
             return model;
         }
     }
