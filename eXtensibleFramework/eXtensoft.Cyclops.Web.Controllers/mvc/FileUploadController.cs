@@ -140,9 +140,11 @@ namespace Cyclops.Controllers
                 }
                 else
                 {
-                    if (System.IO.File.Exists(response.Model.Location))
+                    //var uploadDirectory = "~/app_files/file-uploads/";
+                    string location = Server.MapPath(response.Model.Location);
+                    if (System.IO.File.Exists(location))
                     {
-                        result = File(response.Model.Location, response.Model.Mime, response.Model.OriginalFilename);
+                        result = File(location, response.Model.Mime, response.Model.OriginalFilename);
                     }
                     else
                     {
@@ -187,11 +189,12 @@ namespace Cyclops.Controllers
                         Directory.CreateDirectory(folderpath);
                     }
                     //m.Location = Path.Combine(Server.MapPath(uploadDirectory), filename);
-                    m.Location = Path.Combine(Server.MapPath(uploadDirectory), m.Mime.Replace('/', '-').Replace('+','-'), filename);
+                    string location = Path.Combine(Server.MapPath(uploadDirectory), m.Mime.Replace('/', '-').Replace('+','-'), filename);
+                    m.Location = Path.Combine(uploadDirectory, m.Mime.Replace('/', '-').Replace('+', '-'), filename);
                     var response = Service.Post<Artifact>(m);
                     if (response.IsOkay)
                     {
-                        viewModel.FileUpload.SaveAs(m.Location);
+                        viewModel.FileUpload.SaveAs(location);
                     }
                 }
                 result = RedirectToAction("index", new { id = viewModel.ArtifactScopeId });
