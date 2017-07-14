@@ -147,8 +147,19 @@ namespace XF.WebApi.Core
             }
 
 
-            // create new 
-            HttpResponseMessage resultMessage = ((errorMessage != null) ? errorMessage : await base.SendAsync(request, cancellationToken));
+            HttpResponseMessage resultMessage = null;
+            try
+            {
+                resultMessage = ((errorMessage != null) ? errorMessage : await base.SendAsync(request, cancellationToken));
+            }
+            catch (Exception ex)
+            {
+                string message = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                var props = eXtensibleConfig.GetProperties();
+                EventWriter.WriteError(message, SeverityType.Critical, "api.routing",props);
+                request.GenerateErrorResponse(HttpStatusCode.NotFound, "resource not found");
+
+            }
 
             // now perform any required profiling
             if (exPrincipal != null)
@@ -164,7 +175,16 @@ namespace XF.WebApi.Core
                 {
                     if (!d.ContainsKey("xf-id"))
                     {
-                        d.Add("xf-id", Guid.NewGuid());
+                        xfId = Guid.NewGuid();
+                        d.Add("xf-id", xfId);
+                    }
+                    else
+                    {
+                        object o = d["xf-id"];
+                        if (o !=null && o is Guid)
+                        {
+                            xfId = (Guid)o;
+                        }
                     }
 
                     if (((HttpContent)resultMessage.Content).GetType().GetGenericArguments()[0].Name.Equals("HttpError"))
