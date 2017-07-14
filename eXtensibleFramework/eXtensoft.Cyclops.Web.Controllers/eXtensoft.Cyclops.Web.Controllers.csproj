@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="api\NoteApiController.cs" />
     <Compile Include="common\BasicRoleProvider.cs" />
+    <Compile Include="common\ImagesManager.cs" />
     <Compile Include="common\SelectionConverter.cs" />
     <Compile Include="common\SelectionListUtility.cs" />
     <Compile Include="common\SelectListItemCache.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="mvc\FavoritesController.cs" />
     <Compile Include="mvc\FileDropController.cs" />
     <Compile Include="mvc\FileUploadController.cs" />
+    <Compile Include="mvc\ImagesController.cs" />
     <Compile Include="mvc\SelectionsController.cs" />
     <Compile Include="mvc\ServerAppController.cs" />
     <Compile Include="mvc\ServerAppsController.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="view.model\CertificateViewModel.cs" />
     <Compile Include="view.model\ComponentViewModel.cs" />
     <Compile Include="view.model\FavoriteViewModel.cs" />
+    <Compile Include="view.model\FileInfoViewModel.cs" />
     <Compile Include="view.model\SelectionViewModel.cs" />
     <Compile Include="view.model\ServerAppViewModel.cs" />
     <Compile Include="view.model\ServerAppViewModelCollection.cs" />

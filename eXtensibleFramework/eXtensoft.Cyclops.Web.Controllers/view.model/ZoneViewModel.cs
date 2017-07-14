@@ -27,6 +27,7 @@ namespace Cyclops.Web
             Name = model.Name;
             Alias = model.Alias;
             Token = model.Token;
+            Icon = String.Format("zone.{0}.png", model.ZoneId.ToString("00"));
         }
 
         public override bool IsValid()
