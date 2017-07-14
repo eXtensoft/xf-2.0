@@ -35,6 +35,7 @@
     <Compile Include="mdg\DbModelDataGateway`1.cs" />
     <Compile Include="mdg\ModelDataGateway`1.cs" />
     <Compile Include="Messages.cs" />
+    <Compile Include="model\Endpoint.cs" />
     <Compile Include="rpc\RpcHandler`1.cs" />
   </ItemGroup>
   <ItemGroup>
