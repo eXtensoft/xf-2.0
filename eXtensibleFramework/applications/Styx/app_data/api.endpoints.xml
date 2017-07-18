@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEndpoint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <Endpoint sortOrder="1" version="0" id="aceed304-c4db-4824-8739-18ee7adf01c4" name="Cyclops NoteController">
+  <Whitelist />
+  <Pattern>v{version}/cyclops/notes/{id}</Pattern>
+  <Description>This is the Note controller for Cyclops</Description>
+ </Endpoint>
+</ArrayOfEndpoint>

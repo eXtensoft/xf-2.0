@@ -148,6 +148,18 @@ namespace Cyclops
                                    }).ToList();
         }
 
+        public static List<SelectListItem> GetUsers()
+        {
+            var service = GetService();
+            var response = service.GetAll<User>(null);
+            return (from x in response orderby x.Name
+                    select new SelectListItem()
+                    {
+                        Value = x.Email,
+                        Text = x.Name
+                    }).ToList();
+        }
+
         public static SelectList GetServers()
         {
             var service = GetService();

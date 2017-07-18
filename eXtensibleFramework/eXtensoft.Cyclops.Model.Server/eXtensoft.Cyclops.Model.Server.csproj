@@ -7,7 +7,7 @@
     <ProjectGuid>{F5BC7D36-B35F-4D55-BDD6-9B639325B7B2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>eXtensoft.Cyclops.Model.Server</RootNamespace>
+    <RootNamespace>Cyclops</RootNamespace>
     <AssemblyName>eXtensoft.Cyclops.Model.Server</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -75,6 +75,7 @@
     <Compile Include="SolutionAppMDG.cs" />
     <Compile Include="SolutionMDG.cs" />
     <Compile Include="SolutionZoneMDG.cs" />
+    <Compile Include="UserMDG.cs" />
     <Compile Include="ZoneMDG.cs" />
   </ItemGroup>
   <ItemGroup>

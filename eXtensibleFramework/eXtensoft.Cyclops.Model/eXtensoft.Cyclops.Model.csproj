@@ -63,6 +63,7 @@
     <Compile Include="Solution.cs" />
     <Compile Include="SolutionApp.cs" />
     <Compile Include="SolutionZone.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="Zone.cs" />
   </ItemGroup>
   <ItemGroup>

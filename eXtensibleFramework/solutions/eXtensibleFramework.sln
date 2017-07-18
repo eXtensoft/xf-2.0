@@ -49,6 +49,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{67E319
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Styx.ConfigurationProvider.Development", "..\ancillary\Styx.ConfigurationProvider.Development\Styx.ConfigurationProvider.Development.csproj", "{43F2B540-06FA-4013-85CF-A603B745D9CF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xf.xap", "xf.xap", "{68E3EAA0-E2B8-4531-B7F3-852E6C6BB336}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyclopsTool", "..\applications\CyclopsTool\CyclopsTool.csproj", "{B56113C8-6444-4343-B5AA-16CC26463F93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Styx", "..\applications\Styx\Styx.csproj", "{8317BF6E-9E22-4FCC-BF3D-1932EB51BAE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +141,14 @@ Global
 		{43F2B540-06FA-4013-85CF-A603B745D9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43F2B540-06FA-4013-85CF-A603B745D9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43F2B540-06FA-4013-85CF-A603B745D9CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B56113C8-6444-4343-B5AA-16CC26463F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B56113C8-6444-4343-B5AA-16CC26463F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B56113C8-6444-4343-B5AA-16CC26463F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B56113C8-6444-4343-B5AA-16CC26463F93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8317BF6E-9E22-4FCC-BF3D-1932EB51BAE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8317BF6E-9E22-4FCC-BF3D-1932EB51BAE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8317BF6E-9E22-4FCC-BF3D-1932EB51BAE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8317BF6E-9E22-4FCC-BF3D-1932EB51BAE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,5 +171,6 @@ Global
 		{D1FF4932-1073-4B76-AE56-95AEEB75850E} = {39152F15-6AC8-4F47-9458-42CE2257138E}
 		{9615B638-E557-4EAF-AD8F-E0DEB69BE08F} = {39152F15-6AC8-4F47-9458-42CE2257138E}
 		{43F2B540-06FA-4013-85CF-A603B745D9CF} = {67E319E3-F558-4882-8ABD-B599044D2339}
+		{B56113C8-6444-4343-B5AA-16CC26463F93} = {68E3EAA0-E2B8-4531-B7F3-852E6C6BB336}
 	EndGlobalSection
 EndGlobal

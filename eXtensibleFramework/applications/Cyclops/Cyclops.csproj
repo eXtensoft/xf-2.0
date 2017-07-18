@@ -458,6 +458,7 @@
     <Folder Include="app_files\file-uploads\image-png\" />
     <Folder Include="app_files\file-uploads\text-plain\" />
     <Folder Include="content\sso\" />
+    <Folder Include="views\users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

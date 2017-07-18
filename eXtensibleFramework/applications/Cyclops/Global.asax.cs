@@ -49,6 +49,7 @@ namespace Cyclops
             SelectListItemCache.Instance.RegisterProvider("zones", SelectionListUtility.GetZones);
             SelectListItemCache.Instance.RegisterProvider("domains", SelectionListUtility.GetDomains);
             SelectListItemCache.Instance.RegisterProvider("artifact-type", SelectionListUtility.GetArtifactTypes);
+            SelectListItemCache.Instance.RegisterProvider("users", SelectionListUtility.GetUsers);
             //SelectListItemCache.Instance.RegisterProvider("domain", SelectionListUtility.GetDomains);
            // SelectListItemCache.Instance.RegisterProvider("urls", SelectionListUtility.GetUrls);
 
