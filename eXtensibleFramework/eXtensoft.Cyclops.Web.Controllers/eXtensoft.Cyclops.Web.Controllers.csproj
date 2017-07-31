@@ -38,6 +38,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\solutions\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -57,28 +60,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="XF.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\xf2.dlls\XF.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="XF.Common.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\xf2.dlls\XF.Common.Contracts.dll</HintPath>
-    </Reference>
-    <Reference Include="XF.Common.Server, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\xf2.dlls\XF.Common.Server.dll</HintPath>
-    </Reference>
-    <Reference Include="XF.Common.Server.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\xf2.dlls\XF.Common.Server.Contracts.dll</HintPath>
-    </Reference>
-    <Reference Include="XF.WebApi.Common">
-      <HintPath>..\..\..\xf2.dlls\XF.WebApi.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="XF.WebApi.Controllers">
-      <HintPath>..\..\..\xf2.dlls\XF.WebApi.Controllers.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="api\NoteApiController.cs" />
@@ -126,6 +107,30 @@
     <ProjectReference Include="..\eXtensoft.Cyclops.Model\eXtensoft.Cyclops.Model.csproj">
       <Project>{2512bfa2-c2d1-4c2f-b90e-3a168fa1f5be}</Project>
       <Name>eXtensoft.Cyclops.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common.Contracts\XF.Common.Contracts.csproj">
+      <Project>{84d9f7df-79db-4c0a-81aa-ff0e1fbb2b53}</Project>
+      <Name>XF.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common.Server.Contracts\XF.Common.Server.Contracts.csproj">
+      <Project>{d66567b0-cd5d-4313-a215-bc13edd551f7}</Project>
+      <Name>XF.Common.Server.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common.Server\XF.Common.Server.csproj">
+      <Project>{1e0b6b68-06be-43f7-9040-abd27d127a21}</Project>
+      <Name>XF.Common.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common\XF.Common.csproj">
+      <Project>{b1b8c274-250f-4707-b296-773d05585b3b}</Project>
+      <Name>XF.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.WebApi.Common\XF.WebApi.Common.csproj">
+      <Project>{f9a4d7b6-9135-478e-acb0-be70bd37764a}</Project>
+      <Name>XF.WebApi.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.WebApi.Controllers\XF.WebApi.Controllers.csproj">
+      <Project>{014bea88-44c4-42a0-bc1e-acbb27b2d25e}</Project>
+      <Name>XF.WebApi.Controllers</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
