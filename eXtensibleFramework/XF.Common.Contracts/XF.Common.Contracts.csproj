@@ -197,7 +197,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="configuration\notes.txt" />
-    <Content Include="packages.config.txt" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="RequestStatii.resx">
