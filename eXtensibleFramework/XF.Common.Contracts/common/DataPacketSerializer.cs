@@ -1,13 +1,12 @@
-﻿// <copyright company="eXtensible Solutions LLC" file="DataPacketSerializer.cs">
-// Copyright © 2015 All Right Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.Common.Wcf
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-
 
     public class DataPacketSerializer
     {

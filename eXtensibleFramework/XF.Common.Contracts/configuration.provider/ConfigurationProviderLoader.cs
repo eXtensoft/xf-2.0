@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Data.Linq;
-using System.Linq;
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
+
+
 
 namespace XF.Common.Contracts
 {
+
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.IO;
+    using System.Linq;
+
     internal static class ConfigurationProviderLoader
     {
         public static IConfigurationProvider Load()
@@ -18,12 +22,19 @@ namespace XF.Common.Contracts
             //
             IConfigurationProvider provider = null;
             if (CanLoadPlugin(out provider) && UsePlugin())
-            {
+            {                
             }
             if (provider == null)
             {
                 provider =  new SystemConfigurationProvider();
-            }            
+            }
+
+            if (eXtensibleConfig.Inform)
+            {
+                var props = eXtensibleConfig.GetProperties();
+                EventWriter.WriteError(String.Format("Loaded ConfigurationProvider: {0}", provider.GetType().Name), SeverityType.Information, "Configuration", props);
+            }
+             
             return provider;
         }
 

@@ -1,15 +1,11 @@
-﻿// <copyright company="Recorded Books, Inc" file="eXtensibleWebApiElement.cs">
-// Copyright © 2015 All Rights Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.WebApi.Config
 {
     using System;
-    using System.Collections.Generic;
     using System.Configuration;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using XF.Common;
 
     public class eXtensibleWebApiElement : ConfigurationElement

@@ -1,12 +1,12 @@
-﻿// <copyright file="IStatusCheck.cs" company="eXtensible Solutions LLC">
-// Copyright © 2015 All Right Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.Common
 {
     using System.ServiceModel;
 
-    [ServiceContract(Namespace = "http://eXtensibleSolution/schemas/2014/04")]
+    [ServiceContract(Namespace = "http://eXtensoft/xf/schemas/2017/09")]
     [ServiceKnownType(typeof(ListItem))]
     [ServiceKnownType(typeof(TypedItem))]
     [ServiceKnownType(typeof(StatusCheck))]

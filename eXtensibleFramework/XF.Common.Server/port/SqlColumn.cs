@@ -1,13 +1,14 @@
-﻿
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.Common.Discovery
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Data;
     using System.Data.SqlClient;
+    using System.Linq;
+    using System.Text;
     using System.Xml.Serialization;
 
     public class SqlColumn

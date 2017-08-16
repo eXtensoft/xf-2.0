@@ -52,7 +52,6 @@
     <Compile Include="common\ExtensionMethods.cs" />
     <Compile Include="common\Extensions.cs" />
     <Compile Include="common\GenericSerializer.cs" />
-    <Compile Include="common\HttpService.cs" />
     <Compile Include="common\KeyPairStrategyResolver.cs" />
     <Compile Include="common\ModuleLoader`1.cs" />
     <Compile Include="common\NetMemoryCache.cs" />
@@ -92,7 +91,7 @@
     <Compile Include="contracts\IMessage`1.cs" />
     <Compile Include="contracts\IModelRequestService.cs" />
     <Compile Include="contracts\IModelService.cs" />
-    <Compile Include="contracts\IProject.cs" />
+    <Compile Include="contracts\IProjection.cs" />
     <Compile Include="contracts\IRemoteConfigService.cs" />
     <Compile Include="contracts\IRequestContext.cs" />
     <Compile Include="contracts\IRequest`1.cs" />

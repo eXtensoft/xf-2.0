@@ -1,14 +1,12 @@
-﻿// <copyright company="eXtensible Solutions LLC" file="SubscriptionManager.cs">
-// Copyright © 2014 All Right Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.Alert
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using XF.Common;
 
     public class SubscriptionManager

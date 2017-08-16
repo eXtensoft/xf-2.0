@@ -1,18 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using XF.Common.Contracts;
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
+
+
 
 namespace XF.Common
 {
-     public class ConfigurationProvider 
+    using System.Collections.Specialized;
+    using System.Configuration;
+    using XF.Common.Contracts;
+
+    public class ConfigurationProvider 
     {
         private static object sync = new object();
         private static volatile IConfigurationProvider provider;
+
+        public string ProviderName
+        {
+            get
+            {
+                return provider.GetType().FullName;
+            }
+        }
 
         public static IConfigurationProvider Provider
         {
@@ -38,17 +47,6 @@ namespace XF.Common
                 return provider;
             }
         }
-
-        //public static ConnectionStringSettingsCollection ProviderConnectionStrings
-        //{ 
-        //    get { return provider.ProvideConnectionStrings; }
-        //}
-
-        //public static NameValueCollection ProviderAppSettings
-        //{
-        //    get { return provider.ProvideAppSettings; }
-        //}
-
         
         //
         // Summary:

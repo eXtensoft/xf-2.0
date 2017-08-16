@@ -1,23 +1,11 @@
-﻿// <copyright company="Recorded Books, Inc" file="ExtensionMethods.cs">
-// Copyright © 2015 All Rights Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.WebApi
 {
     using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using System.Net;
     using System.Net.Http;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Web;
-    using System.Web.Http.Controllers;
-    using System.Web.Http.ValueProviders;
-    using System.Web.Http.ValueProviders.Providers;
-    using System.Xml;
-    using System.Xml.Serialization;
     using System.Threading;
     using XF.Common;
 
@@ -208,137 +196,10 @@ namespace XF.WebApi
         }
         #endregion
 
-
-
-
-
-
         private static bool IsSuccessful(System.Net.HttpStatusCode statusCode)
         {
             return ResponseConfiguration.MessageProvider.IsSuccessful(statusCode);
         }
-
-
-
-
-
-
-
-
-
-
-        //public static HttpResponseMessage GenerateErrorResponse(this HttpRequestMessage request, string errorIdentifier, params object[] messageParameters)
-        //{
-        //    HttpResponseMessage response = null;
-
-        //    string message = String.Empty;
-        //    System.Net.HttpStatusCode code = System.Net.HttpStatusCode.SeeOther;
-        //    if (GetErrorResponse(errorIdentifier, out code, out message, messageParameters))
-        //    { 
-        //        response = request.CreateErrorResponse(code,message);
-        //    }
-        //    else
-        //    {
-        //        response = request.CreateErrorResponse(code, "an error occurred");
-        //    }            
-        //    return response;
-        //}
-
-        //private static void GetErrorResponseMessage(string errorIdentifier, out System.Net.HttpStatusCode code, out string message)
-        //{
-        //    code = System.Net.HttpStatusCode.SeeOther;
-        //    message = String.Empty;
-        //}
-
-        //private static bool GetErrorResponse(string errorIdentifier, out System.Net.HttpStatusCode code, out string message, params object[] messageParameters)
-        //{
-        //    bool b = false;
-        //    WebApiCaller.GetCallerId();
-        //    code = System.Net.HttpStatusCode.BadRequest;
-        //    List<string> list = new List<string>();
-        //    list.Add(errorIdentifier);
-        //    foreach (var item in messageParameters)
-        //    {
-        //        list.Add(item.ToString());
-        //    }
-        //    b = true;
-        //    // obtain the pattern for the given errorIdentifier AND messageParameter.Count,
-        //    // obtain the HttpStatusCode for the given errorIdentifier;
-        //    string pattern = "pattern for: {0} | {1},{2},{3}";
-        //    message = String.Format(pattern, list.ToArray());
-        //    return b;
-        //}
-
-        //public static HttpResponseMessage GenerateErrorResponse(this HttpRequestMessage request, System.Net.HttpStatusCode statusCode, string messagePattern, params object[] messageParameters)
-        //{
-        //    HttpResponseMessage response = null;
-
-        //    string message = String.Format(messagePattern, messageParameters);
-        //    response = request.CreateErrorResponse(statusCode, message);
-
-        //    return response;
-        //}
-
-        //public static HttpResponseMessage ApiErrorResponse(this HttpRequestMessage request, string key)
-        //{
-        //    HttpResponseMessage response = null;
-        //    response = ResponseConfiguration.MessageProvider.ComposeErrorResponse(request, key);
-        //    return response;
-        //}
-
-        //public static HttpResponseMessage ApiErrorResponse(this HttpRequestMessage request, string key, params object[] messageParameters)
-        //{
-        //    HttpResponseMessage response = null;
-        //    response = ResponseConfiguration.MessageProvider.ComposeErrorResponse(request, key,messageParameters);
-        //    return response;
-        //}
-
-        //public static HttpResponseMessage ApiResponse(this HttpRequestMessage request, string key)
-        //{
-        //    HttpResponseMessage response = null;
-        //    response = ResponseConfiguration.MessageProvider.ComposeResponse(request, key);
-        //    return response;
-        //}
-
-        //public static HttpResponseMessage ApiResponse<T>(this HttpRequestMessage request, string key, T model)
-        //{
-        //    HttpResponseMessage response = null;
-        //    response = ResponseConfiguration.MessageProvider.ComposeResponse<T>(request, key,model);
-        //    return response;
-        //}
-
-        //public static HttpResponseMessage ApiResponse<T>(this HttpRequestMessage request, System.Net.HttpStatusCode statusCode, T model)
-        //{
-        //    HttpResponseMessage response = null;
-
-        //    bool b = ResponseConfiguration.MessageProvider.VetStatusCode(statusCode);
-        //    response = request.CreateResponse(statusCode,model);
-
-        //    return response;
-        //}
-
-        //public static HttpResponseMessage ApiResponse(this HttpRequestMessage request, System.Net.HttpStatusCode statusCode, object model)
-        //{
-        //    HttpResponseMessage response = null;
-
-        //    bool b = ResponseConfiguration.MessageProvider.VetStatusCode(statusCode);
-        //    response = request.CreateResponse(statusCode,model);
-            
-        //    return response;
-        //}
-
-        //public static HttpResponseMessage ApiResponse(this HttpRequestMessage request, System.Net.HttpStatusCode statusCode)
-        //{
-        //    HttpResponseMessage response = null;
-
-        //    if(!ResponseConfiguration.MessageProvider.VetStatusCode(statusCode))
-        //    {
-
-        //    }
-        //    response = request.CreateResponse(statusCode);
-
-        //    return response;
-        //}
 
     }
 

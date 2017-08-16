@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 namespace XF.Common
 {
+    using System;
+    using System.Dynamic;
+    using System.Reflection;
+
     public class RpcClient<T> : DynamicObject where T : class, new()
     {
         #region local fields

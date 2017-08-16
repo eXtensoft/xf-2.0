@@ -1,6 +1,6 @@
-﻿// <copyright file="ProfileHour.cs" company="eXtensible Solutions LLC">
-// Copyright © 2014 All Right Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.Common
 {
@@ -8,15 +8,11 @@ namespace XF.Common
     using MongoDB.Bson.Serialization.Attributes;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Runtime.Serialization;
-    using System.Text;
-    using System.Threading.Tasks;
-    using XF.Common.MongoDb;
 
 
     [Serializable]
-    [DataContract(Namespace = "http://eXtensoft/schemas/2014/04")]
+    [DataContract(Namespace = "http://eXtensoft/xf/schemas/2017/09")]
     public class ProfileHour
     {
         [DataMember]
