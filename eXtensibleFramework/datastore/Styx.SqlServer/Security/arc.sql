@@ -1,3 +1,0 @@
-﻿CREATE SCHEMA [arc]
-    AUTHORIZATION [dbo];
-
