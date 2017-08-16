@@ -41,10 +41,10 @@ namespace Styx
             //sql.Append(" SELECT [ItemId],[ItemGuid],[Title],[GroupName],[ItemTypeToken],[ItemToken],[GroupToken] FROM [styx].[Item] where ItemId = scope_identity()");
             sql.Append(" SELECT @id = SCOPE_IDENTITY()");
             sql.Append(" SELECT @guid = ItemGuid from [styx].[item] where ItemId = " + idParamName);
-            sql.Append(" INSERT INTO [styx].[projectdata]([itemid],[title],[xmldata],[upsertedby]) VALUES (@id," + titleParamName + "," + xmlParamName + "," + upsertedParamName);
+            sql.Append(" INSERT INTO [styx].[projectdata]([itemid],[title],[xmldata],[upsertby]) VALUES (@id," + titleParamName + "," + xmlParamName + "," + upsertedParamName);
             sql.Append(")");
 
-            string select = " select top 1 i.ItemId, i.ItemGuid, i.Title, i.GroupName, i.GroupToken, i.ItemTypeToken, i.ItemToken, i.CreatedBy, i.Tds as CreatedAt, i.HasNotes, d.XmlData, d.UpsertedBy, d.Tds as UpsertedAt" +
+            string select = " select top 1 i.ItemId, i.ItemGuid, i.Title, i.GroupName, i.GroupToken, i.ItemTypeToken, i.ItemToken, i.CreatedBy, i.Tds as CreatedAt, i.HasNotes, d.XmlData, d.UpsertdBy, UpsertAt" +
             " from styx.Item AS i inner join styx.ProjectData AS d ON i.ItemId = d.ItemId" +
             " where (i.ItemId = @id) order by d.Tds desc";
             sql.Append(select);

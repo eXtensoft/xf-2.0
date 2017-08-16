@@ -13,9 +13,9 @@ namespace Cyclops
 
         public string Domain { get; set; }
 
-        public DateTime Begin { get; set; }
+        public DateTime BeginOn { get; set; }
 
-        public DateTime End { get; set; }
+        public DateTime EndOn { get; set; }
 
 
     }

@@ -38,8 +38,8 @@ namespace Cyclops.Web
             CertificateId = model.CertificateId;
             Name = model.Name;
             Domain = model.Domain;
-            Begin = model.Begin;
-            End = model.End;
+            Begin = model.BeginOn;
+            End = model.EndOn;
         }
 
         public override bool IsValid()
@@ -56,8 +56,8 @@ namespace Cyclops.Web
             model.CertificateId = CertificateId;
             model.Name = Name;
             model.Domain = Domain;
-            model.Begin = Begin;
-            model.End = End;
+            model.BeginOn = Begin;
+            model.EndOn = End;
             return model;
         }
     }

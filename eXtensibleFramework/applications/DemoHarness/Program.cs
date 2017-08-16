@@ -21,15 +21,40 @@ namespace DemoHarness
             Console.WriteLine("ready...");
             Console.ReadLine();
             //GetSelections();
-            Execute();
-           // ExecuteSchema();
+            //Execute();
+            // ExecuteSchema();
             //ConfigProvide();
-
-            ExecuteAlert();
+            ExecuteStyx();
+            //ExecuteAlert();
             Console.WriteLine("done...");
             Console.ReadLine();
         }
+        private static void ExecuteStyx()
+        {
+            var svc = GetWcfModelService();
 
+            Styx.ProjectManagement.Task t = new Styx.ProjectManagement.Task()
+            {
+                Title = "Work",
+                Body = "Work Hard",
+                Phase = "Phase 0",
+                Group = "group",
+                GroupToken = "group-token",
+                TaskType = "task-type",
+                CurrentState = "none"
+            };
+        
+            var response = svc.Post<Styx.ProjectManagement.Task>(t);
+            Console.WriteLine(response.Status.Code);
+            if (response.IsOkay)
+            {
+
+            }
+            else
+            {
+                Console.WriteLine(response.Status.Description);
+            }
+        }
         private static void ExecuteSchema()
         {
             DateTime d = DateTime.Now;

@@ -26,7 +26,6 @@ namespace Styx
         private const string xmlParamName = "@xml";
         private const string upsertedParamName = "@upserted";
         private const string idParamName = "@id";
-
         private const string taskTypeParamName = "@tasktype";
         private const string currentStateParamName = "@currentstate";
         private const string phaseParamName = "@phase";
@@ -50,7 +49,7 @@ namespace Styx
             sql.Append(" INSERT INTO [styx].[taskdata]([itemid],[title],[tasktype],[currentstate],[phase],[xmldata],[upsertedby]) values ( @id," + 
                 titleParamName + "," + taskTypeParamName + "," + currentStateParamName + ","  + phaseParamName + "," + xmlParamName + "," + upsertedParamName + ")");
 
-            string select = " select top 1 i.ItemId, i.ItemGuid, i.Title, i.GroupName, i.GroupToken, i.ItemTypeToken, i.ItemToken, i.CreatedBy, i.Tds as CreatedAt, i.HasNotes, t.XmlData, t.UpsertedBy, t.Tds as UpsertedAt, t.TaskType, t.CurrentState, t.Phase" +
+            string select = " select top 1 i.ItemId, i.ItemGuid, i.Title, i.GroupName, i.GroupToken, i.ItemTypeToken, i.ItemToken, i.CreatedBy, i.Tds as CreatedAt, i.HasNotes, t.XmlData, t.UpsertBy,t.UpsertAt,t.UpsertCount t.Tds as UpsertedAt, t.TaskType, t.CurrentState, t.Phase" +
                         " from styx.Item AS i inner join styx.TaskData AS t ON i.ItemId = t.ItemId" +
                         " where (i.ItemId = @id) order by t.Tds desc";
             sql.Append(select);
@@ -75,7 +74,7 @@ namespace Styx
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = " select top 1 i.ItemId, i.ItemGuid, i.Title, i.GroupName, i.GroupToken, i.ItemTypeToken, i.ItemToken, i.CreatedBy, i.Tds as CreatedAt, i.HasNotes, t.XmlData, t.UpsertedBy, t.Tds as UpsertedAt, t.TaskType, t.CurrentState, t.Phase" +
+            string sql = " select top 1 i.ItemId, i.ItemGuid, i.Title, i.GroupName, i.GroupToken, i.ItemTypeToken, i.ItemToken, i.CreatedBy, i.Tds as CreatedAt, i.HasNotes, t.XmlData, t.UpsertBy,t.UpsertAt, t.UpsertCount, t.TaskType, t.CurrentState, t.Phase" +
                 " from styx.Item AS i inner join styx.TaskData AS t ON i.ItemId = d.ItemId" +
                 " where (i.ItemId = " + idParamName + ") order by t.Tds desc";
             cmd.Parameters.AddWithValue(idParamName, criterion.GetValue<int>("ItemId"));
@@ -88,7 +87,7 @@ namespace Styx
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            string sql = " select top 1 i.ItemId, i.ItemGuid, i.Title, i.GroupName, i.GroupToken, i.ItemTypeToken, i.ItemToken, i.CreatedBy, i.Tds as CreatedAt, i.HasNotes, t.XmlData, t.UpsertedBy, t.Tds as UpsertedAt, t.TaskType, t.CurrentState, t.Phase" +
+            string sql = " select top 1 i.ItemId, i.ItemGuid, i.Title, i.GroupName, i.GroupToken, i.ItemTypeToken, i.ItemToken, i.CreatedBy, i.Tds as CreatedAt, i.HasNotes, t.XmlData, t.UpsertBy, UpsertAt, t.TaskType, t.CurrentState, t.Phase" +
                 " from styx.Item AS i inner join styx.TaskData AS t ON i.ItemId = d.ItemId" +
                 " order by t.Tds desc";
             cmd.CommandText = sql;
@@ -106,11 +105,12 @@ namespace Styx
             if (criterion == null)
             {
 
-                sql.Append(" insert into [styx].[taskdata]([itemid],[title],[tasktype],[currentstate],[phase],[xmldata],[upsertedby]) values (");
+                sql.Append(" insert into [styx].[taskdata]([itemid],[title],[tasktype],[currentstate],[phase],[xmldata],[upsertby]) values (");
                 sql.Append(idParamName + "," + titleParamName + "," + taskTypeParamName + "," + currentStateParamName + "," + phaseParamName + "," + xmlParamName + "," + upsertedParamName + ")");
-                sql.Append(" update [styx].[item] set [title] = " + titleParamName + ",[updatedat] = getutcdate() where [itemid] = " + @idParamName);
+                sql.Append(" update [styx].[item] set [title] = " + titleParamName + ",[upsertat] = sysdatetimeoffset(),[upsertby] = " +
+                upsertedParamName + "[upsertcount] = ([upsertcount] + 1) where [itemid] = " + @idParamName);
 
-                string select = " select top 1 i.ItemId, i.ItemGuid, i.Title, i.GroupName, i.GroupToken, i.ItemTypeToken, i.ItemToken, i.CreatedBy, i.Tds as CreatedAt, i.HasNotes, t.XmlData, t.UpsertedBy, t.Tds as UpsertedAt, t.TaskType, t.CurrentState, t.Phase" +
+                string select = " select top 1 i.ItemId, i.ItemGuid, i.Title, i.GroupName, i.GroupToken, i.ItemTypeToken, i.ItemToken, i.CreatedBy, i.Tds as CreatedAt, i.HasNotes, t.XmlData, t.UpsertBy, t.UpsertAt, t.UpsertCount t.TaskType, t.CurrentState, t.Phase" +
                     " from styx.Item AS i inner join styx.TaskData AS d ON i.ItemId = d.ItemId" +
                     " where (i.ItemId = " + idParamName + ") order by d.Tds desc";
                 sql.Append(select);

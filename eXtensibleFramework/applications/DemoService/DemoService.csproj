@@ -53,9 +53,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\eXtensoft.Cyclops.Model.Server\eXtensoft.Cyclops.Model.Server.csproj">
+      <Project>{f5bc7d36-b35f-4d55-bdd6-9b639325b7b2}</Project>
+      <Name>eXtensoft.Cyclops.Model.Server</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\eXtensoft.Cyclops.Model\eXtensoft.Cyclops.Model.csproj">
       <Project>{2512bfa2-c2d1-4c2f-b90e-3a168fa1f5be}</Project>
       <Name>eXtensoft.Cyclops.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\eXtensoft.Styx.Model.Server\eXtensoft.Styx.Model.Server.csproj">
+      <Project>{9615b638-e557-4eaf-ad8f-e0deb69be08f}</Project>
+      <Name>eXtensoft.Styx.Model.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\eXtensoft.Styx.Model\eXtensoft.Styx.Model.csproj">
+      <Project>{aa5f1e07-1adc-4add-839d-9d5677174749}</Project>
+      <Name>eXtensoft.Styx.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\XF.Common.Contracts\XF.Common.Contracts.csproj">
       <Project>{84d9f7df-79db-4c0a-81aa-ff0e1fbb2b53}</Project>
