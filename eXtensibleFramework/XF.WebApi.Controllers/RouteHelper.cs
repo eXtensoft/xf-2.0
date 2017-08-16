@@ -1,15 +1,19 @@
-﻿namespace RB.API
-{
-	using System;
-	using System.Collections.Generic;
-	using System.Collections.ObjectModel;
-	using System.Linq;
-	using System.Runtime.Serialization;
-	using System.Web.Http;
-	using System.Web.Http.Description;
-	using System.Xml.Serialization;
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
-	public static class RouteHelper
+namespace RB.API
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+    using System.Runtime.Serialization;
+    using System.Web.Http;
+    using System.Web.Http.Description;
+    using System.Xml.Serialization;
+
+    public static class RouteHelper
 	{
 		public static List<ControllerRegistration> Execute(HttpConfiguration config)
 		{
@@ -79,8 +83,8 @@
 		}
 	}
 
-	[DataContract]
-	[Serializable]
+    [DataContract(Namespace = "http://eXtensoft/xf/schemas/2017/09")]
+    [Serializable]
 	public class Endpoint
 	{
 		[DataMember]
@@ -111,8 +115,8 @@
 		public List<EndpointParameter> Parameters { get; set; }
 	}
 
-	[DataContract]
-	[Serializable]
+    [DataContract(Namespace = "http://eXtensoft/xf/schemas/2017/09")]
+    [Serializable]
 	public class EndpointParameter
 	{
 		[DataMember]
@@ -132,8 +136,8 @@
 		public string DefaultValue { get; set; }
 	}
 
-	[DataContract]
-	[Serializable]
+    [DataContract(Namespace = "http://eXtensoft/xf/schemas/2017/09")]
+    [Serializable]
 	public class ControllerRegistration
 	{
 		[DataMember]

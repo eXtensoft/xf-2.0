@@ -1,18 +1,17 @@
-﻿
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.WebApi.Core
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Data.SqlClient;
     using System.Data;
-    using System.Configuration;
+    using System.Data.SqlClient;
+    using System.IO;
+    using System.Text;
     using System.Xml;
     using System.Xml.Serialization;
-    using System.IO;
     using XF.Common;
     using XF.Common.Special;
 

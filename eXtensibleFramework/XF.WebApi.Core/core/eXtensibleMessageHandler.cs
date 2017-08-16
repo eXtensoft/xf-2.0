@@ -1,6 +1,6 @@
-﻿// <copyright company="eXtensoft, LLC" file="DelegatingMessageHandler.cs">
-// Copyright © 2016 All Right Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.WebApi.Core
 {
@@ -10,7 +10,6 @@ namespace XF.WebApi.Core
     using System.Net;
     using System.Net.Http;
     using System.Security.Claims;
-    using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Web.Http;

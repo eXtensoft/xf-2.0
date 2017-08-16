@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http;
-using XF.Common;
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
+
 
 namespace XF.WebApi
 {
+    using System;
+    using System.ComponentModel.Composition;
+    using System.Web.Http;
+    using XF.Common;
+
     [InheritedExport(typeof(IEndpointController))]
     public abstract class EndpointServiceController : ApiController, IEndpointController
     {

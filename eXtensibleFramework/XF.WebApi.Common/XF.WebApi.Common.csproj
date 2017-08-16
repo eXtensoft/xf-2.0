@@ -50,7 +50,6 @@
     <Compile Include="message.provider\XmlHttpMessageProvider.cs" />
     <Compile Include="model\ApiError.cs" />
     <Compile Include="model\ApiHttpStatusCode.cs" />
-    <Compile Include="model\ApiLogOption.cs" />
     <Compile Include="model\ApiRequest.cs" />
     <Compile Include="model\ApiRequestProfile.cs" />
     <Compile Include="model\ApiSession.cs" />

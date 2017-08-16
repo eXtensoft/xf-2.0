@@ -1,6 +1,6 @@
-﻿// <copyright company="eXtensible Solutions LLC" file="ListItem.cs">
-// Copyright © 2015 All Right Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.Common
 {
@@ -10,7 +10,7 @@ namespace XF.Common
     using System.Xml.Serialization;
 
     [Serializable]
-    [DataContract(Namespace = "http://eXtensibleSolutions/schemas/2014/04")]
+    [DataContract(Namespace = "http://eXtensoft/xf/schemas/2017/09")]
     public class ListItem
     {
         [XmlAttribute("group")]

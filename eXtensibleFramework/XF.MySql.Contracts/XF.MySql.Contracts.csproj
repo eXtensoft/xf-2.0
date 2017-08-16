@@ -29,6 +29,34 @@
     <Compile Include="..\..\common\assemblyinfo\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="IMySqlCommandContext.cs" />
+    <Compile Include="mdg\MySqlModelDataGateway`1.cs" />
+    <Compile Include="port\MySqlBorrower`1.cs" />
+    <Compile Include="port\MySqlBuilder`1.cs" />
+    <Compile Include="port\contracts\IMySqlBorrower`1.cs" />
+    <Compile Include="port\contracts\IMySqlListBorrower`1.cs" />
+    <Compile Include="port\MySqlParser`1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XF.Common.Contracts\XF.Common.Contracts.csproj">
+      <Project>{84D9F7DF-79DB-4C0A-81AA-FF0E1FBB2B53}</Project>
+      <Name>XF.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common.Server.Contracts\XF.Common.Server.Contracts.csproj">
+      <Project>{d66567b0-cd5d-4313-a215-bc13edd551f7}</Project>
+      <Name>XF.Common.Server.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common.Server\XF.Common.Server.csproj">
+      <Project>{1e0b6b68-06be-43f7-9040-abd27d127a21}</Project>
+      <Name>XF.Common.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common\XF.Common.csproj">
+      <Project>{b1b8c274-250f-4707-b296-773d05585b3b}</Project>
+      <Name>XF.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

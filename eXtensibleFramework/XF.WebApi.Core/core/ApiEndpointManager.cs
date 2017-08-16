@@ -1,19 +1,19 @@
-﻿// <copyright company="eXtensoft, LLC" file="ApiEndpointManager.cs">
-// Copyright © 2016 All Right Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.WebApi.Core
 {
-    using XF.Common;
     using System;
-    using System.Web.Hosting;
     using System.Collections;
     using System.Collections.Generic;
     using System.ComponentModel.Composition;
     using System.IO;
     using System.Linq;
-    using System.Text;
+    using System.Web.Hosting;
     using WebApi;
+    using XF.Common;
+
     public sealed class ApiEndpointManager : IEnumerable<IEndpointController>
     {
         #region local members

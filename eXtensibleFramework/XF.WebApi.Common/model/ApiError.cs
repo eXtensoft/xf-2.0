@@ -1,15 +1,11 @@
-﻿// <copyright file="Error.cs" company="">
-// Copyright © 2017 All Right Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.WebApi
 {
     using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
+    using System.Xml;
 
     [Serializable]
     public sealed class ApiError

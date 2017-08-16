@@ -1,6 +1,6 @@
-﻿// <copyright company="eXtensible Solutions, LLC" file="IDataService.cs">
-// Copyright © 2015 All Right Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.Common
 {
@@ -26,8 +26,6 @@ namespace XF.Common
         DataSet ExecuteCommand<T>(DataSet ds, ICriterion criterion, IRequestContext requestContext) where T : class, new();
 
         U ExecuteMany<T, U>(IEnumerable<T> list, ICriterion criterion, IRequestContext requestContext) where T : class, new();
-
-        //U Execute<T, U>(T model, ICriterion criterion, IRequestContext requestContext) where T : class, new();
 
     }
 }

@@ -1,4 +1,6 @@
-﻿
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.Common
 {
@@ -6,10 +8,8 @@ namespace XF.Common
     using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
-    using System.Linq;
     using System.Reflection;
     using System.Text;
-    using System.Threading.Tasks;
 
     public class ConfigModelDataGateway<T> : GenericModelDataGateway<T> where T : class,new()
     {

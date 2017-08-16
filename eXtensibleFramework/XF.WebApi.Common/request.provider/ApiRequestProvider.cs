@@ -1,56 +1,19 @@
-﻿// <copyright company="eXtensoft, LLC" file="ApiRequestProvider.cs">
-// Copyright © 2016 All Right Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.WebApi
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using XF.Common;
-    using System.ComponentModel.Composition;
+    using System.IO;
     using System.Xml;
     using System.Xml.Serialization;
-    using System.IO;
+    using XF.Common;
 
-   // [InheritedExport(typeof(ITypeMap))]
-    public abstract class ApiRequestProvider : IApiRequestProvider //, ITypeMap
+    // [InheritedExport(typeof(ITypeMap))]
+    public abstract class ApiRequestProvider : IApiRequestProvider 
     {
-
-        //#region ITypeMap
-        //string ITypeMap.Domain
-        //{
-        //    get
-        //    {
-        //        return ProviderKey;
-        //    }
-        //}
-
-        //Type ITypeMap.KeyType
-        //{
-        //    get
-        //    {
-        //        return typeof(ApiRequest);
-        //    }
-        //}
-
-        //Type ITypeMap.TypeResolution
-        //{
-        //    get
-        //    {
-        //        return this.GetType();
-        //    }
-        //}
-
-        //string IApiRequestProvider.Key
-        //{
-        //    get
-        //    {
-        //        return ProviderKey;
-        //    }
-        //}
-        //#endregion
 
 
         #region IApiRequestProvider

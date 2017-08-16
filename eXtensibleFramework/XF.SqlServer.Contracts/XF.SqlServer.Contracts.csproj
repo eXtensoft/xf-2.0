@@ -10,6 +10,9 @@
   </PropertyGroup>
   <Import Project="..\..\common\targets\Project.Product.targets" />
   <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\solutions\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />

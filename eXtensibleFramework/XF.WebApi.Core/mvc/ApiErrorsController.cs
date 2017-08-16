@@ -1,14 +1,12 @@
-﻿
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.WebApi.Core.mvc
 {
-    using XF.Common;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
-    using XF.WebApi.Core;
+    using XF.Common;
 
     public class ApiErrorsController : Controller
     {

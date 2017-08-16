@@ -1,22 +1,17 @@
-﻿// <copyright company="Recorded Books, Inc" file="ExtensionMethods.cs">
-// Copyright © 2015 All Rights Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.WebApi.Core
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
     using System.Net.Http;
     using System.Text;
-    using System.Threading.Tasks;
     using System.Web;
     using System.Web.Http.Controllers;
     using System.Web.Http.ValueProviders;
     using System.Web.Http.ValueProviders.Providers;
-    using System.Xml;
-    using System.Xml.Serialization;
     using XF.Common;
 
     public static class ExtensionMethods

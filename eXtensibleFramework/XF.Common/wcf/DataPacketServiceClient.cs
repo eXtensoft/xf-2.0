@@ -1,6 +1,6 @@
-﻿// <copyright company="eXtensible Solutions LLC" file="DataPacketServiceClient.cs">
-// Copyright © 2015 All Right Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.Common
 {
@@ -240,33 +240,6 @@ namespace XF.Common
 
 
         #endregion
-
-
-
-        //DataPacket IDataPacketService.Execute(DataPacket item)
-        //{
-        //    DataPacket response = null;
-        //    try
-        //    {
-        //        response = Proxy.Execute(item);
-        //    }
-        //    catch (CommunicationException commEx)
-        //    {
-        //        response = item;
-        //        response.SetError(commEx.Message);
-        //        EventWriter.WriteError(commEx.Message, SeverityType.Warning);
-        //    }
-        //    catch (TimeoutException timeoutEx)
-        //    {
-        //        response = item;
-        //        response.SetError(timeoutEx.Message);
-        //        EventWriter.WriteError(timeoutEx.Message, SeverityType.Warning);
-        //    }
-        //    return response;
-        //}
-
-
-
 
 
     }

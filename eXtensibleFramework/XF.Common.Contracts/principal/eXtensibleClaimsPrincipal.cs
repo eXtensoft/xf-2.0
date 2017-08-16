@@ -1,6 +1,6 @@
-﻿// <copyright company="eXtensoft, LLC" file="eXtensibleClaimsPrincipal.cs">
-// Copyright © 2016 All Right Reserved
-// </copyright>
+﻿// Licensed to eXtensoft LLC under one or more agreements.
+// eXtensoft LLC licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
 
 namespace XF.Common
 {
@@ -11,9 +11,7 @@ namespace XF.Common
     using System.Dynamic;
     using System.Linq;
     using System.Security.Claims;
-    using System.Text;
     using System.Threading;
-    using XF.Common;
 
     public class eXtensibleClaimsPrincipal : ClaimsPrincipal
     {
@@ -51,29 +49,6 @@ namespace XF.Common
 
         public new eXtensibleIdentity Identity { get; private set; }
 
-
-        //#region CallerItems (List<TypedItem>)
-
-        //private List<TypedItem> _CallerItems = new List<TypedItem>();
-
-        ///// <summary>
-        ///// Gets or sets the List<TypedItem> value for CallerItems
-        ///// </summary>
-        ///// <value> The List<TypedItem> value.</value>
-
-        //public List<TypedItem> CallerItems
-        //{
-        //    get { return _CallerItems; }
-        //    set
-        //    {
-        //        if (_CallerItems != value)
-        //        {
-        //            _CallerItems = value;
-        //        }
-        //    }
-        //}
-
-        //#endregion
 
         public eXtensibleClaimsPrincipal(ClaimsIdentity identity)
         : base(identity)
