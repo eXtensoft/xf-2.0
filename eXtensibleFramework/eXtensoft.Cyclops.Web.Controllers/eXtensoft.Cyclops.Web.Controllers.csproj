@@ -62,7 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="api\ApiExtensions.cs" />
+    <Compile Include="api\InvalidUrlController.cs" />
     <Compile Include="api\NoteApiController.cs" />
+    <Compile Include="api\SystemConfigurationController.cs" />
+    <Compile Include="api\SystemConfigurationHandler.cs" />
+    <Compile Include="api\TestController.cs" />
     <Compile Include="common\BasicRoleProvider.cs" />
     <Compile Include="common\ImagesManager.cs" />
     <Compile Include="common\SelectionConverter.cs" />
