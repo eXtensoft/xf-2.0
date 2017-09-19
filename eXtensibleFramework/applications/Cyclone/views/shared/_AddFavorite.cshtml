@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNet.Identity
+@model Tuple<string,int,bool>
+
+@{ 
+
+    string domainObject = Model.Item1;
+    int id = Model.Item2;
+    bool isFavorite = Model.Item3;
+    string username = User.Identity.GetUserName();
+}
+
+
+
+
+<dt>
+    @using (Html.BeginForm("Create", "Favorites", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" id="id" name="modelid" value="@id" />
+                        <input type="hidden" id="model" name="model" value="@domainObject" />
+                        <input type="hidden" id="username" name="username" value="@username" />
+                        <button type="submit" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star"></span></button>
+    }
+</dt>
+<dd>
+    @if (isFavorite)
+    {
+        <span class="glyphicon glyphicon-star"></span>
+    }
+
+</dd>

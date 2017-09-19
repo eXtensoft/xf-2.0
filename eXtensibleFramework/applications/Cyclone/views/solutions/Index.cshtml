@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Cyclops.Web.SolutionViewModel>
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create") 
+</p>
+
+
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Scope)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model =>model.Zones)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="solutions/details/@item.SolutionId" class="glyphicon glyphicon-list-alt" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Scope)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <th>
+            <a href="solutionapps?id=@item.SolutionId">@item.ZoneDisplay</a>
+        </th>
+        <td>
+            @if (User.IsInRole("admin"))
+            {
+                <a href="solutions/edit/@item.SolutionId " class="glyphicon glyphicon-pencil" />
+            }
+        </td>
+        <td>
+            @if (User.IsInRole("admin"))
+            {
+                <a href="solutions/delete/@item.SolutionId" class="glyphicon glyphicon-remove"> </a>
+            }
+        </td>
+
+    </tr>
+}
+
+</table>

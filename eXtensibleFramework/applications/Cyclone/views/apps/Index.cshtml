@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Cyclops.Web.AppViewModel>
+
+@{
+    ViewBag.Title = "Applications";
+}
+
+<h2>Applications</h2>
+
+<p>
+    @Html.ActionLink("Add Application", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+        </th>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alias)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tags)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @*<a href="~/apps/details/@item.AppId" class="glyphicon glyphicon-list-alt" />*@
+            <a href="~/apps/details/@item.AppId"><img src="~/Content/Icons/@item.Icon" height="25" style="margin-top: 5px;" /></a>
+        </td>
+        <td>
+            @if (item.IsFavorite)
+            {
+                <span class="glyphicon glyphicon-star"></span>
+            }
+        </td>
+        <td>
+            @Html.HiddenFor(modelItem => item.AppId)
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>@*<img src="~/Content/Icons/@item.Icon" height="25" style="margin-top: 5px;" />*@</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tags)
+        </td>
+        <td>
+           
+            @if (User.IsInRole("admin"))
+            {
+                <a href="~/apps/edit/@item.AppId " class="glyphicon glyphicon-pencil" />
+            } 
+            
+                       
+        </td>
+        <td>
+            @if (User.IsInRole("admin"))
+            {
+                <a href="~/apps/delete/@item.AppId" class="glyphicon glyphicon-remove"> </a>
+            } 
+        </td>
+    </tr>
+}
+
+</table>
+
+
+
+@*@Html.ActionLink(".", "Delete", new { id = item.AppId });
+    <i class="glyphicon glyphicon-remove">
+        @Html.NoEncodeActionLink("lll", "Delete", new { id = item.AppId }, new { @class = "glyphicon glyphicon-remove" })
+    </i>*@

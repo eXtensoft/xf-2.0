@@ -1,0 +1,161 @@
+﻿@model Cyclops.Web.SolutionViewModel
+
+@{
+    ViewBag.Title = "Detail";
+
+    var list = Cyclops.SelectionListUtility.GetAppsList();
+
+    var appsInSolution = Cyclops.SelectionListUtility.GetAppsInSolution(@Model.SolutionId);
+    var vms = from x in appsInSolution
+              select new Cyclops.Web.SolutionAppViewModel(x);
+    var zoneList = Cyclops.SelectListItemCache.Instance.ReadList("zones");
+    var scopeList = Cyclops.SelectListItemCache.Instance.ReadList("scopes");
+    var domainList = Cyclops.SelectListItemCache.Instance.ReadList("domains");
+
+    var zonesForSolution = Cyclops.SelectionListUtility.GetZonesForSolution(@Model.SolutionId);
+    var vmz = from x in zonesForSolution
+              select new Cyclops.Web.SolutionZoneViewModel(x);
+
+    string editor = "admin";   
+              
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h4>@Model.Name - @Model.Scope</h4>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+           </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Scope)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Scope)
+            </dd>
+
+            @if (User.IsInRole("admin"))
+            {
+                <dt>
+                    <a href="~/solutions/edit/@Model.SolutionId" class="glyphicon glyphicon-pencil"></a>
+
+                </dt>
+                <dd>
+
+                </dd>
+            }
+        </dl>
+
+        <p>
+            <a href="~/solutions " class="glyphicon glyphicon-list" ></a>
+        </p>
+    </div>
+    <div class="col-md-4">
+
+        <div>
+            <h4>Apps in Solution</h4>
+            <ul>
+                @foreach (var item in vms)
+                {
+                    if (User.IsInRole(editor))
+                    {
+                        <li>
+                            @Html.ActionLink(@item.Application, "details", "SolutionApps", new { id = @item.SolutionAppId }, null)
+                        </li>
+                    }
+                    else
+                    {
+                        <li>@item.Application</li>
+                    }
+
+                }
+                </ul>
+        </div>
+
+
+    </div>
+    <div class="col-md-4">
+        <div>
+            <h4>Solution Zones</h4>
+            <ul>
+                @foreach (var item in vmz)
+                {
+                    <li>
+                        @Html.ActionLink(@item.Zone + " " + @item.Domain, "details", "SolutionZones", new { id = @item.SolutionZoneId }, null)
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+@if (User.IsInRole(@editor))
+{
+    <hr />
+}
+
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        @if (User.IsInRole(@editor))
+        {
+            using (Html.BeginForm("AddApp", "Solutions", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.HiddenFor(model => model.SolutionId)
+                    @Html.DropDownList("AppId", list, new { htmlAttributes = new { @class = "form-control" } })
+                    <input type="submit" value="Add App" class="btn btn-default" />
+                </div>
+            }
+        }
+
+    </div>
+    <div class="col-md-4">
+        @if (User.IsInRole(@editor))
+        {
+            using (Html.BeginForm("AddZone", "Solutions", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.SolutionId)
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.Label("Zone", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("ZoneId", zoneList, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Domain", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("DomainId", domainList, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

@@ -18,7 +18,7 @@ namespace Cyclops.Controllers
             var response = Service.GetAll<Selection>(null);
             if (!response.IsOkay)
             {
-                return View(ErrorViewName);
+                return View(ErrorViewName,response.Status);
             }
             else
             {

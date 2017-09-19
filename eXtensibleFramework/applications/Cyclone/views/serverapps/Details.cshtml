@@ -1,0 +1,189 @@
+﻿@model Cyclops.Web.ServerAppViewModel
+
+@{
+    ViewBag.Title = "ServerApp";
+
+    var scopeTypes = Cyclops.SelectionListUtility.GetReverseDictionary("artifact-scope");
+
+    Cyclops.Web.ArtifactViewModel data = new Cyclops.Web.ArtifactViewModel()
+    {
+        ArtifactScopeTypeId = scopeTypes["server-app-artifact"],
+        ArtifactScopeId = Model.ServerAppId,
+        ArtifactScope = Model.Display,
+        ArtifactScopeType = "serverapp"
+    };
+
+    var s = data.ArtifactScope;
+
+    Tuple<string, int,bool> favorite = new Tuple<string, int,bool>("serverapp", Model.ServerAppId,Model.IsFavorite);
+
+}
+
+<div>
+    <h4>@s</h4>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <dl class="dl-horizontal">
+
+
+
+                @Html.Partial("_AddFavorite",favorite)
+                <dt>
+                    @Html.DisplayNameFor(model => model.ServerAppId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ServerAppId)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Server)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Server)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.App)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.App)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Folderpath)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Folderpath)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.BackupFolderpath)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BackupFolderpath)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Zone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Zone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Scope)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Scope)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Domain)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Domain)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Security)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Security)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ExternalIP)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ExternalIP)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.InternalIP)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.InternalIP)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastDeployedOn)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastDeployedOn)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Display)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Display)
+                </dd>
+               
+                @if (User.IsInRole("admin"))
+                {
+                    <dt>
+                        <a href="~/serverapps/edit/@Model.ServerAppId?solutionapps=@Model.SolutionId " class="glyphicon glyphicon-pencil"></a>
+                        
+                </dt>
+                <dd></dd>
+                <dt><a href="~/serverapp/delete/@Model.ServerAppId" class="glyphicon glyphicon-remove"></a></dt>
+                <dd></dd>
+
+}
+
+@if (!String.IsNullOrWhiteSpace(Model.BackUrl))
+{
+                <dt>
+                    <a href="~/@Model.BackUrl" class="glyphicon glyphicon-alert"></a>
+                </dt>
+                <dd></dd>
+}
+            </dl>
+
+            <p>
+                <a href="~/serverapps/" class="glyphicon glyphicon-list"></a>
+            </p>
+        </div>
+
+
+
+        <div class="col-md-6">
+
+            <div>
+                @Html.Partial("_Documents", data)
+            </div>
+
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a type="button" data-toggle="collapse" data-parent="#accordion" href="#new-deployment"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                </h4>
+            </div>
+            <div id="new-deployment" class="panel-collapse collapse">
+                @Html.Partial("_FileUpload", data)
+            </div>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
+

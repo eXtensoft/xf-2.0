@@ -26,6 +26,7 @@
     <WebGreaseLibPath>..\..\solutions\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -482,18 +483,6 @@
     <ProjectReference Include="..\..\eXtensoft.Cyclops.Web.Controllers\eXtensoft.Cyclops.Web.Controllers.csproj">
       <Project>{f76c91a3-cd0d-4736-ab9c-6158d28ee76c}</Project>
       <Name>eXtensoft.Cyclops.Web.Controllers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\eXtensoft.Styx.Model.Server\eXtensoft.Styx.Model.Server.csproj">
-      <Project>{9615b638-e557-4eaf-ad8f-e0deb69be08f}</Project>
-      <Name>eXtensoft.Styx.Model.Server</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\eXtensoft.Styx.Model\eXtensoft.Styx.Model.csproj">
-      <Project>{aa5f1e07-1adc-4add-839d-9d5677174749}</Project>
-      <Name>eXtensoft.Styx.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\eXtensoft.Styx.Web.Controllers\eXtensoft.Styx.Web.Controllers.csproj">
-      <Project>{d1ff4932-1073-4b76-ae56-95aeeb75850e}</Project>
-      <Name>eXtensoft.Styx.Web.Controllers</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\XF.Common.Contracts\XF.Common.Contracts.csproj">
       <Project>{84d9f7df-79db-4c0a-81aa-ff0e1fbb2b53}</Project>

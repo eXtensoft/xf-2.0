@@ -1,0 +1,52 @@
+﻿@model Cyclops.Web.SolutionAppViewModel
+
+<div>
+    <h4>SolutionAppViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SolutionAppId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SolutionAppId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SolutionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SolutionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Solution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Solution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Application)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Application)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

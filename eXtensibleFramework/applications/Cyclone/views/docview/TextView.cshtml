@@ -1,0 +1,12 @@
+﻿@model  Cyclops.Web.ArtifactViewModel
+
+@{
+    ViewBag.Title = Model.ArtifactType;
+
+}
+
+<h2>@Model.OriginalFilename</h2>
+<div style="min-height:300px;min-width:200px;">
+    @Html.TextAreaFor(m => m.Text)
+</div>
+

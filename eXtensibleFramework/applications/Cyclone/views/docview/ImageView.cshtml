@@ -1,0 +1,10 @@
+﻿@model  Cyclops.Web.ArtifactViewModel
+
+@{ 
+
+    ViewBag.Title = Model.ArtifactType;
+}
+<h2>@Model.OriginalFilename</h2>
+    <div> 
+        <img src="~/@Model.RelativePath" style="max-height: 700px;" />
+    </div>

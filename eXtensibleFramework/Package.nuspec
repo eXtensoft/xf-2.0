@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>eXtensoft.eXtensibleFramework</id>
+    <version>1.0.3</version>
+    <authors>robert nelson</authors>
+    <owners>principal.extensoft@gmail.com</owners>
+    <licenseUrl>https://github.com/eXtensoft/xf-2.0/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/eXtensoft/xf-2.0/wiki</projectUrl>
+    <iconUrl>https://github.com/eXtensoft/xf-2.0/blob/master/xf_64_icon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A framework intended to assist in the development of .Net framework web application.</description>
+    <releaseNotes>This is the initial release of the xf framework.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>framework,webapi,asp.net,cross-cutting,xf,extensible,extensoft</tags>
+    <dependencies>
+	  <dependency id="Microsoft.Net.Http" version="1.0" />
+	  <dependency id="Newtonsoft.Json" version="6.0.4" />
+	  <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.3" />
+	  <dependency id="mongocsharpdriver" version="1.10.0" />
+	  <dependency id="MySql.Data" version="6.9.9" />
+	  <dependency id="Microsoft.AspNet.WebApi.Core" version="5.2.3" />
+	  <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
+	  <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.3"/>
+	  <dependency id="Microsoft.AspNet.WebApi.Cors" version="5.2.3" />		
+    </dependencies> 
+  </metadata>
+<files>
+
+	<file src="..\..\xf2.dlls\XF.Common.Contracts.dll" target="lib\net462" />
+	<file src="..\..\xf2.dlls\XF.Common.dll" target="lib\net462" />
+	<file src="..\..\xf2.dlls\XF.Common.Server.Contracts.dll" target="lib\net462" />
+	<file src="..\..\xf2.dlls\XF.Common.Server.dll" target="lib\net462" />
+	<file src="..\..\xf2.dlls\XF.SqlServer.Contracts.dll" target="lib\net462" />
+	<file src="..\..\xf2.dlls\XF.MongoDb.Contracts.dll" target="lib\net462" />
+	<file src="..\..\xf2.dlls\XF.MySql.Contracts.dll" target="lib\net462" />
+	<file src="..\..\xf2.dlls\XF.WebApi.Common.dll" target="lib\net462" />
+	<file src="..\..\xf2.dlls\XF.WebApi.Controllers.dll" target="lib\net462" />
+	<file src="..\..\xf2.dlls\XF.WebApi.Core.dll" target="lib\net462" />	
+</files>  
+  
+</package>

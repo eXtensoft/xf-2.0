@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Cyclops.Selection>
+@{
+    var groupList = Cyclops.SelectListItemCache.Instance.ReadList("none");         
+}
+
+@Html.DropDownList("none", groupList);

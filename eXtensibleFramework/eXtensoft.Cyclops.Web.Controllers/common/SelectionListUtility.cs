@@ -25,7 +25,7 @@ namespace Cyclops
 
         public static List<SelectListItem> GetServerSecurity()
         {
-            return GetList("security");
+            return GetList("security",true);
         }
 
         public static List<SelectListItem> GetAppTypes()
@@ -35,33 +35,33 @@ namespace Cyclops
 
         public static List<SelectListItem> GetDomains()
         {
-            List<SelectListItem> list = GetList("domain");
+            List<SelectListItem> list = GetList("domain",true);
             list.Insert(0, new SelectListItem() { Text = "none", Value = "0" });
             return list;
         }
 
         public static List<SelectListItem> GetScopes()
         {
-            List<SelectListItem> list = GetList("scope");
-            list.Insert(0, new SelectListItem() { Text = "none", Value = "0" });
+            List<SelectListItem> list = GetList("scope",true);
+            //list.Insert(0, new SelectListItem() { Text = "none", Value = "0" });
             return list;
         }
 
         public static List<SelectListItem> GetArtifactScopes()
         {
-            List<SelectListItem> list = GetList("artifact-scope");
-            list.Insert(0, new SelectListItem() { Text = "none", Value = "0" });
+            List<SelectListItem> list = GetList("artifact-scope",true);
+            //list.Insert(0, new SelectListItem() { Text = "none", Value = "0" });
             return list;
         }
         public static List<SelectListItem> GetArtifactTypes()
         {
-            List<SelectListItem> list = GetList("artifact-type");
-            list.Insert(0, new SelectListItem() { Text = "none", Value = "0" });
+            List<SelectListItem> list = GetList("artifact-type",true);
+            //list.Insert(0, new SelectListItem() { Text = "none", Value = "0" });
             return list;
         }
 
 
-        public static List<SelectListItem> GetList(string token)
+        public static List<SelectListItem> GetList(string token, bool includeNone = false)
         {
             List<SelectListItem> list = new List<SelectListItem>();
             var service = GetService();
@@ -74,6 +74,10 @@ namespace Cyclops
                     list = (from x in response.Where(x => x.MasterId.Equals(found.SelectionId)) 
                             select new SelectListItem() { Text = x.Display, Value = x.SelectionId.ToString() }).ToList();
                 }
+            }
+            if (includeNone)
+            {
+                list.Add(new SelectListItem() { Text = "None", Value = "0" });
             }
 
             return list;

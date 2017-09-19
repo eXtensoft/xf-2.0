@@ -126,9 +126,9 @@ namespace XF.Common
                     using (SqlCommand cmd = cn.CreateCommand())
                     {
                         cmd.CommandType = CommandType.Text;
-                        string sql = "insert into [log].[alert] ([appkey],[appzone],[appinstance],[title],[source],[importance],[urgency],[xmldata],[disposition],[createdat]) values ( " +
+                        string sql = "insert into [log].[alert] ([appkey],[appzone],[appinstance],[title],[source],[importance],[urgency],[xmldata],[disposition]) values ( " +
                             appKeyName + "," + appZoneName + "," + appInstanceName + "," + titleParamName + "," + sourceParamName + "," + importanceParamName + "," +
-                            urgencyParamName + "," + xmlDataParamName + "," + dispositionParamName + "," + createdAtParamName + ")";
+                            urgencyParamName + "," + xmlDataParamName + "," + dispositionParamName + ")";
                         cmd.Parameters.AddWithValue(appKeyName, model.ApplicationKey);
                         cmd.Parameters.AddWithValue(appZoneName, model.Zone);
                         string appinstance;

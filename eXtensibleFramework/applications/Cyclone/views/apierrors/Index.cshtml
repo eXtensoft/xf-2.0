@@ -1,0 +1,161 @@
+﻿@model XF.Common.Page<XF.WebApi.ApiError>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@if (Model.Total > 1)
+{
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Items[0].CreatedAt)
+        </th>
+        <th>
+            App
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items[0].Zone)
+        </th>
+        <th>
+            Context
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Items[0].MessageId)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Items[0].Category)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Items[0].Severity)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Items[0].Message)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Items)
+{
+    string link = "?id=" + item.MessageId;
+    <tr style="font-size: x-small">
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedAt)
+        </td>
+        <td style="font-size: xx-small">
+            @Html.DisplayFor(modelItem => item.ApplicationKey)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppContextInstance)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.MessageId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Severity)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            <a href="/apierrors?id=@item.MessageId">details</a>
+
+        </td>
+    </tr>
+}
+
+</table>
+
+}
+else
+{
+
+        string message = Model.Items[0].Message;
+
+    <div>
+        <h4>ApiError</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Items[0].CreatedAt)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Items[0].CreatedAt)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Items[0].ApplicationKey)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Items[0].ApplicationKey)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Items[0].Zone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Items[0].Zone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Items[0].AppContextInstance)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Items[0].AppContextInstance)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Items[0].MessageId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Items[0].MessageId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Items[0].Category)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Items[0].Category)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Items[0].Severity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Items[0].Severity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Items[0].Message)
+            </dt>
+
+            <dd>
+                <p>@message</p>               
+            </dd>
+
+        </dl>
+    </div>
+    <div>@Model.Items[0].Items</div>
+}

@@ -1,0 +1,248 @@
+﻿@model Cyclops.Web.ServerAppViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ServerAppViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Icon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Icon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServerAppId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServerAppId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Server)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Server)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.App)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.App)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Folderpath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Folderpath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BackupFolderpath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BackupFolderpath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Scope)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Scope)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Domain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Domain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZoneId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZoneId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScopeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScopeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DomainId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DomainId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupByPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupByPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Security)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Security)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExternalIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExternalIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InternalIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InternalIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastDeployedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastDeployedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SolutionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SolutionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BackUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BackUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsFavorite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsFavorite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsServerFavorite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsServerFavorite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAppFavorite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAppFavorite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Display)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Display)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
