@@ -8,7 +8,6 @@ namespace XF.Common.Contracts
     using System.ComponentModel.Composition;
     using System.Configuration;
 
-    [InheritedExport(typeof(IConfigurationProvider))]
     public class SystemConfigurationProvider : IConfigurationProvider
     {
         NameValueCollection IConfigurationProvider.ProviderAppSettings

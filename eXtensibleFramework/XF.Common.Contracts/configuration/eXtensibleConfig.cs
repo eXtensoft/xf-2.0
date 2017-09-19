@@ -74,13 +74,18 @@ namespace XF.Common
 
                 DateTimeSchemaOption loggingSchema;
 
+                string candidateContext = ConfigurationManager.AppSettings[XFConstants.Application.Config.ApplicationKey];
+                string candidateZone = ConfigurationManager.AppSettings[XFConstants.Application.Config.ZoneKey];
+                string candidateInstance = ConfigurationProvider.AppSettings[XFConstants.Application.Config.InstanceIdentifierKey];
+                ZoneOption option;
+
                 var configfilemap = new ExeConfigurationFileMap() { ExeConfigFilename = configfilepath };
-                Configuration config = ConfigurationProvider.OpenMappedExeConfiguration(configfilemap, ConfigurationUserLevel.None);
+                Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configfilemap, ConfigurationUserLevel.None);
                 eXtensibleFrameworkSection section = config.Sections[XFConstants.Config.SectionName] as eXtensibleFrameworkSection;
                 if (section != null)
                 {
-                    string candidateContext = ConfigurationProvider.AppSettings[XFConstants.Application.Config.ApplicationKey];
-                    string candidateZone = ConfigurationProvider.AppSettings[XFConstants.Application.Config.ZoneKey];
+                    //string candidateContext = ConfigurationManager.AppSettings[XFConstants.Application.Config.ApplicationKey];
+                    //string candidateZone = ConfigurationManager.AppSettings[XFConstants.Application.Config.ZoneKey];
                     //string candidateLogging = ConfigurationProvider.AppSettings[XFConstants.Application.Config.LoggingStrategyKey];
                     //string candidateLoggingSeverity = ConfigurationProvider.AppSettings[XFConstants.Application.Config.LoggingSeverityKey];
                     string candidateConnectionStringKey = ConfigurationProvider.AppSettings[XFConstants.Application.Config.ConnectionStringKey];
@@ -88,10 +93,10 @@ namespace XF.Common
                     string logSchemaCandidate = ConfigurationProvider.AppSettings[XFConstants.Application.Config.LoggingSchema];
                     string candidateBigDataUrl = ConfigurationProvider.AppSettings[XFConstants.Application.Config.BigDataUrlKey];
                     string candidateServiceToken = ConfigurationProvider.AppSettings[XFConstants.Application.Config.ServiceTokenKey];
-                    string candidateInstance = ConfigurationProvider.AppSettings[XFConstants.Application.Config.InstanceIdentifierKey];
+                    //string candidateInstance = ConfigurationProvider.AppSettings[XFConstants.Application.Config.InstanceIdentifierKey];
                     string candidateInfer = ConfigurationProvider.AppSettings[XFConstants.Application.Config.InferKey];
 
-                    ZoneOption option;
+
                     if (Enum.TryParse<ZoneOption>(section.Zone, true, out option))
                     {
                         Zone = option.ToString();
@@ -251,12 +256,20 @@ namespace XF.Common
                 }
                 else
                 {
-                    section = new eXtensibleFrameworkSection();
-                    Zone = section.Zone = XFConstants.ZONE.Development;
-                    Context = section.Context = XFConstants.Config.DefaultApplicationKey;
+                    if (!String.IsNullOrEmpty(candidateZone) && Enum.TryParse<ZoneOption>(candidateZone, true, out option))
+                    {
+                        Zone = option.ToString();
+                    }
+                    else
+                    {
+                        Zone = ZoneOption.Development.ToString();
+                    }
+
+                    Context = !String.IsNullOrEmpty(candidateContext) ? candidateContext : XFConstants.Application.DefaultAppplicationKey;
+                    InstanceIdentifier = (!String.IsNullOrEmpty(candidateInstance)) ? candidateInstance : Environment.MachineName.ToLower();
+
                     IsAsync = section.IsAsync = false;
-                    InstanceIdentifier = section.InstanceIdentifier = String.Empty;
-                    AppUserIdentity = section.UserIdentityParamName = XFConstants.Config.AppUserIdentityParamName;
+                    AppUserIdentity = XFConstants.Config.AppUserIdentityParamName;
                     DefaultLoggingCategory = XFConstants.Category.General;
                     LoggingStrategy = LoggingStrategyOption.WindowsEventLog;
                     LoggingSeverity = TraceEventTypeOption.Verbose;
