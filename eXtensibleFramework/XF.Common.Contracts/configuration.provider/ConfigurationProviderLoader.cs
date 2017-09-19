@@ -80,7 +80,7 @@ namespace XF.Common.Contracts
 
         private static bool UsePlugin()
         {
-            bool b = true;
+            bool b = false;
             bool usePlugin;
             string usePluginCandidate = ConfigurationManager.AppSettings["use-configuration-provider"];
             if (!String.IsNullOrWhiteSpace(usePluginCandidate) && Boolean.TryParse(usePluginCandidate, out usePlugin))
@@ -110,11 +110,11 @@ namespace XF.Common.Contracts
                     ModuleLoader<ConfigurationModule> loader = new ModuleLoader<ConfigurationModule>() { Folderpaths = list };
                     if (loader.Load(out module) && module.Providers != null && module.Providers.Count > 0)
                     {
-                        //provider = module.Providers.Find(x=>!x.GetType().Equals(typeof(SystemConfigurationProvider)));
-                        if (module.Providers != null && module.Providers.Count > 0)
-                        {
-                            provider = module.Providers[0];
-                        }
+                        provider = module.Providers.Find(x=>!x.GetType().Equals(typeof(SystemConfigurationProvider)));
+                        //if (module.Providers != null && module.Providers.Count > 0)
+                        //{
+                        //    provider = module.Providers[0];
+                        //}
                     }
                 }
                 catch (Exception ex)
