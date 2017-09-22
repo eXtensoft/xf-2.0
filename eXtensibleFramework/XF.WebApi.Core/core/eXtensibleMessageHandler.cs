@@ -66,6 +66,19 @@ namespace XF.WebApi.Core
             RequestProvider = new SqlServerApiRequestProvider();
         }
 
+        public eXtensibleMessageHandler(IApiRequestProvider provider)
+        {
+            if (provider == null)
+            {
+                RequestProvider = new SqlServerApiRequestProvider();
+            }
+            else
+            {
+                RequestProvider = provider;
+            }
+
+        }
+
         #region Writer (Func<string,List<object>>)
 
         private Action<Dictionary<string, object>> _Writer;
