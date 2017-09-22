@@ -62,6 +62,7 @@
     <Compile Include="common\WindowsIdentityProvider.cs" />
     <Compile Include="common\XFConstants.cs" />
     <Compile Include="configuration.provider\ConfigurationModule.cs" />
+    <Compile Include="configuration.provider\PluginConfigurationProvider.cs" />
     <Compile Include="configuration\eXtensibleConfig.cs" />
     <Compile Include="configuration\eXtensibleFrameworkElement.cs" />
     <Compile Include="configuration\eXtensibleFrameworkElementCollection.cs" />
