@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.WebApi.Common", "..\XF.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.WebApi.Core", "..\XF.WebApi.Core\XF.WebApi.Core.csproj", "{2E685742-4754-4132-999C-0550D45C59CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Common.EventWriter.SqlServer", "..\XF.Common.EventWriter.SqlServer\XF.Common.EventWriter.SqlServer.csproj", "{5810F2C0-79E1-439A-9695-BE7E9C53F491}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.WebApi.EventWriter.SqlServer", "..\XF.WebApi.EventWriter.SqlServer\XF.WebApi.EventWriter.SqlServer.csproj", "{D4C33547-5989-41AB-9B55-8D175F56B5B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{2E685742-4754-4132-999C-0550D45C59CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E685742-4754-4132-999C-0550D45C59CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E685742-4754-4132-999C-0550D45C59CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5810F2C0-79E1-439A-9695-BE7E9C53F491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5810F2C0-79E1-439A-9695-BE7E9C53F491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5810F2C0-79E1-439A-9695-BE7E9C53F491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5810F2C0-79E1-439A-9695-BE7E9C53F491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4C33547-5989-41AB-9B55-8D175F56B5B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4C33547-5989-41AB-9B55-8D175F56B5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4C33547-5989-41AB-9B55-8D175F56B5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4C33547-5989-41AB-9B55-8D175F56B5B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
