@@ -128,6 +128,7 @@
     <Compile Include="eventwriter\EventWriter.cs" />
     <Compile Include="eventwriter\EventWriterBase.cs" />
     <Compile Include="eventwriter\EventWriterLoader.cs" />
+    <Compile Include="eventwriter\EventWriterModule.cs" />
     <Compile Include="eventwriter\SilentWriter.cs" />
     <Compile Include="eventwriter\SqlServerEventWriter.cs" />
     <Compile Include="eventwriter\Writer.cs" />

@@ -42,9 +42,13 @@ namespace XF.Common
                             {
                                 writer = EventWriterLoader.Load();
                             }
-                            catch
+                            catch (Exception ex)
                             {
-
+                                IEventWriter writer = new EventLogWriter();
+                                string m = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                                var props = eXtensibleConfig.GetProperties();
+                                props.Add("location", "EventWriter.line.50");
+                                writer.WriteError(m, SeverityType.Critical, "EventWriter", props);
                             }
                         }
                     }
@@ -77,12 +81,7 @@ namespace XF.Common
 
         public static void WriteError(object errorMessage, SeverityType severity, string errorCategory, IDictionary<string, object> properties)
         {
-            //var worker = new BackgroundWorker();
-            //worker.DoWork += delegate(object sender, DoWorkEventArgs e)
-            //{
-                Writer.WriteError(errorMessage, severity, errorCategory, properties);
-            //};
-            //worker.RunWorkerAsync();           
+            Writer.WriteError(errorMessage, severity, errorCategory, properties);           
         }
         
 
@@ -145,29 +144,7 @@ namespace XF.Common
 
         public static void WriteMetric(eXMetric item)
         {
-            //var list = item.Items.ToList();
-            //var requestBegin = list.Find(x => x.Key.Equals("request.begin", StringComparison.OrdinalIgnoreCase));
-            //var requestEnd = list.Find(x => x.Key.Equals("request.end", StringComparison.OrdinalIgnoreCase));
-            //var cmdBegin = list.Find(x => x.Key.Equals("command.begin", StringComparison.OrdinalIgnoreCase));
-            //var cmdEnd = list.Find(x => x.Key.Equals("command.end", StringComparison.OrdinalIgnoreCase));
-
-            //if (requestEnd != null && requestBegin != null)
-            //{
-            //    DateTime end = (DateTime)requestEnd.Value;
-            //    DateTime begin = (DateTime)requestBegin.Value;
-            //    var elapsed = end - begin;
-            //    ((List<TypedItem>)item.Items).Add(new TypedItem("request.elapsed", elapsed.TotalMilliseconds));
-            //}
-            //if (cmdEnd != null && cmdBegin != null)
-            //{
-            //    DateTime end = (DateTime)cmdEnd.Value;
-            //    DateTime begin = (DateTime)cmdBegin.Value;
-            //    var elaped = end - begin;
-            //    ((List<TypedItem>)item.Items).Add(new TypedItem("command.elapsed", elaped.TotalMilliseconds));
-            //}
-
-            Writer.WriteMetric(item);
- 
+            Writer.WriteMetric(item); 
         }
 
         private static List<TypedItem> Convert(IDictionary<string, object> properties)

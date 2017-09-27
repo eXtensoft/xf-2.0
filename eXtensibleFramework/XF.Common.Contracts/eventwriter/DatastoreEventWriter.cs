@@ -34,7 +34,7 @@ namespace XF.Common
 
         protected override void Publish(eXMetric metric)
         {
-            throw new NotImplementedException();
+
         }
     }
 }
