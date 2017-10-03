@@ -41,7 +41,7 @@ namespace XF.Common
                 }              
             }
 
-            if (!EventLog.SourceExists(eXtensibleConfig.LogSource))
+            if (!String.IsNullOrWhiteSpace(eXtensibleConfig.LogSource) && !EventLog.SourceExists(eXtensibleConfig.LogSource))
             {
                 try
                 {

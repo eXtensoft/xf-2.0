@@ -168,7 +168,7 @@ namespace XF.Common
                     if (Enum.TryParse<LoggingStrategyOption>(found.LoggingStrategy,true, out loggingStrategy))
                     {
                         LoggingStrategy = loggingStrategy;
-                        inform = found.Inform;
+                        //inform = found.Inform;
                         if (!String.IsNullOrWhiteSpace(found.LoggingSchema) 
                             && Enum.TryParse<DateTimeSchemaOption>(found.LoggingSchema,true,out loggingSchema))
                         {
@@ -304,6 +304,7 @@ namespace XF.Common
                     LoggingSeverity = TraceEventTypeOption.Verbose;
                 }
                 Infer = false;
+                Inform = false;
                 LogSource = XFConstants.Config.DefaultLogSource;
                 ServiceToken = XFConstants.Config.DefaultServiceToken;
 

@@ -19,6 +19,7 @@ namespace XF.Common.Contracts
         public static IConfigurationProvider Load()
         {
             IConfigurationProvider provider = null;
+            IEventWriter writer = new EventLogWriter();
 
             List<string> list = new List<string>()
             {
@@ -40,15 +41,18 @@ namespace XF.Common.Contracts
             }
             catch (Exception ex)
             {
-                string message = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
-                IEventWriter writer = new EventLogWriter();
-                writer.WriteError(message, SeverityType.Critical, "ConfigurationProvider");
+                string errorMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                writer.WriteError(errorMessage, SeverityType.Critical, "ConfigurationProvider");
             }
 
             if (provider == null)
             {
                 provider = new SystemConfigurationProvider();
             }
+
+            var props = eXtensibleConfig.GetProperties();
+            string message = String.Format("{0}: {1} (loaded @ {2}", "Configuration Provider", provider.GetType().FullName, DateTime.Now.ToString("G"));
+            writer.WriteError(message, SeverityType.Critical, "configuration", props);
 
             return provider;
         }
