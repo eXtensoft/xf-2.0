@@ -236,12 +236,13 @@ namespace XF.Common
             {
                 principal.HasError = true;
             }
-            
-            //if (!properties.ContainsKey("xf-id"))
-            //{
-            //    Guid g = eXtensiblePrincipal.GetCallerId();
-            //    properties.Add("xf-id", g);
-            //}
+
+            if (!properties.ContainsKey("xf-id"))
+            {
+                Guid g = eXtensiblePrincipal.GetCallerId();
+                properties.Add("xf-id", g);
+            }
+
             List<TypedItem> list = Convert(properties);
                        
             //new Action<EventTypeOption, List<TypedItem>>(Publish).BeginInvoke(option, list,null,null);
