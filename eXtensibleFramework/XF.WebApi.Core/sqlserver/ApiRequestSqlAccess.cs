@@ -455,7 +455,8 @@ namespace XF.WebApi.Core
 
         public static IEnumerable<ApiRequest> Get(int pageSize, int pageIndex, string token)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return new List<ApiRequest>();
         }
 
     }
