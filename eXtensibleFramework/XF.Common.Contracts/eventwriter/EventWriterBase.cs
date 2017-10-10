@@ -232,7 +232,11 @@ namespace XF.Common
         internal void LocalPublish(EventTypeOption option, IDictionary<string,object> properties)
         {
             var principal = Thread.CurrentPrincipal as eXtensibleClaimsPrincipal;
-            principal.HasError = true;
+            if (principal != null)
+            {
+                principal.HasError = true;
+            }
+            
             //if (!properties.ContainsKey("xf-id"))
             //{
             //    Guid g = eXtensiblePrincipal.GetCallerId();
