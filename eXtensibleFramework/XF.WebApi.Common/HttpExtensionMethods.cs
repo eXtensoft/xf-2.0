@@ -34,6 +34,8 @@ namespace XF.WebApi
         }
         public static HttpResponseMessage GenerateErrorResponse<T>(this HttpRequestMessage request, System.Net.HttpStatusCode statusCode, T t)
         {
+            var principal = Thread.CurrentPrincipal as eXtensibleClaimsPrincipal;
+            principal.HasError = true;
             EnsureMessageId(request);
             HttpResponseMessage response = null;
             ResponseConfiguration.MessageProvider.VetStatusCode(statusCode, t);
@@ -44,6 +46,8 @@ namespace XF.WebApi
         }
         public static HttpResponseMessage GenerateErrorResponse(this HttpRequestMessage request, System.Net.HttpStatusCode statusCode, string message)
         {
+            var principal = Thread.CurrentPrincipal as eXtensibleClaimsPrincipal;
+            principal.HasError = true;
             EnsureMessageId(request);
             HttpResponseMessage response = null;
             ResponseConfiguration.MessageProvider.VetStatusCode(statusCode);
@@ -92,6 +96,8 @@ namespace XF.WebApi
 
         public static HttpResponseMessage GenerateErrorResponse(this HttpRequestMessage request, System.Net.HttpStatusCode statusCode, object o)
         {
+            var principal = Thread.CurrentPrincipal as eXtensibleClaimsPrincipal;
+            principal.HasError = true;
             HttpResponseMessage response = null;
             ResponseConfiguration.MessageProvider.VetStatusCode(statusCode,o);
             response = request.CreateErrorResponse(statusCode, o.ToString());
@@ -174,6 +180,8 @@ namespace XF.WebApi
 
         public static HttpResponseMessage GenerateErrorResponse(this HttpRequestMessage request, string errorIdentifier)
         {
+            var principal = Thread.CurrentPrincipal as eXtensibleClaimsPrincipal;
+            principal.HasError = true;
             HttpResponseMessage response = null;
             WebApiCaller.GetCallerId();
             string message;
@@ -186,6 +194,8 @@ namespace XF.WebApi
 
         public static HttpResponseMessage GenerateErrorResponse(this HttpRequestMessage request, string errorIdentifier, params object[] messageParameters)
         {
+            var principal = Thread.CurrentPrincipal as eXtensibleClaimsPrincipal;
+            principal.HasError = true;
             HttpResponseMessage response = null;
             WebApiCaller.GetCallerId();
             string message = String.Empty;

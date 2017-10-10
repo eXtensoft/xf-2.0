@@ -6,6 +6,7 @@ namespace XF.Common
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading;
 
     public abstract class EventWriterBase : IEventWriter
     {
@@ -230,11 +231,13 @@ namespace XF.Common
 
         internal void LocalPublish(EventTypeOption option, IDictionary<string,object> properties)
         {
-            if (!properties.ContainsKey("xf-id"))
-            {
-                Guid g = eXtensiblePrincipal.GetCallerId();
-                properties.Add("xf-id", g);
-            }
+            var principal = Thread.CurrentPrincipal as eXtensibleClaimsPrincipal;
+            principal.HasError = true;
+            //if (!properties.ContainsKey("xf-id"))
+            //{
+            //    Guid g = eXtensiblePrincipal.GetCallerId();
+            //    properties.Add("xf-id", g);
+            //}
             List<TypedItem> list = Convert(properties);
                        
             //new Action<EventTypeOption, List<TypedItem>>(Publish).BeginInvoke(option, list,null,null);

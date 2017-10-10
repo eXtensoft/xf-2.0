@@ -22,6 +22,8 @@ namespace XF.Common
             get { return _Item; }
         }
 
+        public bool HasError { get; set; }
+
         public Stopwatch StopWatch { get; set; }
 
         #region Items (List<TypedItem>)

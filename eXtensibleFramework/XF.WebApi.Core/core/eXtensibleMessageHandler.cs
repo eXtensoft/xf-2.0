@@ -277,9 +277,9 @@ namespace XF.WebApi.Core
                 {
                     b = true;
                 }
-                else if(eXtensibleWebApiConfig.LoggingMode.Equals(LoggingModeOption.Sparse))
+                else if(eXtensibleWebApiConfig.LoggingMode.Equals(LoggingModeOption.Sparse) && exPrincipal != null)
                 {
-                    b = d.ContainsKey("xf-id");
+                    b = exPrincipal.HasError;
                 }
 
                 if (b)
