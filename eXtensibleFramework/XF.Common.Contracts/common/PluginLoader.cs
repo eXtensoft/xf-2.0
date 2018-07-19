@@ -32,14 +32,12 @@ namespace XF.Common
         public static IEnumerable<T> LoadReferencedAssembly<T>()
         {
             List<T> list = new List<T>();
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies().ToList();
-            var paths = assemblies.Select(x => x.Location).ToArray();
-            var refpaths = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, ".dll");
-            var toLoad = refpaths.Where(x => !paths.Contains(x, StringComparer.InvariantCultureIgnoreCase)).ToList();
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(p => !p.IsDynamic).ToList();
             foreach (var item in assemblies)
             {
                 string[] arr = item.GetName().Name.ToLower().Split('.');
-                if (!_CoreDlls.Contains(arr[0]) | arr.Length > 1 && arr[0].Equals("xf", StringComparison.OrdinalIgnoreCase) && arr[1].Equals("bigdata", StringComparison.OrdinalIgnoreCase))
+                string x = arr[0];
+                if (!_CoreDlls.Contains(arr[0]))
                 {
                     try
                     {
@@ -54,7 +52,7 @@ namespace XF.Common
                                     list.Add(t);
                                 }
                                 catch (Exception)
-                                {                                   
+                                {
 
                                 }
                             }

@@ -63,7 +63,7 @@ namespace XF.WebApi.Core
 
         public eXtensibleMessageHandler()
         {
-            RequestProvider = new SqlServerApiRequestProvider();
+            RequestProvider = ApiRequestProviderLoader.Load();
         }
 
         public eXtensibleMessageHandler(IApiRequestProvider provider)
@@ -112,25 +112,27 @@ namespace XF.WebApi.Core
         private void Write(Dictionary<string, object> requestProperties)
         {
             List<TypedItem> list = requestProperties.ToTypedItems();
-            if (eXtensibleWebApiConfig.LogTo.Equals(LoggingStrategyOption.Datastore))
+            if (eXtensibleWebApiConfig.LogTo.Equals(LoggingStrategyOption.WindowsEventLog))
+            {
+                EventWriter.Write(EventTypeOption.Custom, list);
+            }
+            else if (RequestProvider != null)
             {
                 try
                 {
                     ApiRequest request = new ApiRequest(requestProperties);
                     RequestProvider.Post(request);
-                    //ApiRequestSqlAccess.Post(request);
                 }
                 catch (Exception ex)
                 {
                     EventWriter.Write(EventTypeOption.Custom, list);
                     string message = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
                     var properties = eXtensibleConfig.GetProperties();
-                    properties.Add("xf.explanation", "An error occurred while trying to POST an ApiRequest to a SqlServer datastore. " +
-                        " Ensure that a valid SqlServer database exists with the proper schema, and that a valid connectionstring and connectionstring key");
+                    properties.Add("xf.explanation", "An error occurred while trying to POST an ApiRequest to the configured ApiRequestProvider");
                     EventWriter.WriteError(message, SeverityType.Error, "eXtensibleMessageHandler", properties);
                 }
             }
-            else if (eXtensibleWebApiConfig.LogTo.Equals(LoggingStrategyOption.WindowsEventLog))
+            else
             {
                 EventWriter.Write(EventTypeOption.Custom, list);
             }

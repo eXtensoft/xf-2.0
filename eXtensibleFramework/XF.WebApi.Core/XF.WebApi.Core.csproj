@@ -41,6 +41,7 @@
       <Link>AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="core\ApiEndpointManager.cs" />
+    <Compile Include="core\ApiRequestProvider.cs" />
     <Compile Include="core\eXtensibleMessageHandler.cs" />
     <Compile Include="core\ExtensionMethods.cs" />
     <Compile Include="core\WebApiRegistrar.cs" />
